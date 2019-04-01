@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "379264075105",
+    "firebase_url": "https://paceexchange-9c8f1.firebaseio.com",
+    "project_id": "paceexchange-9c8f1",
+    "storage_bucket": "paceexchange-9c8f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:379264075105:android:a0083683c16ae97c",
+        "android_client_info": {
+          "package_name": "com.example.paceexchange"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "379264075105-40oob49dqkdlnths76a8guuiutlcnaso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkSBnC8vZ_GD6NVwSKUHU9USaG-hKRnj0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
