@@ -744,6 +744,7 @@ id direct
 id disableHome
 id edit_query
 id email
+id emailInput
 id end
 id end_padder
 id expand_activities_button
@@ -774,6 +775,8 @@ id line1
 id line3
 id listMode
 id list_item
+id loginButton
+id loginTitle
 id media_actions
 id message
 id middle
@@ -793,6 +796,7 @@ id progress_circular
 id progress_horizontal
 id radio
 id registerButton
+id registerLink
 id right
 id right_icon
 id right_side
@@ -883,6 +887,9 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout activity_user_login
+layout activity_user_profile
+layout activity_user_registration
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
@@ -976,6 +983,9 @@ string google_storage_bucket
 string grad_year
 string last_name
 string login_button
+string login_fail
+string login_title
+string new_user
 string password
 string project_id
 string register_button

@@ -25,6 +25,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.paceexchange.UserProfile" />
+        <activity android:name="com.example.paceexchange.UserRegistration" />
+        <activity android:name="com.example.paceexchange.UserLogin" />
         <activity android:name="com.example.paceexchange.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

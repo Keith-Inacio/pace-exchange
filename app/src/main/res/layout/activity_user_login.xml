@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserLogin">
+
+    <TextView
+        android:id="@+id/loginTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/login_title"
+        android:textSize="22dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/emailInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginTitle"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="100dp"
+        android:hint="@string/email"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/passwordInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailInput"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="@string/password"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordInput"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/login_button"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/registerLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/loginButton"
+        android:layout_marginTop="25dp"
+        android:text="@string/new_user"
+        android:textSize="15dp"
+        android:textColor="#0033FF"
+        />
+
+</RelativeLayout>
