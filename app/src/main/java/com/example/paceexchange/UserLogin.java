@@ -30,7 +30,7 @@ public class UserLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
 
-        mEmail = findViewById(R.id.email);
+        mEmail = findViewById(R.id.emailInput);
         mPassword = findViewById(R.id.passwordInput);
         mLoginTitle = findViewById(R.id.loginTitle);
         mRegistrationLink = findViewById(R.id.registerLink);
@@ -51,7 +51,9 @@ public class UserLogin extends AppCompatActivity {
 
     }
 
-    /**This method sets click listener on login button and new user registration link**/
+    /**
+     * This method sets click listener on login button and new user registration link
+     **/
     public void setOnClickListener() {
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
@@ -76,10 +78,13 @@ public class UserLogin extends AppCompatActivity {
 
     }
 
-    /**This method validates user email and passoword, which is stored in firebase. If login accepted, redirect to User Profile**/
+    /**
+     * This method validates user email and password, which is stored in firebase. If login accepted, redirect to User Profile
+     **/
     private void loginClient() {
 
-        if (mEmail.getText().toString().isEmpty() || !mEmail.getText().toString().contains("@") || !mEmail.getText().toString().contains(".com")) {
+        if ((mEmail.getText().toString().isEmpty()) || (!mEmail.getText().toString().contains("@")) && (!mEmail.getText().toString().contains(".com") ||
+                !mEmail.getText().toString().contains(".edu"))) {
 
             Toast.makeText(UserLogin.this, R.string.empty_login, Toast.LENGTH_LONG).show();
 
@@ -98,11 +103,13 @@ public class UserLogin extends AppCompatActivity {
             mUserAuthorization.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
+
                     if (task.isSuccessful()) {
                         mProgressUpdate.dismiss();
                         finish();
                         startActivity(new Intent(getApplicationContext(), UserProfile.class));
                     } else {
+                        mProgressUpdate.dismiss();
                         Toast.makeText(UserLogin.this, R.string.login_fail, Toast.LENGTH_LONG).show();
                     }
                 }
