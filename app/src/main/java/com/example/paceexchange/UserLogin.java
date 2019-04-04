@@ -71,7 +71,7 @@ public class UserLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(UserLogin.this, UserRegistration.class));
+                startActivity(new Intent(getApplicationContext(), UserRegistration.class));
             }
 
         });

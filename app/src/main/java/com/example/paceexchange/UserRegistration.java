@@ -19,6 +19,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class UserRegistration extends AppCompatActivity {
 
     private EditText mEmail, mPassword, mFirstName, mLastName, mGradDate;
@@ -27,7 +29,6 @@ public class UserRegistration extends AppCompatActivity {
     private ProgressDialog mProgressUpdate;
     private DatabaseReference mUserDatabase;
     private Student mStudentData;
-    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

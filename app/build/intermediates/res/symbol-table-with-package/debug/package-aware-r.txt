@@ -769,6 +769,7 @@ id image
 id info
 id invisible
 id italic
+id lastName
 id lastname
 id left
 id light
@@ -800,7 +801,6 @@ id progress_horizontal
 id radio
 id registerButton
 id registerLink
-id reputation
 id right
 id right_icon
 id right_side
