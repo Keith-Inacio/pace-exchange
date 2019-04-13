@@ -23,7 +23,7 @@ public class UserProfile extends AppCompatActivity {
     private TextView mFirstName, mLastName, mEmail, mGraduationDate;
     private Button mLogoutButton;
     private DatabaseReference mFireData;
-
+    private FirebaseAuth mUserAuthorization;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +33,15 @@ public class UserProfile extends AppCompatActivity {
         /**We need to get child ID below from login...right now the id is set manually to first user.
          */
         mFireData = FirebaseDatabase.getInstance().getReference().child("Student").child("-LbdV3uBhsq7xfV4ZQrb");
+        mUserAuthorization=FirebaseAuth.getInstance();
+        mUserAuthorization.getCurrentUser();
 
         mFirstName = findViewById(R.id.firstName);
         mLastName = findViewById(R.id.lastName);
         mGraduationDate = findViewById(R.id.graduation);
         mEmail = findViewById(R.id.email);
         mLogoutButton = findViewById(R.id.logoutButton);
+        //add reputation!!!!!!
 
         mFireData.addValueEventListener(new ValueEventListener() {
             @Override
@@ -62,8 +65,10 @@ public class UserProfile extends AppCompatActivity {
         mLogoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mUserAuthorization.signOut();
                 finish();
                 startActivity(new Intent(getApplicationContext(), UserLogin.class));
+
             }
         });
 

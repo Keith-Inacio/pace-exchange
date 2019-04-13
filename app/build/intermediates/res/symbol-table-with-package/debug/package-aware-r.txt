@@ -989,6 +989,7 @@ string last_name
 string login_button
 string login_fail
 string login_title
+string logout
 string new_user
 string password
 string project_id

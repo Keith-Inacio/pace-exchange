@@ -8,6 +8,7 @@
     <string name="login_button">LOGIN</string>
     <string name="register_button">REGISTER</string>
     <string name="title">PACE EXCHANGE REGISTRATION</string>
+    <string name="logout">LOGOUT</string>
     <string name="login_title">PACE EXCHANGE LOGIN</string>
     <string name="empty_login">Please Enter A Complete User Name</string>
     <string name="empty_password">Please Enter A Complete Password</string>
