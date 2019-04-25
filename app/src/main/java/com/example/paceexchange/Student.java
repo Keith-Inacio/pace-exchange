@@ -7,6 +7,7 @@ public class Student{
     private static String mStudentID, mFirstName, mLastName, mUserEmail;
     private int mGraduationYear;
     private static ArrayList<String> mRegisteredStudents = new ArrayList();
+    private static ArrayList<Inventory> mStudentInventory = new ArrayList<>();
 
     public Student(String identification, String firstName, String lastName, String email, int gradDate) {
 

@@ -4,39 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserProfile"
-    android:gravity="center">
+    tools:context=".UserProfile">
 
     <TextView
-        android:id="@+id/firstName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <TextView
-        android:id="@+id/lastName"
+        android:id="@+id/profileTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/firstName"
-        android:layout_marginLeft="5dp"
-        />
+        android:layout_centerHorizontal="true"
+        android:text="@string/user_profile"
+        android:textSize="24dp"
+        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/email"
+    <RelativeLayout
+        android:id="@+id/userInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lastName" />
+        android:layout_below="@id/profileTitle"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="100dp">
 
-    <TextView
-        android:id="@+id/graduation"
+        <TextView
+            android:id="@+id/firstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="name"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/lastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toEndOf="@id/firstName"
+            android:hint="lname"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lastName"
+            android:hint="email"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/graduation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/email"
+            android:hint="grad"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/email"/>
-
+        android:layout_below="@id/userInfo"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="50dp">
     <Button
         android:id="@+id/logoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/graduation"
-        android:text="logout"/>
+        android:text="logout"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/inventoryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/inventory_button"
+        android:layout_toEndOf="@id/logoutButton"
+        android:textSize="20dp"/>
+
+        <Button
+            android:id="@+id/auctionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/auction_button"
+            android:layout_toEndOf="@id/inventoryButton"
+            android:textSize="20dp"/>
+    </RelativeLayout>
 
 </RelativeLayout>

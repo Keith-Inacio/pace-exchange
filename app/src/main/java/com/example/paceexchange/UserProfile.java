@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class UserProfile extends AppCompatActivity {
 
     private TextView mFirstName, mLastName, mEmail, mGraduationDate;
-    private Button mLogoutButton;
+    private Button mLogoutButton, mAuctionButton;
     private DatabaseReference mFireData;
     private FirebaseAuth mUserAuthorization;
 
@@ -41,6 +41,8 @@ public class UserProfile extends AppCompatActivity {
         mGraduationDate = findViewById(R.id.graduation);
         mEmail = findViewById(R.id.email);
         mLogoutButton = findViewById(R.id.logoutButton);
+        mAuctionButton = findViewById(R.id.auctionButton);
+
         //add reputation!!!!!!
 
         mFireData.addValueEventListener(new ValueEventListener() {
@@ -71,6 +73,17 @@ public class UserProfile extends AppCompatActivity {
 
             }
         });
+
+        mAuctionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), Auction.class));
+
+            }
+        });
+
+
 
     }
 

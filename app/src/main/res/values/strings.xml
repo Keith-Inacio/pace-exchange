@@ -16,4 +16,9 @@
     <string name="register_fail">Registration Failed. Try Again.</string>
     <string name="new_user">NEW USER REGISTRATION: CLICK HERE</string>
     <string name="login_fail">LOGIN FAILED. PLEASE TRY AGAIN.</string>
+    <string name="user_profile">PACE EXCHANGE USER PROFILE</string>
+    <string name="inventory_button">INVENTORY</string>
+    <string name="time_remaining">TIME REMAINING:</string>
+    <string name="start_auction">START BID</string>
+    <string name="auction_button">LIVE AUCTION</string>
 </resources>

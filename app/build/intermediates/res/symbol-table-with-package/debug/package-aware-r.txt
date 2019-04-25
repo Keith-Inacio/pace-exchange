@@ -716,6 +716,7 @@ id alertTitle
 id all
 id always
 id async
+id auctionButton
 id auto
 id barrier
 id beginning
@@ -767,6 +768,7 @@ id icon_only
 id ifRoom
 id image
 id info
+id inventoryButton
 id invisible
 id italic
 id lastName
@@ -790,12 +792,14 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id number
 id packed
 id parent
 id parentPanel
 id password
 id passwordInput
 id percent
+id profileTitle
 id progress_circular
 id progress_horizontal
 id radio
@@ -832,6 +836,7 @@ id src_in
 id src_over
 id standard
 id start
+id startButton
 id status_bar_latest_event_content
 id submenuarrow
 id submit_area
@@ -852,6 +857,7 @@ id topPanel
 id uniform
 id up
 id useLogo
+id userInfo
 id wide
 id withText
 id wrap
@@ -890,6 +896,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_auction
 layout activity_main
 layout activity_user_login
 layout activity_user_profile
@@ -955,6 +962,7 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string app_name
+string auction_button
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
 string common_google_play_services_enable_title
@@ -985,6 +993,7 @@ string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
 string grad_year
+string inventory_button
 string last_name
 string login_button
 string login_fail
@@ -997,8 +1006,11 @@ string register_button
 string register_fail
 string register_success
 string search_menu_title
+string start_auction
 string status_bar_notification_info_overflow
+string time_remaining
 string title
+string user_profile
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
