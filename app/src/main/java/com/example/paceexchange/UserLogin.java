@@ -6,6 +6,7 @@ import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,23 +17,36 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.core.Constants;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 public class UserLogin extends AppCompatActivity {
 
-    private EditText mEmail, mPassword;
-    private TextView mLoginTitle, mRegistrationLink;
+    private EditText mEmailInput, mPasswordInput;
+    private TextView mRegistrationLink;
     private Button mLoginButton;
     private FirebaseAuth mUserAuthorization;
     private ProgressDialog mProgressUpdate;
+    private String mEmailValidate, mPasswordValidate;
+    private DatabaseReference mUserDatabase;
+    public static final String EXTRA_MESSAGE = "com.example.paceexchange.message";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
 
-        mEmail = findViewById(R.id.emailInput);
-        mPassword = findViewById(R.id.passwordInput);
-        mLoginTitle = findViewById(R.id.loginTitle);
+        mEmailInput = findViewById(R.id.emailInput);
+        mPasswordInput = findViewById(R.id.passwordInput);
         mRegistrationLink = findViewById(R.id.registerLink);
         mLoginButton = findViewById(R.id.loginButton);
 
@@ -48,7 +62,6 @@ public class UserLogin extends AppCompatActivity {
         }
 
         setOnClickListener();
-
     }
 
     /**
@@ -83,24 +96,24 @@ public class UserLogin extends AppCompatActivity {
      **/
     private void loginClient() {
 
-        if ((mEmail.getText().toString().isEmpty()) || (!mEmail.getText().toString().contains("@")) && (!mEmail.getText().toString().contains(".com") ||
-                !mEmail.getText().toString().contains(".edu"))) {
+        if ((mEmailInput.getText().toString().isEmpty()) || (!mEmailInput.getText().toString().contains("@")) && (!mEmailInput.getText().toString().contains(".com") ||
+                !mEmailInput.getText().toString().contains(".edu"))) {
 
             Toast.makeText(UserLogin.this, R.string.empty_login, Toast.LENGTH_LONG).show();
 
-        } else if (mPassword.getText().toString().isEmpty()) {
+        } else if (mPasswordInput.getText().toString().isEmpty()) {
 
             Toast.makeText(UserLogin.this, R.string.empty_password, Toast.LENGTH_LONG).show();
 
         } else {
 
-            String email = mEmail.getText().toString().trim();
-            String password = mPassword.getText().toString().trim();
+            mEmailValidate = mEmailInput.getText().toString().trim();
+            mPasswordValidate = mPasswordInput.getText().toString().trim();
 
             mProgressUpdate.setMessage("Logging In...");
             mProgressUpdate.show();
 
-            mUserAuthorization.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            mUserAuthorization.signInWithEmailAndPassword(mEmailValidate, mPasswordValidate).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
 
@@ -117,6 +130,4 @@ public class UserLogin extends AppCompatActivity {
 
         }
     }
-
 }
-

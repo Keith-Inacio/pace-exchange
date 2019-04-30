@@ -5,17 +5,18 @@ import java.util.ArrayList;
 public class Student{
 
     private static String mStudentID, mFirstName, mLastName, mUserEmail;
-    private int mGraduationYear;
+    private int mGraduationYear, mNewUserDefaultReputation;
     private static ArrayList<String> mRegisteredStudents = new ArrayList();
-    private static ArrayList<Inventory> mStudentInventory = new ArrayList<>();
+   // private static ArrayList<Inventory> mStudentInventory = new ArrayList<>();
 
-    public Student(String identification, String firstName, String lastName, String email, int gradDate) {
+    public Student(String identification, String firstName, String lastName, String email, int gradDate, int reputation) {
 
         mStudentID = identification;
         mFirstName=firstName;
         mLastName=lastName;
         mUserEmail = email;
         mGraduationYear=gradDate;
+        mNewUserDefaultReputation=reputation;
 
         mRegisteredStudents.add(mStudentID);
 
@@ -59,6 +60,14 @@ public class Student{
 
     public void setmGraduationYear(int mGraduationYear) {
         this.mGraduationYear = mGraduationYear;
+    }
+
+    public int getmNewUserDefaultReputation() {
+        return mNewUserDefaultReputation;
+    }
+
+    public void setmNewUserDefaultReputation(int mNewUserDefaultReputation) {
+        this.mNewUserDefaultReputation = mNewUserDefaultReputation;
     }
 
     public static ArrayList<String> getmRegisteredStudents() {

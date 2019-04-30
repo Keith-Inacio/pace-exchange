@@ -1,9 +1,11 @@
 package com.example.paceexchange;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,30 +22,36 @@ import java.util.ArrayList;
 
 public class UserProfile extends AppCompatActivity {
 
-    private TextView mFirstName, mLastName, mEmail, mGraduationDate;
-    private Button mLogoutButton, mAuctionButton;
+    private TextView mFirstName, mLastName, mEmail, mGraduationDate, mUserReputation;
+    private int mCurrentReputationValue;
+    private Button mLogoutButton, mAuctionButton, mInventoryButton;
     private DatabaseReference mFireData;
     private FirebaseAuth mUserAuthorization;
+    private String currentUserID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
+        Intent intent = getIntent();
+        currentUserID = intent.getStringExtra(UserLogin.EXTRA_MESSAGE);
         /**We need to get child ID below from login...right now the id is set manually to first user.
          */
         mFireData = FirebaseDatabase.getInstance().getReference().child("Student").child("-LbdV3uBhsq7xfV4ZQrb");
-        mUserAuthorization=FirebaseAuth.getInstance();
+        mUserAuthorization = FirebaseAuth.getInstance();
         mUserAuthorization.getCurrentUser();
 
         mFirstName = findViewById(R.id.firstName);
         mLastName = findViewById(R.id.lastName);
         mGraduationDate = findViewById(R.id.graduation);
         mEmail = findViewById(R.id.email);
+        mUserReputation = findViewById(R.id.rating);
         mLogoutButton = findViewById(R.id.logoutButton);
         mAuctionButton = findViewById(R.id.auctionButton);
+        mInventoryButton = findViewById(R.id.inventoryButton);
 
-        //add reputation!!!!!!
+        setButtonClickListener();
 
         mFireData.addValueEventListener(new ValueEventListener() {
             @Override
@@ -51,9 +59,10 @@ public class UserProfile extends AppCompatActivity {
 
                 mFirstName.setText(dataSnapshot.child("mFirstName").getValue().toString());
                 mLastName.setText(dataSnapshot.child("mLastName").getValue().toString());
-                mGraduationDate.setText(dataSnapshot.child("mGraduationYear").getValue().toString());
-                mEmail.setText(dataSnapshot.child("mUserEmail").getValue().toString());
-
+                mGraduationDate.setText(getString(R.string.profile_grad_year, dataSnapshot.child("mGraduationYear").getValue().toString()));
+                mEmail.setText(getString(R.string.profile_email, dataSnapshot.child("mUserEmail").getValue().toString()));
+                mCurrentReputationValue = Integer.parseInt(dataSnapshot.child("mNewUserDefaultReputation").getValue().toString());
+                setUserReputation(mCurrentReputationValue);
             }
 
             @Override
@@ -62,7 +71,36 @@ public class UserProfile extends AppCompatActivity {
             }
         });
 
-        /** There Is a bug in here for logout **/
+    }
+
+    /**
+     * This method sets the color and reputation rating displayed in the user profile
+     **/
+
+    public void setUserReputation(int userRating) {
+
+        if (userRating < 60) {
+            mUserReputation.setText(R.string.poor_reputation);
+            mUserReputation.setTextColor(Color.RED);
+        } else if (userRating >= 60 && userRating < 80) {
+            mUserReputation.setText(R.string.average_reputation);
+            mUserReputation.setTextColor(Color.MAGENTA);
+        } else if (userRating >= 80 && userRating < 90) {
+            mUserReputation.setText(R.string.very_good_reputation);
+            mUserReputation.setTextColor(Color.BLUE);
+        } else if (userRating >= 90 && userRating <= 100) {
+            mUserReputation.setText(R.string.excellent_reputation);
+            mUserReputation.setTextColor(Color.GREEN);
+        }
+
+
+    }
+
+    /**
+     * This method sets a click listener to the logout, auction, and invetory buttons
+     **/
+
+    public void setButtonClickListener() {
 
         mLogoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,8 +121,14 @@ public class UserProfile extends AppCompatActivity {
             }
         });
 
+        mInventoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), Inventory.class));
 
-
+            }
+        });
     }
 
 }

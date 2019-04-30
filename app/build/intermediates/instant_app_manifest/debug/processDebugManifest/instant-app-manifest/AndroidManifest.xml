@@ -28,7 +28,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.example.paceexchange.Auction" />
+        <activity
+            android:name="com.example.paceexchange.Auction"
+            android:parentActivityName="com.example.paceexchange.UserProfile" />
         <activity android:name="com.example.paceexchange.UserProfile" />
         <activity android:name="com.example.paceexchange.UserRegistration" />
         <activity android:name="com.example.paceexchange.UserLogin" />

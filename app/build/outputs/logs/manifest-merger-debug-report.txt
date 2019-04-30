@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-27:12
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-28:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/inacio/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/99ab102fe7bff4bd47fed382041c3d05/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/inacio/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/fe88bd58dff541a2dce569879485e38f/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-core:16.0.8] /Users/inacio/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.8.aar/eae389cd604825560219c8c8b95008a3/AndroidManifest.xml:2:1-9:12
@@ -55,20 +55,20 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/inacio/.gradle/c
 MERGED from [android.arch.core:runtime:1.1.1] /Users/inacio/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/4b0f2244ba4b4d0b2edeafff4f922e43/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:interpolator:28.0.0] /Users/inacio/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/c5808ef8ffac011b0cfb2fd3f2a1cef5/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] /Users/inacio/.gradle/caches/transforms-1/files-1.1/firebase-database-collection-16.0.1.aar/01f6806b45751e6485f16d8750aa4900/AndroidManifest.xml:2:1-7:12
-INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-28:12
 	package
 		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:3:5-39
 		INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-27:12
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-28:12
 		INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-27:12
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-28:12
 		INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:11-69
@@ -89,7 +89,7 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] /U
 	android:name
 		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:5:22-64
 application
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:7:5-25:19
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:7:5-26:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/inacio/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/fe88bd58dff541a2dce569879485e38f/AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/inacio/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/fe88bd58dff541a2dce569879485e38f/AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-core:16.0.8] /Users/inacio/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.8.aar/eae389cd604825560219c8c8b95008a3/AndroidManifest.xml:7:5-20
@@ -155,35 +155,37 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/inacio/.grad
 	android:theme
 		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:13:9-40
 activity#com.example.paceexchange.Auction
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:14:9-54
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:14:9-16:57
+	android:parentActivityName
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:16:13-54
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:14:19-42
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:15:13-36
 activity#com.example.paceexchange.UserProfile
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:15:9-49
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:17:9-49
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:15:19-46
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:17:19-46
 activity#com.example.paceexchange.UserRegistration
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:16:9-54
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:18:9-54
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:16:19-51
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:18:19-51
 activity#com.example.paceexchange.UserLogin
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:17:9-47
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:19:9-47
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:17:19-44
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:19:19-44
 activity#com.example.paceexchange.MainActivity
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:18:9-24:20
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:20:9-25:20
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:18:19-47
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:20:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:19:13-23:29
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:21:13-24:29
 action#android.intent.action.MAIN
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:20:17-69
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:20:25-66
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:22:17-77
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:23:17-77
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:22:27-74
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:23:27-74
 uses-sdk
 INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml

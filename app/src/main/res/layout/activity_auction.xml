@@ -1,25 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".Auction">
 
-
-    <Button
-        android:id="@+id/startButton"
+    <FrameLayout
+        android:id="@+id/itemContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/start_auction" />
+        android:layout_alignParentTop="true" />
+
+    <LinearLayout
+        android:id="@+id/auctionButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start_auction" />
+
+        <Button
+            android:id="@+id/nextItemButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:text="@string/next_item" />
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/time"
+        android:id="@+id/timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/startButton"
-        android:layout_centerInParent="true"
         android:text="@string/time_remaining"
         android:textSize="24sp" />
 
@@ -27,8 +46,6 @@
         android:id="@+id/number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/time"
-        android:layout_centerInParent="true"
         android:textSize="20sp" />
 
-</RelativeLayout>
+</LinearLayout>

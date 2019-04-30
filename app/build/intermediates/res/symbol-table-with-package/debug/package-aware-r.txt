@@ -669,6 +669,7 @@ drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable javabook
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -717,6 +718,8 @@ id all
 id always
 id async
 id auctionButton
+id auctionButtons
+id authorName
 id auto
 id barrier
 id beginning
@@ -771,6 +774,9 @@ id info
 id inventoryButton
 id invisible
 id italic
+id itemContainer
+id itemImage
+id itemName
 id lastName
 id lastname
 id left
@@ -787,6 +793,7 @@ id message
 id middle
 id multiply
 id never
+id nextItemButton
 id none
 id normal
 id notification_background
@@ -803,6 +810,7 @@ id profileTitle
 id progress_circular
 id progress_horizontal
 id radio
+id rating
 id registerButton
 id registerLink
 id right
@@ -849,6 +857,7 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id time
+id timer
 id title
 id titleDividerNoCustom
 id title_template
@@ -901,6 +910,7 @@ layout activity_main
 layout activity_user_login
 layout activity_user_profile
 layout activity_user_registration
+layout auction_item_fragment
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
@@ -922,6 +932,7 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 mipmap ic_launcher
 mipmap ic_launcher_round
+mipmap javabook
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -963,6 +974,7 @@ string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string app_name
 string auction_button
+string average_reputation
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
 string common_google_play_services_enable_title
@@ -985,6 +997,7 @@ string default_web_client_id
 string email
 string empty_login
 string empty_password
+string excellent_reputation
 string firebase_database_url
 string first_name
 string gcm_defaultSenderId
@@ -1000,7 +1013,11 @@ string login_fail
 string login_title
 string logout
 string new_user
+string next_item
 string password
+string poor_reputation
+string profile_email
+string profile_grad_year
 string project_id
 string register_button
 string register_fail
@@ -1011,6 +1028,7 @@ string status_bar_notification_info_overflow
 string time_remaining
 string title
 string user_profile
+string very_good_reputation
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

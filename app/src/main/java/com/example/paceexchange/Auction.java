@@ -2,8 +2,10 @@ package com.example.paceexchange;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,6 +23,10 @@ public class Auction extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auction);
 
+        AuctionFragment mItemDisplay = new AuctionFragment();
+        FragmentManager mManager = getSupportFragmentManager();
+        mManager.beginTransaction().add(R.id.itemContainer, mItemDisplay).commit();
+
         mStartBid = findViewById(R.id.startButton);
         mText = findViewById(R.id.number);
         mainThreadHandler = new Handler(Looper.getMainLooper());
@@ -31,8 +37,20 @@ public class Auction extends AppCompatActivity {
                 startCountdown();
             }
         });
-
     }
+
+    /**I am trying to get data to remain on up button click back to user profile here//
+     */
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            switch (item.getItemId()) {
+                case android.R.id.home:
+                    finish();
+                    return true;
+            }
+            return super.onOptionsItemSelected(item);
+        }
+
 
     public void startCountdown() {
 
@@ -68,4 +86,5 @@ public class Auction extends AppCompatActivity {
         mClock.start();
 
     }
+
 }
