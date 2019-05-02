@@ -7,22 +7,22 @@
 
     <ImageView
         android:id="@+id/itemImage"
-        android:layout_width="300sp"
-        android:layout_height="300sp"
-        android:src="@drawable/javabook"/>
+        android:layout_width="200sp"
+        android:layout_height="200sp"
+        android:src="@drawable/android"/>
 
     <TextView
         android:id="@+id/itemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ADVANCED JAVA"
+        android:text="Android Apprentice Textbook"
         android:textSize="15sp"/>
 
     <TextView
         android:id="@+id/authorName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AUTHOR: ANDRIY RECKO"
+        android:text="By: D. Bayliss and T. Blankenzship"
         android:textSize="15sp"/>
 
 </LinearLayout>

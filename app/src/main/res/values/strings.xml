@@ -28,4 +28,5 @@
     <string name="average_reputation">USER REPUTATION: AVERAGE</string>
     <string name="very_good_reputation">USER REPUTATION: VERY GOOD</string>
     <string name="excellent_reputation">USER REPUTATION: EXCELLENT</string>
+    <string name="my_inventory">MY INVENTORY</string>
 </resources>

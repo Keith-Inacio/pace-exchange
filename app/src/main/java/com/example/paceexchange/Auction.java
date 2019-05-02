@@ -10,10 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class Auction extends AppCompatActivity {
 
+    AuctionFragment mItemDisplay;
+    FragmentManager mFragmentManager;
     Handler mainThreadHandler;
-    Button mStartBid;
+    Button mStartBidButton, mNextItemButton;
     TextView mText;
     int count = 100;
 
@@ -23,20 +27,22 @@ public class Auction extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auction);
 
-        AuctionFragment mItemDisplay = new AuctionFragment();
-        FragmentManager mManager = getSupportFragmentManager();
-        mManager.beginTransaction().add(R.id.itemContainer, mItemDisplay).commit();
+        mItemDisplay = new AuctionFragment();
+        mFragmentManager = getSupportFragmentManager();
+        mFragmentManager.beginTransaction().add(R.id.itemContainer, mItemDisplay).commit();
 
-        mStartBid = findViewById(R.id.startButton);
+        mStartBidButton = findViewById(R.id.startButton);
+        mNextItemButton = findViewById(R.id.nextItemButton);
         mText = findViewById(R.id.number);
         mainThreadHandler = new Handler(Looper.getMainLooper());
 
-        mStartBid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startCountdown();
-            }
-        });
+        ArrayList<Integer> mList = new ArrayList<>();
+        mList.add(R.drawable.javabook);
+        mList.add(R.drawable.python_book);
+        mList.add(R.drawable.airpods);
+
+
+        setButtonClickListeners();
     }
 
     /**I am trying to get data to remain on up button click back to user profile here//
@@ -84,6 +90,27 @@ public class Auction extends AppCompatActivity {
         };
 
         mClock.start();
+
+    }
+
+    public void setButtonClickListeners(){
+
+        mStartBidButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startCountdown();
+            }
+        });
+
+        mNextItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int counter=0;
+
+
+            }
+        });
+
 
     }
 

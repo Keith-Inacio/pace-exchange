@@ -95,9 +95,10 @@ public class UserRegistration extends AppCompatActivity {
             String password = mPassword.getText().toString().trim();
             final String studentID = mUserDatabase.push().getKey();
             int defaultReputation = 70;
+            String userInventory = "Base Item";
 
 
-            mStudentData = new Student(studentID, firstName, lastName, email, gradDate, defaultReputation);
+            mStudentData = new Student(studentID, firstName, lastName, email, gradDate, defaultReputation, userInventory);
             mUserDatabase.child(studentID).setValue(mStudentData);
 
             mProgressUpdate.setMessage("Completing Registration...");

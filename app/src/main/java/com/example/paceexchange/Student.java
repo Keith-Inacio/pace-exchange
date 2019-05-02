@@ -1,15 +1,15 @@
 package com.example.paceexchange;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Student{
 
     private static String mStudentID, mFirstName, mLastName, mUserEmail;
+    private String mUserInventory;
     private int mGraduationYear, mNewUserDefaultReputation;
-    private static ArrayList<String> mRegisteredStudents = new ArrayList();
-   // private static ArrayList<Inventory> mStudentInventory = new ArrayList<>();
 
-    public Student(String identification, String firstName, String lastName, String email, int gradDate, int reputation) {
+    public Student(String identification, String firstName, String lastName, String email, int gradDate, int reputation, String userInventory) {
 
         mStudentID = identification;
         mFirstName=firstName;
@@ -17,8 +17,7 @@ public class Student{
         mUserEmail = email;
         mGraduationYear=gradDate;
         mNewUserDefaultReputation=reputation;
-
-        mRegisteredStudents.add(mStudentID);
+        mUserInventory = userInventory;
 
     }
 
@@ -70,11 +69,13 @@ public class Student{
         this.mNewUserDefaultReputation = mNewUserDefaultReputation;
     }
 
-    public static ArrayList<String> getmRegisteredStudents() {
-        return mRegisteredStudents;
+    public String getmUserInventory() {
+        return mUserInventory;
     }
 
-    public void setmRegisteredStudents(ArrayList<String> mRegisteredStudents) {
-        this.mRegisteredStudents = mRegisteredStudents;
+    public void setmUserInventory(String mUserInventory) {
+        this.mUserInventory = mUserInventory;
     }
+
+
 }

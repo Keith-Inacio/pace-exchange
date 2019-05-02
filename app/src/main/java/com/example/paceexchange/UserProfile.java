@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,22 +22,21 @@ import java.util.ArrayList;
 public class UserProfile extends AppCompatActivity {
 
     private TextView mFirstName, mLastName, mEmail, mGraduationDate, mUserReputation;
-    private int mCurrentReputationValue;
     private Button mLogoutButton, mAuctionButton, mInventoryButton;
     private DatabaseReference mFireData;
     private FirebaseAuth mUserAuthorization;
-    private String currentUserID;
+    private int mCurrentReputationValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
-        Intent intent = getIntent();
-        currentUserID = intent.getStringExtra(UserLogin.EXTRA_MESSAGE);
-        /**We need to get child ID below from login...right now the id is set manually to first user.
-         */
-        mFireData = FirebaseDatabase.getInstance().getReference().child("Student").child("-LbdV3uBhsq7xfV4ZQrb");
+
+        String ID = getIntent().getStringExtra(UserLogin.EXTRA_MESSAGE);
+        Log.d("INACIO", ID);
+
+        mFireData = FirebaseDatabase.getInstance().getReference().child("Student").child(ID);
         mUserAuthorization = FirebaseAuth.getInstance();
         mUserAuthorization.getCurrentUser();
 
@@ -70,7 +68,6 @@ public class UserProfile extends AppCompatActivity {
 
             }
         });
-
     }
 
     /**

@@ -2,7 +2,6 @@ package com.example.paceexchange;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,17 +16,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.database.core.Constants;
-
-import java.util.ArrayList;
-import java.util.Map;
 
 public class UserLogin extends AppCompatActivity {
 
@@ -36,9 +29,9 @@ public class UserLogin extends AppCompatActivity {
     private Button mLoginButton;
     private FirebaseAuth mUserAuthorization;
     private ProgressDialog mProgressUpdate;
-    private String mEmailValidate, mPasswordValidate;
+    private String mEmailValidate, mPasswordValidate, mCurrentUserID;
     private DatabaseReference mUserDatabase;
-    public static final String EXTRA_MESSAGE = "com.example.paceexchange.message";
+    public static final String EXTRA_MESSAGE = "com.example.paceexchange.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,17 +42,19 @@ public class UserLogin extends AppCompatActivity {
         mPasswordInput = findViewById(R.id.passwordInput);
         mRegistrationLink = findViewById(R.id.registerLink);
         mLoginButton = findViewById(R.id.loginButton);
+        mCurrentUserID="";
 
         mProgressUpdate = new ProgressDialog(this);
 
         mUserAuthorization = FirebaseAuth.getInstance();
 
-        /**If Statement: Check if user is already logged in. If yes, redirect to User Profile**/
+        /***If Statement: Check if user is already logged in. If yes, redirect to User Profile
 
         if (mUserAuthorization.getCurrentUser() != null) {
             finish();
             startActivity(new Intent(getApplicationContext(), UserProfile.class));
         }
+        */
 
         setOnClickListener();
     }
@@ -107,11 +102,15 @@ public class UserLogin extends AppCompatActivity {
 
         } else {
 
+
             mEmailValidate = mEmailInput.getText().toString().trim();
             mPasswordValidate = mPasswordInput.getText().toString().trim();
 
             mProgressUpdate.setMessage("Logging In...");
             mProgressUpdate.show();
+
+            getUserIDKey();
+            Log.d("KEITH", mCurrentUserID);
 
             mUserAuthorization.signInWithEmailAndPassword(mEmailValidate, mPasswordValidate).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
@@ -120,7 +119,10 @@ public class UserLogin extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         mProgressUpdate.dismiss();
                         finish();
-                        startActivity(new Intent(getApplicationContext(), UserProfile.class));
+                        Intent intent = new Intent(UserLogin.this, UserProfile.class);
+                        Log.d("PYTHON", mCurrentUserID);
+                        intent.putExtra(EXTRA_MESSAGE, mCurrentUserID);
+                        startActivity(intent);
                     } else {
                         mProgressUpdate.dismiss();
                         Toast.makeText(UserLogin.this, R.string.login_fail, Toast.LENGTH_LONG).show();
@@ -129,5 +131,33 @@ public class UserLogin extends AppCompatActivity {
             });
 
         }
+    }
+
+    private void getUserIDKey() {
+
+        DatabaseReference mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Student");
+
+        mUserDatabase.orderByChild("mUserEmail").equalTo(mEmailValidate).addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    String key = updateValue(child.getKey());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
+        });
+
+    }
+
+    private String updateValue(String key){
+        mCurrentUserID=key;
+        Log.d("KEITH", mCurrentUserID);
+        return mCurrentUserID;
     }
 }

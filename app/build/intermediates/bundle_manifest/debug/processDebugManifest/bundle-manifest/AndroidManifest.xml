@@ -27,13 +27,11 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name="com.example.paceexchange.Auction"
-            android:parentActivityName="com.example.paceexchange.UserProfile" />
+        <activity android:name="com.example.paceexchange.Auction" />
         <activity android:name="com.example.paceexchange.UserProfile" />
+        <activity android:name="com.example.paceexchange.Inventory" />
         <activity android:name="com.example.paceexchange.UserRegistration" />
-        <activity android:name="com.example.paceexchange.UserLogin" />
-        <activity android:name="com.example.paceexchange.MainActivity" >
+        <activity android:name="com.example.paceexchange.UserLogin" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
