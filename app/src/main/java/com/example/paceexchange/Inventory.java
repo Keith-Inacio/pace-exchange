@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Adapter;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -54,7 +55,8 @@ public class Inventory extends AppCompatActivity {
             public void onClick(View v) {
 
                 int position = (int) v.getTag();
-                //not finished
+                InventoryData display = mAdapter.getItem(position);
+
             }
         });
 

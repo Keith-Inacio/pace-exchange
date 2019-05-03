@@ -110,7 +110,6 @@ public class UserLogin extends AppCompatActivity {
             mProgressUpdate.show();
 
             getUserIDKey();
-            Log.d("KEITH", mCurrentUserID);
 
             mUserAuthorization.signInWithEmailAndPassword(mEmailValidate, mPasswordValidate).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
@@ -120,7 +119,6 @@ public class UserLogin extends AppCompatActivity {
                         mProgressUpdate.dismiss();
                         finish();
                         Intent intent = new Intent(UserLogin.this, UserProfile.class);
-                        Log.d("PYTHON", mCurrentUserID);
                         intent.putExtra(EXTRA_MESSAGE, mCurrentUserID);
                         startActivity(intent);
                     } else {
@@ -157,7 +155,7 @@ public class UserLogin extends AppCompatActivity {
 
     private String updateValue(String key){
         mCurrentUserID=key;
-        Log.d("KEITH", mCurrentUserID);
+
         return mCurrentUserID;
     }
 }

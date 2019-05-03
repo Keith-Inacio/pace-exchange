@@ -17,8 +17,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-
 public class UserProfile extends AppCompatActivity {
 
     private TextView mFirstName, mLastName, mEmail, mGraduationDate, mUserReputation;
@@ -32,9 +30,7 @@ public class UserProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
-
         String ID = getIntent().getStringExtra(UserLogin.EXTRA_MESSAGE);
-        Log.d("INACIO", ID);
 
         mFireData = FirebaseDatabase.getInstance().getReference().child("Student").child(ID);
         mUserAuthorization = FirebaseAuth.getInstance();

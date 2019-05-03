@@ -663,6 +663,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable airpods
 drawable android
+drawable appbackground
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -685,6 +686,7 @@ drawable common_google_signin_btn_text_light_normal_background
 drawable google_giftcard
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable gown
 drawable hp_graph_calc
 drawable ic_launcher
 drawable ic_launcher_background
@@ -933,7 +935,6 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_auction
 layout activity_inventory
-layout activity_main
 layout activity_user_login
 layout activity_user_profile
 layout activity_user_registration
@@ -1055,6 +1056,7 @@ string start_auction
 string status_bar_notification_info_overflow
 string time_remaining
 string title
+string trade_Item
 string user_profile
 string very_good_reputation
 style AlertDialog_AppCompat

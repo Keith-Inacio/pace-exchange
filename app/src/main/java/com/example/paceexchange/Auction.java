@@ -5,6 +5,7 @@ import android.os.Looper;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -14,12 +15,15 @@ import java.util.ArrayList;
 
 public class Auction extends AppCompatActivity {
 
-    AuctionFragment mItemDisplay;
-    FragmentManager mFragmentManager;
-    Handler mainThreadHandler;
-    Button mStartBidButton, mNextItemButton;
-    TextView mText;
-    int count = 100;
+    private AuctionFragment mItemDisplay;
+    private FragmentManager mFragmentManager;
+    private Handler mainThreadHandler;
+    private Button mStartBidButton, mNextItemButton;
+    private TextView mText;
+    private int mTimer = 100;
+    private int nextClickCounter=0;
+    private Bundle args;
+    public static final String BID_ITEM_MESSAGE = "com.example.paceexchange.ITEMMESSAGE";
 
 
     @Override
@@ -35,12 +39,6 @@ public class Auction extends AppCompatActivity {
         mNextItemButton = findViewById(R.id.nextItemButton);
         mText = findViewById(R.id.number);
         mainThreadHandler = new Handler(Looper.getMainLooper());
-
-        ArrayList<Integer> mList = new ArrayList<>();
-        mList.add(R.drawable.javabook);
-        mList.add(R.drawable.python_book);
-        mList.add(R.drawable.airpods);
-
 
         setButtonClickListeners();
     }
@@ -64,15 +62,15 @@ public class Auction extends AppCompatActivity {
             @Override
             public void run() {
 
-                count--;
+                mTimer--;
 
                 mainThreadHandler.post(new Runnable() {
                     @Override
                     public void run() {
 
-                        mText.setText(String.valueOf(count) + " Seconds");
+                        mText.setText(String.valueOf(mTimer) + " Seconds");
 
-                        if (count >= 0) {
+                        if (mTimer >= 0) {
                             try {
                                 Thread.sleep(1000);
                             } catch (InterruptedException e) {
@@ -95,19 +93,25 @@ public class Auction extends AppCompatActivity {
 
     public void setButtonClickListeners(){
 
-        mStartBidButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startCountdown();
-            }
-        });
 
         mNextItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int counter=0;
+                args = new Bundle();
+                AuctionFragment fragment = new AuctionFragment();
+                nextClickCounter++;
+                args.putInt(BID_ITEM_MESSAGE, nextClickCounter);
+                fragment.setArguments(args);
 
+                mFragmentManager.beginTransaction().replace(R.id.itemContainer, fragment).commit();
 
+            }
+        });
+
+        mStartBidButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startCountdown();
             }
         });
 

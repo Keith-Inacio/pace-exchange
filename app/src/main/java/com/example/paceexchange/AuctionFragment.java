@@ -1,5 +1,6 @@
 package com.example.paceexchange;
 
+import android.content.res.Resources;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,10 +12,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class AuctionFragment extends Fragment {
 
     private ImageView mItemImage;
     private TextView mItemName;
+    private ArrayList<Integer> mAuctionItemList;
+    private Bundle mBundle;
 
     @Nullable
     @Override
@@ -24,13 +29,24 @@ public class AuctionFragment extends Fragment {
         mItemImage = view.findViewById(R.id.itemImage);
         mItemName = view.findViewById(R.id.itemName);
 
-        return view;
+        mBundle = new Bundle();
 
+        mAuctionItemList = new ArrayList<>();
+        mAuctionItemList.add(R.drawable.android);
+        mAuctionItemList.add(R.drawable.keyboard);
+        mAuctionItemList.add(R.drawable.gown);
+
+        return view;
 
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+       // mBundle = getArguments();
+       // int counter = mBundle.getInt(Auction.BID_ITEM_MESSAGE);
+        //Log.d("COUNTER", String.valueOf(counter));
+       // mItemImage.setImageDrawable(ContextCompat.getDrawable(getContext(), (mAuctionItemList.get(counter))));
     }
 }

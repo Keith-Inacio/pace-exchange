@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
     Context mContext;
     List<InventoryData> mListData;
     View.OnClickListener mRowClickListener;
+    private int mSelectedPosition = Adapter.NO_SELECTION;
 
     public RecyclerAdapter(Context context, List<InventoryData> listData, View.OnClickListener rowClickListener){
 
@@ -44,6 +46,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
         vHolder.mItemImage.setImageResource(inventoryDisplay.getmImage());
         vHolder.mItemName.setText(inventoryDisplay.getmItemName());
 
+
+        viewHolder.itemView.setOnClickListener(mRowClickListener);
+        viewHolder.itemView.setTag(position);
+
     }
 
 
@@ -52,6 +58,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
 
         return mListData.size();
     }
+
+
+    public InventoryData getItem(int position) {
+        return mListData.get(position);
+    }
+
 
     private class ViewHolder extends RecyclerView.ViewHolder{
 

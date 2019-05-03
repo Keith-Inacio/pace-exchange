@@ -25,7 +25,8 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="100dp"
         android:hint="@string/email"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        />
 
     <EditText
         android:id="@+id/passwordInput"
