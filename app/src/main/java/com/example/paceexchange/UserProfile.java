@@ -1,6 +1,8 @@
 package com.example.paceexchange;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -24,13 +26,30 @@ public class UserProfile extends AppCompatActivity {
     private DatabaseReference mFireData;
     private FirebaseAuth mUserAuthorization;
     private int mCurrentReputationValue;
+    String ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
-        String ID = getIntent().getStringExtra(UserLogin.EXTRA_MESSAGE);
+
+
+
+        if(getIntent().getStringExtra(UserLogin.EXTRA_MESSAGE)!=null) {
+            ID = getIntent().getStringExtra(UserLogin.EXTRA_MESSAGE);
+            SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString("ID", ID);
+            editor.commit();
+
+        }else{
+            SharedPreferences sharedPrefOne = this.getPreferences(Context.MODE_PRIVATE);
+            ID = sharedPrefOne.getString("ID", "DEFAULT");
+            Log.d("KEITH", ID);
+        }
+
+
 
         mFireData = FirebaseDatabase.getInstance().getReference().child("Student").child(ID);
         mUserAuthorization = FirebaseAuth.getInstance();
@@ -53,8 +72,8 @@ public class UserProfile extends AppCompatActivity {
 
                 mFirstName.setText(dataSnapshot.child("mFirstName").getValue().toString());
                 mLastName.setText(dataSnapshot.child("mLastName").getValue().toString());
-                mGraduationDate.setText(getString(R.string.profile_grad_year, dataSnapshot.child("mGraduationYear").getValue().toString()));
-                mEmail.setText(getString(R.string.profile_email, dataSnapshot.child("mUserEmail").getValue().toString()));
+               // mGraduationDate.setText(getString(R.string.profile_grad_year, dataSnapshot.child("mGraduationYear").getValue().toString()));
+                //mEmail.setText(getString(R.string.profile_email, dataSnapshot.child("mUserEmail").getValue().toString()));
                 mCurrentReputationValue = Integer.parseInt(dataSnapshot.child("mNewUserDefaultReputation").getValue().toString());
                 setUserReputation(mCurrentReputationValue);
             }

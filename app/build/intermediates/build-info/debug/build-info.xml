@@ -5,27 +5,32 @@
     build-mode="COLD"
     density="xhdpi"
     format="10"
+    ir-eligibility="METHOD_DELETED"
     plugin-version="3.4.0"
-    timestamp="1556902817562"
+    timestamp="1556917598602"
     token="-4813437220597338446"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="99" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="28" />
     <task
         name="verifier"
-        duration="0" />
+        duration="4" />
+
+    <artifact
+        location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1556902621370"
+        timestamp="1556915555679"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
@@ -69,23 +74,12 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1556902770930"
-        verifier="R_CLASS_CHANGE" >
+        ir-eligibility="METHOD_DELETED"
+        timestamp="1556917598602"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
             type="SPLIT" />
     </build>
-    <build
-        build-mode="COLD"
-        timestamp="1556902787482"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
-            type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        timestamp="1556902817562"
-        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

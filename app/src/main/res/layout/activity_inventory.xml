@@ -31,4 +31,10 @@
         android:text="@string/trade_Item"
         />
 
+    <Button
+        android:id="@+id/userProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Profile"/>
+
 </LinearLayout>

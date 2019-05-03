@@ -1,12 +1,15 @@
 package com.example.paceexchange;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -20,6 +23,7 @@ public class Inventory extends AppCompatActivity {
     private RecyclerAdapter mAdapter;
     private DatabaseReference mFireData;
     private FirebaseAuth mUserAuthorization;
+    private Button mUserProfileButton;
     private ArrayList<InventoryData> mInventoryList;
 
     @Override
@@ -27,19 +31,23 @@ public class Inventory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
 
-        mRecyclerView = findViewById(R.id.recyclerView);
-        setRecyclerView();
-
-
-        mFireData = FirebaseDatabase.getInstance().getReference().child("Student").child("-Ldi9uOY6N0qwnS4q3PG").child("mUserInventory");
-        //mFireData.push().setValue("TextBook");
-       // mFireData.push().setValue("Pencil");
-        //mFireData.push().setValue("Laptop");
-
         mUserAuthorization = FirebaseAuth.getInstance();
         mUserAuthorization.getCurrentUser();
 
+        mRecyclerView = findViewById(R.id.recyclerView);
+        mUserProfileButton = findViewById(R.id.userProfile);
+        setRecyclerView();
+        setonClickListener();
+
+
+       // mFireData = FirebaseDatabase.getInstance().getReference().child("Student").child("-Ldi9uOY6N0qwnS4q3PG").child("mUserInventory");
+        //mFireData.setValue("TextBook");
+       // mFireData.push().setValue("Pencil");
+        //mFireData.push().setValue("Laptop");
+
+
     }
+
 
     public void setRecyclerView(){
 
@@ -64,5 +72,17 @@ public class Inventory extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
 
+        }
+
+        public void setonClickListener(){
+
+        mUserProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent intent = new Intent(Inventory.this, UserProfile.class);
+                startActivity(intent);
+            }
+        });
         }
 }

@@ -895,6 +895,7 @@ id up
 id useLogo
 id userInfo
 id userInventoryText
+id userProfile
 id wide
 id withText
 id wrap

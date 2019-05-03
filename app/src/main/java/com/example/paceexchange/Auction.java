@@ -5,13 +5,10 @@ import android.os.Looper;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class Auction extends AppCompatActivity {
 
@@ -43,8 +40,8 @@ public class Auction extends AppCompatActivity {
         setButtonClickListeners();
     }
 
-    /**I am trying to get data to remain on up button click back to user profile here//
-     */
+
+    /*I am trying to get data to remain on up button click back to user profile here - NOT WORKING
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
             switch (item.getItemId()) {
@@ -54,6 +51,7 @@ public class Auction extends AppCompatActivity {
             }
             return super.onOptionsItemSelected(item);
         }
+        */
 
 
     public void startCountdown() {
@@ -93,10 +91,10 @@ public class Auction extends AppCompatActivity {
 
     public void setButtonClickListeners(){
 
-
         mNextItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 args = new Bundle();
                 AuctionFragment fragment = new AuctionFragment();
                 nextClickCounter++;
