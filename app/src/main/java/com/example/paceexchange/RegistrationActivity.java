@@ -1,6 +1,5 @@
 package com.example.paceexchange;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -15,13 +14,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-
-public class UserRegistration extends AppCompatActivity {
+public class RegistrationActivity extends AppCompatActivity {
 
     private EditText mEmail, mPassword, mFirstName, mLastName, mGradDate;
     private Button mRegisterButton;
@@ -78,11 +74,11 @@ public class UserRegistration extends AppCompatActivity {
         if ((mEmail.getText().toString().isEmpty()) || (!mEmail.getText().toString().contains("@")) && (!mEmail.getText().toString().contains(".com") ||
                 !mEmail.getText().toString().contains(".edu"))) {
 
-            Toast.makeText(UserRegistration.this, R.string.empty_login, Toast.LENGTH_LONG).show();
+            Toast.makeText(RegistrationActivity.this, R.string.empty_login, Toast.LENGTH_LONG).show();
 
         } else if (mPassword.getText().toString().isEmpty()) {
 
-            Toast.makeText(UserRegistration.this, R.string.empty_password, Toast.LENGTH_LONG).show();
+            Toast.makeText(RegistrationActivity.this, R.string.empty_password, Toast.LENGTH_LONG).show();
 
         } else {
 
@@ -109,12 +105,12 @@ public class UserRegistration extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         mProgressUpdate.dismiss();
-                        Toast.makeText(UserRegistration.this, R.string.register_success, Toast.LENGTH_LONG).show();
+                        Toast.makeText(RegistrationActivity.this, R.string.register_success, Toast.LENGTH_LONG).show();
                         finish();
-                        startActivity(new Intent(getApplicationContext(), UserLogin.class));
+                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     } else {
                         mProgressUpdate.dismiss();
-                        Toast.makeText(UserRegistration.this, R.string.register_fail, Toast.LENGTH_LONG).show();
+                        Toast.makeText(RegistrationActivity.this, R.string.register_fail, Toast.LENGTH_LONG).show();
                     }
                 }
             });

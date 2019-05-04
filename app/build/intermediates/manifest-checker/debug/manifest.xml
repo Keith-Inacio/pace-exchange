@@ -28,14 +28,14 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.paceexchange.Auction"
-            android:parentActivityName="com.example.paceexchange.UserProfile" />
+            android:name="com.example.paceexchange.AuctionActivity"
+            android:parentActivityName="com.example.paceexchange.UserProfileActivity" />
         <activity
-            android:name="com.example.paceexchange.Inventory"
-            android:parentActivityName="com.example.paceexchange.UserProfile" />
-        <activity android:name="com.example.paceexchange.UserProfile" />
-        <activity android:name="com.example.paceexchange.UserRegistration" />
-        <activity android:name="com.example.paceexchange.UserLogin" >
+            android:name="com.example.paceexchange.InventoryActivity"
+            android:parentActivityName="com.example.paceexchange.UserProfileActivity" />
+        <activity android:name="com.example.paceexchange.UserProfileActivity" />
+        <activity android:name="com.example.paceexchange.RegistrationActivity" />
+        <activity android:name="com.example.paceexchange.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

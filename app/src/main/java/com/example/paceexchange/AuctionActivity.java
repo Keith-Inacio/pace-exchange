@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Auction extends AppCompatActivity {
+public class AuctionActivity extends AppCompatActivity {
 
     private AuctionFragment mItemDisplay;
     private FragmentManager mFragmentManager;

@@ -19,7 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class UserProfile extends AppCompatActivity {
+public class UserProfileActivity extends AppCompatActivity {
 
     private TextView mFirstName, mLastName, mEmail, mGraduationDate, mUserReputation;
     private Button mLogoutButton, mAuctionButton, mInventoryButton;
@@ -34,10 +34,9 @@ public class UserProfile extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
 
 
-
-
-        if(getIntent().getStringExtra(UserLogin.EXTRA_MESSAGE)!=null) {
-            ID = getIntent().getStringExtra(UserLogin.EXTRA_MESSAGE);
+        if(getIntent().getStringExtra(LoginActivity.EXTRA_MESSAGE)!=null) {
+            ID = getIntent().getStringExtra(LoginActivity.EXTRA_MESSAGE);
+            Log.d("KEITH", ID);
             SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putString("ID", ID);
@@ -46,7 +45,7 @@ public class UserProfile extends AppCompatActivity {
         }else{
             SharedPreferences sharedPrefOne = this.getPreferences(Context.MODE_PRIVATE);
             ID = sharedPrefOne.getString("ID", "DEFAULT");
-            Log.d("KEITH", ID);
+            Log.d("INACIO", ID);
         }
 
 
@@ -72,8 +71,8 @@ public class UserProfile extends AppCompatActivity {
 
                 mFirstName.setText(dataSnapshot.child("mFirstName").getValue().toString());
                 mLastName.setText(dataSnapshot.child("mLastName").getValue().toString());
-               // mGraduationDate.setText(getString(R.string.profile_grad_year, dataSnapshot.child("mGraduationYear").getValue().toString()));
-                //mEmail.setText(getString(R.string.profile_email, dataSnapshot.child("mUserEmail").getValue().toString()));
+                mGraduationDate.setText(getString(R.string.profile_grad_year, dataSnapshot.child("mGraduationYear").getValue().toString()));
+                mEmail.setText(getString(R.string.profile_email, dataSnapshot.child("mUserEmail").getValue().toString()));
                 mCurrentReputationValue = Integer.parseInt(dataSnapshot.child("mNewUserDefaultReputation").getValue().toString());
                 setUserReputation(mCurrentReputationValue);
             }
@@ -119,7 +118,7 @@ public class UserProfile extends AppCompatActivity {
             public void onClick(View v) {
                 mUserAuthorization.signOut();
                 finish();
-                startActivity(new Intent(getApplicationContext(), UserLogin.class));
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
 
             }
         });
@@ -127,8 +126,7 @@ public class UserProfile extends AppCompatActivity {
         mAuctionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-                startActivity(new Intent(getApplicationContext(), Auction.class));
+                startActivity(new Intent(getApplicationContext(), AuctionActivity.class));
 
             }
         });
@@ -136,8 +134,7 @@ public class UserProfile extends AppCompatActivity {
         mInventoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-                startActivity(new Intent(getApplicationContext(), Inventory.class));
+                startActivity(new Intent(getApplicationContext(), InventoryActivity.class));
 
             }
         });

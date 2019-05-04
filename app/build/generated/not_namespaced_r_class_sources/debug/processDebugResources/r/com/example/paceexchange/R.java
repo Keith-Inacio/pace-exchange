@@ -3760,11 +3760,10 @@ public final class R {
     public static final int useLogo=0x7f0700b7;
     public static final int userInfo=0x7f0700b8;
     public static final int userInventoryText=0x7f0700b9;
-    public static final int userProfile=0x7f0700ba;
-    public static final int wide=0x7f0700bb;
-    public static final int withText=0x7f0700bc;
-    public static final int wrap=0x7f0700bd;
-    public static final int wrap_content=0x7f0700be;
+    public static final int wide=0x7f0700ba;
+    public static final int withText=0x7f0700bb;
+    public static final int wrap=0x7f0700bc;
+    public static final int wrap_content=0x7f0700bd;
   }
   public static final class integer {
     public static final int abc_config_activityDefaultDur=0x7f080000;

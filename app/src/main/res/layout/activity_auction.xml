@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Auction">
+    tools:context=".AuctionActivity">
 
     <FrameLayout
         android:id="@+id/itemContainer"

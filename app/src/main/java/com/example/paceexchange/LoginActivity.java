@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class UserLogin extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText mEmailInput, mPasswordInput;
     private TextView mRegistrationLink;
@@ -52,7 +51,7 @@ public class UserLogin extends AppCompatActivity {
 
         if (mUserAuthorization.getCurrentUser() != null) {
             finish();
-            startActivity(new Intent(getApplicationContext(), UserProfile.class));
+            startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
         }
         */
 
@@ -79,7 +78,7 @@ public class UserLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getApplicationContext(), UserRegistration.class));
+                startActivity(new Intent(getApplicationContext(), RegistrationActivity.class));
             }
 
         });
@@ -94,11 +93,11 @@ public class UserLogin extends AppCompatActivity {
         if ((mEmailInput.getText().toString().isEmpty()) || (!mEmailInput.getText().toString().contains("@")) && (!mEmailInput.getText().toString().contains(".com") ||
                 !mEmailInput.getText().toString().contains(".edu"))) {
 
-            Toast.makeText(UserLogin.this, R.string.empty_login, Toast.LENGTH_LONG).show();
+            Toast.makeText(LoginActivity.this, R.string.empty_login, Toast.LENGTH_LONG).show();
 
         } else if (mPasswordInput.getText().toString().isEmpty()) {
 
-            Toast.makeText(UserLogin.this, R.string.empty_password, Toast.LENGTH_LONG).show();
+            Toast.makeText(LoginActivity.this, R.string.empty_password, Toast.LENGTH_LONG).show();
 
         } else {
 
@@ -117,13 +116,13 @@ public class UserLogin extends AppCompatActivity {
 
                     if (task.isSuccessful()) {
                         mProgressUpdate.dismiss();
-                        finish();
-                        Intent intent = new Intent(UserLogin.this, UserProfile.class);
+                        //finish();
+                        Intent intent = new Intent(LoginActivity.this, UserProfileActivity.class);
                         intent.putExtra(EXTRA_MESSAGE, mCurrentUserID);
                         startActivity(intent);
                     } else {
                         mProgressUpdate.dismiss();
-                        Toast.makeText(UserLogin.this, R.string.login_fail, Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, R.string.login_fail, Toast.LENGTH_LONG).show();
                     }
                 }
             });

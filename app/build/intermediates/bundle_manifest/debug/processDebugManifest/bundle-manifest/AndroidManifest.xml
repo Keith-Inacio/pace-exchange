@@ -25,17 +25,16 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.paceexchange.Auction"
-            android:parentActivityName="com.example.paceexchange.UserProfile" />
+            android:name="com.example.paceexchange.AuctionActivity"
+            android:parentActivityName="com.example.paceexchange.UserProfileActivity" />
         <activity
-            android:name="com.example.paceexchange.Inventory"
-            android:parentActivityName="com.example.paceexchange.UserProfile" />
-        <activity android:name="com.example.paceexchange.UserProfile" />
-        <activity android:name="com.example.paceexchange.UserRegistration" />
-        <activity android:name="com.example.paceexchange.UserLogin" >
+            android:name="com.example.paceexchange.InventoryActivity"
+            android:parentActivityName="com.example.paceexchange.UserProfileActivity" />
+        <activity android:name="com.example.paceexchange.UserProfileActivity" />
+        <activity android:name="com.example.paceexchange.RegistrationActivity" />
+        <activity android:name="com.example.paceexchange.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -129,11 +128,6 @@
         <meta-data
             android:name="android.support.VERSION"
             android:value="26.1.0" />
-
-        <provider
-            android:name="com.android.tools.ir.server.InstantRunContentProvider"
-            android:authorities="com.example.paceexchange.com.android.tools.ir.server.InstantRunContentProvider"
-            android:multiprocess="true" />
     </application>
 
 </manifest>

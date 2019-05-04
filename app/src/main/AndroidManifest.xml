@@ -12,14 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Auction"
-            android:parentActivityName=".UserProfile" />
+            android:name=".AuctionActivity"
+            android:parentActivityName=".UserProfileActivity" />
         <activity
-            android:name=".Inventory"
-            android:parentActivityName=".UserProfile" />
-        <activity android:name=".UserProfile" />
-        <activity android:name=".UserRegistration" />
-        <activity android:name=".UserLogin">
+            android:name=".InventoryActivity"
+            android:parentActivityName=".UserProfileActivity" />
+        <activity android:name=".UserProfileActivity" />
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

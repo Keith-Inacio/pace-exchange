@@ -41,7 +41,7 @@ public class AuctionFragment extends Fragment {
 
         Bundle mBundle = new Bundle();
         mBundle = getArguments();
-        //int counter = Integer.parseInt(mBundle.getString(Auction.BID_ITEM_MESSAGE));
+        //int counter = Integer.parseInt(mBundle.getString(AuctionActivity.BID_ITEM_MESSAGE));
        // Log.d("COUNTER", String.valueOf(counter));
         //mItemImage.setImageDrawable(ContextCompat.getDrawable(getContext(), (mAuctionItemList.get(counter))));
     }
