@@ -37,7 +37,9 @@
     <string name="item_condition_text">ITEM CONDITION:</string>
     <string name="item_category_type">ITEM TYPE:</string>
     <string name="add_inventory_title">ADD NEW INVENTORY</string>
-    <string name="submit_button_text">SUBMIT</string>
+    <string name="error_new_item_name">You must enter a name for the new item!</string>
+    <string name="error_new_item_radio_button">You must select a condition for the new item!</string>
+    <string name="error_new_item_category">You must select a category for the new item!</string>
     <string-array name="item_array">
         <item>Clothing</item>
         <item>Books</item>

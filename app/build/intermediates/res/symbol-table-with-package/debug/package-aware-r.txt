@@ -1043,6 +1043,9 @@ string default_web_client_id
 string email
 string empty_login
 string empty_password
+string error_new_item_category
+string error_new_item_name
+string error_new_item_radio_button
 string excellent_reputation
 string firebase_database_url
 string first_name
@@ -1078,7 +1081,6 @@ string registration_title
 string search_menu_title
 string start_auction
 string status_bar_notification_info_overflow
-string submit_button_text
 string time_remaining
 string trade_Item
 string user_profile
