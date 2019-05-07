@@ -9,19 +9,20 @@ import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter {
 
-    Context mContext;
-    List<InventoryData> mListData;
-    View.OnClickListener mRowClickListener;
+    private Context mContext;
+    private ArrayList<InventoryData> mItemList;
+    private View.OnClickListener mRowClickListener;
     private int mSelectedPosition = Adapter.NO_SELECTION;
 
-    public RecyclerAdapter(Context context, List<InventoryData> listData, View.OnClickListener rowClickListener){
+    public RecyclerAdapter(Context context, ArrayList<InventoryData> listData, View.OnClickListener rowClickListener){
 
         mContext=context;
-        mListData=listData;
+        mItemList=listData;
         mRowClickListener=rowClickListener;
     }
 
@@ -39,13 +40,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
 
-        InventoryData inventoryDisplay = mListData.get(position);
-
+        InventoryData inventoryDisplay = mItemList.get(position);
         ViewHolder vHolder = (ViewHolder) viewHolder;
+
+        String value = inventoryDisplay.getmItemValue();
+        String condition = inventoryDisplay.getmItemCondition();
+        String category = inventoryDisplay.getmItemCategory();
 
         vHolder.mItemImage.setImageResource(inventoryDisplay.getmImage());
         vHolder.mItemName.setText(inventoryDisplay.getmItemName());
-
+        vHolder.mItemData.setText(vHolder.itemView.getResources().getString(R.string.inventory_item_display, value, condition, category));
 
         viewHolder.itemView.setOnClickListener(mRowClickListener);
         viewHolder.itemView.setTag(position);
@@ -56,19 +60,23 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
 
-        return mListData.size();
+        return mItemList.size();
     }
 
 
     public InventoryData getItem(int position) {
-        return mListData.get(position);
+        return mItemList.get(position);
+    }
+
+    public void removeInventoryItem(int position){
+        mItemList.remove(position);
     }
 
 
     private class ViewHolder extends RecyclerView.ViewHolder{
 
         public ImageView mItemImage;
-        public TextView mItemName;
+        public TextView mItemName, mItemData;
 
         public ViewHolder(@NonNull View itemView, View.OnClickListener rowClickListener) {
             super(itemView);
@@ -76,6 +84,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
             this.itemView.setOnClickListener(rowClickListener);
             mItemImage = itemView.findViewById(R.id.itemImage);
             mItemName = itemView.findViewById(R.id.itemName);
+            mItemData = itemView.findViewById(R.id.itemData);
 
         }
     }

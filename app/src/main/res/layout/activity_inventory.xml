@@ -2,38 +2,44 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/userInventoryText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/my_inventory_title"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
-   <android.support.v7.widget.RecyclerView
-       android:id="@+id/recyclerView"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
-   </android.support.v7.widget.RecyclerView>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-    <Button
-        android:id="@+id/tradeSelectedItemButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/trade_Item"
-        />
 
-    <Button
-        android:id="@+id/addInventoryItemButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/add_new_item_button_text"
-        android:layout_toEndOf="@id/tradeSelectedItemButton"/>
+        <Button
+            android:id="@+id/tradeSelectedItemButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/trade_Item" />
+
+        <Button
+            android:id="@+id/addInventoryItemButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/tradeSelectedItemButton"
+            android:text="@string/add_new_item_button_text" />
+
+        <Button
+            android:id="@+id/removeInventoryItemButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/addInventoryItemButton"
+            android:text="@string/remove_item_button_text" />
 
     </RelativeLayout>
 

@@ -1088,6 +1088,10 @@
         "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/caee60d0e0962a7f425f2891e04e343c/res/drawable-mdpi-v4/abc_ic_star_half_black_36dp.png"
     },
     {
+        "merged": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/drawable_ic_thumb_up_black_24dp.xml.flat",
+        "source": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/res/drawable/ic_thumb_up_black_24dp.xml"
+    },
+    {
         "merged": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
         "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/caee60d0e0962a7f425f2891e04e343c/res/drawable-xhdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
     },

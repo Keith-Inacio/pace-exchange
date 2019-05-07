@@ -2,65 +2,65 @@ package com.example.paceexchange;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class CurrentInventoryActivity extends AppCompatActivity {
 
-    private Button mTradeItemButton, mAddNewItemButton;
+    private Button mTradeItemButton, mAddNewItemButton, mRemoveItemButton;
     private RecyclerView mRecyclerView;
     private RecyclerAdapter mAdapter;
-    private DatabaseReference mFireData;
+    private DatabaseReference mDatabase;
     private FirebaseAuth mUserAuthorization;
     private ArrayList<InventoryData> mInventoryList;
+    private int mRowClickPosition;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
 
-        mUserAuthorization = FirebaseAuth.getInstance();
-        mUserAuthorization.getCurrentUser();
+        // mUserAuthorization = FirebaseAuth.getInstance();
+        // mUserAuthorization.getCurrentUser();
 
         mTradeItemButton = findViewById(R.id.tradeSelectedItemButton);
         mAddNewItemButton = findViewById(R.id.addInventoryItemButton);
+        mRemoveItemButton = findViewById(R.id.removeInventoryItemButton);
         mRecyclerView = findViewById(R.id.recyclerView);
-        setRecyclerView();
+
+        mInventoryList = new ArrayList<>();
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Student").child("-LbdV3uBhsq7xfV4ZQrb").child("Inventory");
+
         setButtonClickListener();
-
-        // mFireData = FirebaseDatabase.getInstance().getReference().child("Student").child("-Ldi9uOY6N0qwnS4q3PG").child("mUserInventory");
-        //mFireData.setValue("TextBook");
-        // mFireData.push().setValue("Pencil");
-        //mFireData.push().setValue("Laptop");
-
-
+        setRecyclerView();
+        iterateFirebaseInventory();
     }
-
 
     public void setRecyclerView() {
 
-        mInventoryList = new ArrayList<>();
-        mInventoryList.add(new InventoryData(R.drawable.javabook, "Java Book"));
-        mInventoryList.add(new InventoryData(R.drawable.airpods, "Apple Airpods"));
-        mInventoryList.add(new InventoryData(R.drawable.python_book, "Python Book"));
-        mInventoryList.add(new InventoryData(R.drawable.hp_graph_calc, "HP Graphing Calculator"));
-        mInventoryList.add(new InventoryData(R.drawable.google_giftcard, "$10 Google Play Gift Card"));
 
         mAdapter = new RecyclerAdapter(CurrentInventoryActivity.this, mInventoryList, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                int position = (int) v.getTag();
-                InventoryData display = mAdapter.getItem(position);
+                mRowClickPosition = (int) v.getTag();
+                InventoryData display = mAdapter.getItem(mRowClickPosition);
 
             }
         });
@@ -73,12 +73,6 @@ public class CurrentInventoryActivity extends AppCompatActivity {
 
     public void setButtonClickListener() {
 
-        mTradeItemButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
         mAddNewItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,5 +81,56 @@ public class CurrentInventoryActivity extends AppCompatActivity {
                 startActivity(new Intent(CurrentInventoryActivity.this, AddInventoryItemActivity.class));
             }
         });
+
+        mRemoveItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeInventoryItem(mRowClickPosition);
+            }
+        });
+    }
+
+    public void iterateFirebaseInventory() {
+
+        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    String key= getItem(child.getKey());
+
+                    String conditon = dataSnapshot.child(key).child("Condition").getValue().toString();
+                    String category = dataSnapshot.child(key).child("Category").getValue().toString();
+                    String value = dataSnapshot.child(key).child("Trade Value").getValue().toString();
+                    mInventoryList.add(new InventoryData(R.drawable.javabook, key, value, conditon, category));
+                }
+                mAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+
+        });
+    }
+
+    private String getItem(String key) {
+
+
+      // mInventoryList.add(new InventoryData(R.drawable.javabook, key, value, conditon, category));
+
+      // mAdapter.notifyDataSetChanged();
+
+        return key;
+
+    }
+
+    private void removeInventoryItem(int position) {
+
+        mDatabase.child(mInventoryList.get(position).getmItemName()).removeValue();
+        mAdapter.removeInventoryItem(position);
+        mAdapter.notifyDataSetChanged();
+
     }
 }

@@ -66,28 +66,32 @@
         android:layout_below="@id/userInfo"
         android:layout_centerInParent="true"
         android:layout_marginTop="50dp">
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="logout"
-        android:textSize="20dp"/>
 
-    <Button
-        android:id="@+id/inventoryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/inventory_button"
-        android:layout_toEndOf="@id/logoutButton"
-        android:textSize="20dp"/>
+        <Button
+            android:id="@+id/logoutButton"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="logout"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/inventoryButton"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/logoutButton"
+            android:text="@string/inventory_button"
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/auctionButton"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/auction_button"
             android:layout_toEndOf="@id/inventoryButton"
-            android:textSize="20dp"/>
+            android:text="@string/auction_button"
+            android:textSize="20dp" />
     </RelativeLayout>
 
 </RelativeLayout>

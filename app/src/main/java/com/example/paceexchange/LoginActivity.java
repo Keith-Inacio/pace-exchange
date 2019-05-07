@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
         mPasswordInput = findViewById(R.id.passwordInput);
         mRegistrationLink = findViewById(R.id.registerLink);
         mLoginButton = findViewById(R.id.loginButton);
-        mCurrentUserID="";
+        mCurrentUserID = "";
 
         mProgressUpdate = new ProgressDialog(this);
 
@@ -49,11 +49,11 @@ public class LoginActivity extends AppCompatActivity {
 
         /***If Statement: Check if user is already logged in. If yes, redirect to User Profile
 
-        if (mUserAuthorization.getCurrentUser() != null) {
-            finish();
-            startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
-        }
-        */
+         if (mUserAuthorization.getCurrentUser() != null) {
+         finish();
+         startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
+         }
+         */
 
         setOnClickListener();
     }
@@ -116,7 +116,6 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (task.isSuccessful()) {
                         mProgressUpdate.dismiss();
-                        //finish();
                         Intent intent = new Intent(LoginActivity.this, UserProfileActivity.class);
                         intent.putExtra(EXTRA_MESSAGE, mCurrentUserID);
                         startActivity(intent);
@@ -139,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
-                    String key = updateValue(child.getKey());
+                    String key = getFirebaseValue(child.getKey());
                 }
             }
 
@@ -152,8 +151,9 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private String updateValue(String key){
-        mCurrentUserID=key;
+    private String getFirebaseValue(String key) {
+
+        mCurrentUserID = key;
 
         return mCurrentUserID;
     }
