@@ -1452,6 +1452,10 @@
         "source": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/res/layout/recycler_view.xml"
     },
     {
+        "merged": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/layout_activity_add_inventory.xml.flat",
+        "source": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/res/layout/activity_add_inventory.xml"
+    },
+    {
         "merged": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/drawable-xhdpi_hp_graph_calc.png.flat",
         "source": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/res/drawable-xhdpi/hp_graph_calc.png"
     },

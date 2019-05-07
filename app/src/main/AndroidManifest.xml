@@ -15,8 +15,10 @@
             android:name=".AuctionActivity"
             android:parentActivityName=".UserProfileActivity" />
         <activity
-            android:name=".InventoryActivity"
+            android:name=".CurrentInventoryActivity"
             android:parentActivityName=".UserProfileActivity" />
+        <activity android:name=".AddInventoryItemActivity"
+            android:parentActivityName=".CurrentInventoryActivity"/>
         <activity android:name=".UserProfileActivity" />
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".LoginActivity">

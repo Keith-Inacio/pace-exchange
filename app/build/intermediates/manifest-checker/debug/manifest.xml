@@ -31,8 +31,11 @@
             android:name="com.example.paceexchange.AuctionActivity"
             android:parentActivityName="com.example.paceexchange.UserProfileActivity" />
         <activity
-            android:name="com.example.paceexchange.InventoryActivity"
+            android:name="com.example.paceexchange.CurrentInventoryActivity"
             android:parentActivityName="com.example.paceexchange.UserProfileActivity" />
+        <activity
+            android:name="com.example.paceexchange.AddInventoryItemActivity"
+            android:parentActivityName="com.example.paceexchange.CurrentInventoryActivity" />
         <activity android:name="com.example.paceexchange.UserProfileActivity" />
         <activity android:name="com.example.paceexchange.RegistrationActivity" />
         <activity android:name="com.example.paceexchange.LoginActivity" >

@@ -14,8 +14,9 @@ import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 
-public class InventoryActivity extends AppCompatActivity {
+public class CurrentInventoryActivity extends AppCompatActivity {
 
+    private Button mTradeItemButton, mAddNewItemButton;
     private RecyclerView mRecyclerView;
     private RecyclerAdapter mAdapter;
     private DatabaseReference mFireData;
@@ -30,19 +31,22 @@ public class InventoryActivity extends AppCompatActivity {
         mUserAuthorization = FirebaseAuth.getInstance();
         mUserAuthorization.getCurrentUser();
 
+        mTradeItemButton = findViewById(R.id.tradeSelectedItemButton);
+        mAddNewItemButton = findViewById(R.id.addInventoryItemButton);
         mRecyclerView = findViewById(R.id.recyclerView);
         setRecyclerView();
+        setButtonClickListener();
 
-       // mFireData = FirebaseDatabase.getInstance().getReference().child("Student").child("-Ldi9uOY6N0qwnS4q3PG").child("mUserInventory");
+        // mFireData = FirebaseDatabase.getInstance().getReference().child("Student").child("-Ldi9uOY6N0qwnS4q3PG").child("mUserInventory");
         //mFireData.setValue("TextBook");
-       // mFireData.push().setValue("Pencil");
+        // mFireData.push().setValue("Pencil");
         //mFireData.push().setValue("Laptop");
 
 
     }
 
 
-    public void setRecyclerView(){
+    public void setRecyclerView() {
 
         mInventoryList = new ArrayList<>();
         mInventoryList.add(new InventoryData(R.drawable.javabook, "Java Book"));
@@ -51,7 +55,7 @@ public class InventoryActivity extends AppCompatActivity {
         mInventoryList.add(new InventoryData(R.drawable.hp_graph_calc, "HP Graphing Calculator"));
         mInventoryList.add(new InventoryData(R.drawable.google_giftcard, "$10 Google Play Gift Card"));
 
-        mAdapter = new RecyclerAdapter(InventoryActivity.this, mInventoryList, new View.OnClickListener() {
+        mAdapter = new RecyclerAdapter(CurrentInventoryActivity.this, mInventoryList, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -61,9 +65,27 @@ public class InventoryActivity extends AppCompatActivity {
             }
         });
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(InventoryActivity.this));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(CurrentInventoryActivity.this));
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
 
-        }
+    }
+
+    public void setButtonClickListener() {
+
+        mTradeItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        mAddNewItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(CurrentInventoryActivity.this, AddInventoryItemActivity.class));
+            }
+        });
+    }
 }

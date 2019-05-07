@@ -6,17 +6,10 @@
     android:gravity="center_horizontal">
 
     <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title"
-        android:textSize="20sp"/>
-
-    <TextView
         android:id="@+id/userInventoryText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/my_inventory"
+        android:text="@string/my_inventory_title"
         android:textSize="20sp"/>
 
    <android.support.v7.widget.RecyclerView
@@ -25,10 +18,23 @@
        android:layout_height="wrap_content">
    </android.support.v7.widget.RecyclerView>
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <Button
+        android:id="@+id/tradeSelectedItemButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/trade_Item"
         />
+
+    <Button
+        android:id="@+id/addInventoryItemButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_new_item_button_text"
+        android:layout_toEndOf="@id/tradeSelectedItemButton"/>
+
+    </RelativeLayout>
 
 </LinearLayout>
