@@ -845,6 +845,7 @@ id notification_background
 id notification_main_column
 id notification_main_column_container
 id number
+id paceImage
 id packed
 id parent
 id parentPanel

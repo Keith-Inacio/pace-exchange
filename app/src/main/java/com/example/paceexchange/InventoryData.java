@@ -3,7 +3,11 @@ package com.example.paceexchange;
 public class InventoryData {
 
     private int mImage;
-    private String mItemName, mItemValue, mItemCondition, mItemCategory;
+    private String mItemName, mItemValue, mItemCondition, mItemCategory, mReturn, mURL, mValue;
+
+    public InventoryData(){
+
+    }
 
     public InventoryData(int image, String name, String value, String condition, String category){
 

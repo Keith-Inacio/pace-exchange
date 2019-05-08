@@ -28,7 +28,7 @@ public class AddInventoryItemActivity extends AppCompatActivity {
     private RadioButton mSelectedConditionRadioButton, mSelectedValueRadioButton;
     private Spinner mSpinner;
     private ArrayAdapter<CharSequence> mItemAdapter;
-    private String mNewItemName, mNewitemConditionm, mNewItemCategory;
+    private String mNewItemName, mNewitemCondition, mNewItemCategory;
     private DatabaseReference mDataBase;
 
     private static final String CHANNEL_ID = "com.example.keithinacio.NOTIFICATION";

@@ -6,6 +6,7 @@ import android.os.Looper;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class AuctionActivity extends AppCompatActivity {
@@ -27,14 +30,11 @@ public class AuctionActivity extends AppCompatActivity {
     private int mTimer = 60;
     private int nextClickCounter=0;
     private Bundle args;
-    private FirebaseFirestore mDatabase;
     private DatabaseReference mUserDatabase;
-
+    RandomUniversalInventoryItem firebaseIventroyAccess;
+    InventoryData data;
 
     public static final String BID_ITEM_MESSAGE = "com.example.paceexchange.ITEMMESSAGE";
-
-    HashMap<String, Object> generalInventoryAddition;
-    CollectionReference totalInventory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +42,13 @@ public class AuctionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_auction);
 
         mUserBidItem = findViewById(R.id.userBidItem);
-        mDatabase = FirebaseFirestore.getInstance();
+
+        firebaseIventroyAccess = new RandomUniversalInventoryItem(1);
+        data = new InventoryData();
+//        data = firebaseIventroyAccess.getOBject();
+
 
         mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Student").child("-LbdV3uBhsq7xfV4ZQrb").child("Inventory");
-
         String mSelectedTradeItemName = getIntent().getStringExtra(CurrentInventoryActivity.EXTRA_MESSAGE_TRADE_ITEM);
         String mSelectedTradeItemValue = getIntent().getStringExtra(CurrentInventoryActivity.EXTRA_MESSAGE_TRADE_ITEM_VALUE);
         mUserBidItem.setText(getResources().getString(R.string.auctio_user_item, mSelectedTradeItemName, mSelectedTradeItemValue));
@@ -57,11 +60,8 @@ public class AuctionActivity extends AppCompatActivity {
         mStartBidButton = findViewById(R.id.startButton);
         mNextItemButton = findViewById(R.id.nextItemButton);
         mText = findViewById(R.id.number);
-        mainThreadHandler = new Handler(Looper.getMainLooper());
 
-        totalInventory = mDatabase.collection("item_inventory");
-        generalInventoryAddition= new HashMap<>();
-        totalInventory.document("2").set(generalInventoryAddition);
+        mainThreadHandler = new Handler(Looper.getMainLooper());
 
 
         setButtonClickListeners();

@@ -4,28 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="#FFFFFF">
 
     <TextView
         android:id="@+id/loginTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="30sp"
         android:text="@string/login_title"
-        android:textSize="22dp"
+        android:textSize="22sp"
         android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/paceImage"
+        android:layout_width="match_parent"
+        android:layout_height="225sp"
+        android:scaleType="center"
+        android:layout_below="@id/loginTitle"
+        android:layout_centerInParent="true"
+        />
 
     <EditText
         android:id="@+id/emailInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/loginTitle"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_below="@id/paceImage"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
         android:hint="@string/email"
-        android:textSize="20dp"
+        android:textSize="20sp"
         />
 
     <EditText
@@ -33,20 +42,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/emailInput"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
         android:hint="@string/password"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="100dp"
+        android:layout_width="100sp"
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordInput"
         android:layout_centerInParent="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="20sp"
         android:text="@string/login_button"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/registerLink"
@@ -54,9 +63,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/loginButton"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="25sp"
         android:text="@string/new_user"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:textColor="#0033FF"
         />
 

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,9 +21,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private ImageView mPaceLoginImage;
     private EditText mEmailInput, mPasswordInput;
     private TextView mRegistrationLink;
     private Button mLoginButton;
@@ -31,6 +34,8 @@ public class LoginActivity extends AppCompatActivity {
     private String mEmailValidate, mPasswordValidate, mCurrentUserID;
     private DatabaseReference mUserDatabase;
     public static final String EXTRA_MESSAGE = "com.example.paceexchange.MESSAGE";
+
+    private final String mImageURL = "https://media.karousell.com/media/photos/products/2018/08/25/barter_trade__exchange_your_goods_with_mine_1535126758_21a31c740";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,21 +46,15 @@ public class LoginActivity extends AppCompatActivity {
         mPasswordInput = findViewById(R.id.passwordInput);
         mRegistrationLink = findViewById(R.id.registerLink);
         mLoginButton = findViewById(R.id.loginButton);
+        mPaceLoginImage = findViewById(R.id.paceImage);
         mCurrentUserID = "";
 
         mProgressUpdate = new ProgressDialog(this);
 
         mUserAuthorization = FirebaseAuth.getInstance();
 
-        /***If Statement: Check if user is already logged in. If yes, redirect to User Profile
-
-         if (mUserAuthorization.getCurrentUser() != null) {
-         finish();
-         startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
-         }
-         */
-
         setOnClickListener();
+        loadLoginImage();
     }
 
     /**
@@ -156,5 +155,11 @@ public class LoginActivity extends AppCompatActivity {
         mCurrentUserID = key;
 
         return mCurrentUserID;
+    }
+
+    private void loadLoginImage(){
+
+        Picasso.get().load(mImageURL).fit().centerCrop().into(mPaceLoginImage);
+
     }
 }
