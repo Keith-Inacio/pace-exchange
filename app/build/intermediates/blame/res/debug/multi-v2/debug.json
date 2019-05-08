@@ -924,6 +924,22 @@
             ]
         },
         {
+            "outputFile": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/values-v28_values-v28.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/caee60d0e0962a7f425f2891e04e343c/res/values-v28/values-v28.xml",
+                    "from": {
+                        "startLines": "2,3,4,8",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,130,217,447",
+                        "endLines": "2,3,7,11",
+                        "endColumns": "74,86,12,12",
+                        "endOffsets": "125,212,442,684"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/values-nl_values-nl.arsc.flat",
             "map": [
                 {
@@ -992,22 +1008,6 @@
                         "startOffsets": "4026",
                         "endColumns": "201",
                         "endOffsets": "4223"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/values-v28_values-v28.arsc.flat",
-            "map": [
-                {
-                    "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/caee60d0e0962a7f425f2891e04e343c/res/values-v28/values-v28.xml",
-                    "from": {
-                        "startLines": "2,3,4,8",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,130,217,447",
-                        "endLines": "2,3,7,11",
-                        "endColumns": "74,86,12,12",
-                        "endOffsets": "125,212,442,684"
                     }
                 }
             ]
@@ -2401,22 +2401,6 @@
             ]
         },
         {
-            "outputFile": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/values-v17_values-v17.arsc.flat",
-            "map": [
-                {
-                    "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/caee60d0e0962a7f425f2891e04e343c/res/values-v17/values-v17.xml",
-                    "from": {
-                        "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,228,456,614,764,936,1161,1331,1559,1783,2025,2196,2370,2539,2812,3012,3216",
-                        "endLines": "4,8,11,14,17,21,24,28,32,36,39,42,45,49,52,56,60",
-                        "endColumns": "12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12",
-                        "endOffsets": "223,451,609,759,931,1156,1326,1554,1778,2020,2191,2365,2534,2807,3007,3211,3540"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/values-ta_values-ta.arsc.flat",
             "map": [
                 {
@@ -2485,6 +2469,22 @@
                         "startOffsets": "4016",
                         "endColumns": "224",
                         "endOffsets": "4236"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/values-v17_values-v17.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/caee60d0e0962a7f425f2891e04e343c/res/values-v17/values-v17.xml",
+                    "from": {
+                        "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,228,456,614,764,936,1161,1331,1559,1783,2025,2196,2370,2539,2812,3012,3216",
+                        "endLines": "4,8,11,14,17,21,24,28,32,36,39,42,45,49,52,56,60",
+                        "endColumns": "12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12",
+                        "endOffsets": "223,451,609,759,931,1156,1326,1554,1778,2020,2191,2365,2534,2807,3007,3211,3540"
                     }
                 }
             ]

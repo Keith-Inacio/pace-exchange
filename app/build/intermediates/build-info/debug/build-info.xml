@@ -6,7 +6,7 @@
     density="xhdpi"
     format="10"
     plugin-version="3.4.0"
-    timestamp="1557348929982"
+    timestamp="1557349506572"
     token="-4813437220597338446"
     verifier="COMPATIBLE" >
 
@@ -29,11 +29,8 @@
 
     <build
         build-mode="FULL"
-        timestamp="1557348720248"
+        timestamp="1557349199858"
         verifier="FULL_BUILD_REQUESTED" >
-        <artifact
-            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
-            type="SPLIT" />
         <artifact
             location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
@@ -51,6 +48,9 @@
             type="SPLIT" />
         <artifact
             location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
             type="SPLIT" />
         <artifact
             location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
@@ -73,7 +73,7 @@
     </build>
     <build
         build-mode="HOT_WARM"
-        timestamp="1557348929982"
+        timestamp="1557349506572"
         verifier="COMPATIBLE" >
         <artifact
             location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"

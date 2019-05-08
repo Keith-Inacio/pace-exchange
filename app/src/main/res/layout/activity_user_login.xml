@@ -12,10 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30sp"
+        android:layout_marginTop="10sp"
         android:text="@string/login_title"
-        android:textSize="22sp"
-        android:textStyle="bold"/>
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#336666"/>
 
     <ImageView
         android:id="@+id/paceImage"
@@ -24,6 +25,7 @@
         android:scaleType="center"
         android:layout_below="@id/loginTitle"
         android:layout_centerInParent="true"
+        android:layout_marginTop="5sp"
         />
 
     <EditText
@@ -66,7 +68,8 @@
         android:layout_marginTop="25sp"
         android:text="@string/new_user"
         android:textSize="15sp"
-        android:textColor="#0033FF"
+        android:textStyle="bold"
+        android:textColor="#FF0000"
         />
 
 </RelativeLayout>
