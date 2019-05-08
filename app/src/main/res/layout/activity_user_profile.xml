@@ -90,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/inventoryButton"
-            android:text="@string/auction_button"
+            android:text="@string/auction_live"
             android:textSize="20dp" />
     </RelativeLayout>
 

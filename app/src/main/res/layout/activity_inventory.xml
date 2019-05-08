@@ -25,7 +25,7 @@
             android:id="@+id/tradeSelectedItemButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/trade_Item" />
+            android:text="@string/auction_Item" />
 
         <Button
             android:id="@+id/addInventoryItemButton"

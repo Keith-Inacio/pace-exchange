@@ -23,7 +23,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
     private TextView mFirstName, mLastName, mEmail, mGraduationDate, mUserReputation;
     private Button mLogoutButton, mAuctionButton, mInventoryButton;
-    private DatabaseReference mFireData;
+    private DatabaseReference mDatabase;
     private FirebaseAuth mUserAuthorization;
     private int mCurrentReputationValue;
     String ID;
@@ -50,7 +50,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
 
 
-        mFireData = FirebaseDatabase.getInstance().getReference().child("Student").child(ID);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Student").child(ID);
         mUserAuthorization = FirebaseAuth.getInstance();
         mUserAuthorization.getCurrentUser();
 
@@ -65,7 +65,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
         setButtonClickListener();
 
-        mFireData.addValueEventListener(new ValueEventListener() {
+        mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 

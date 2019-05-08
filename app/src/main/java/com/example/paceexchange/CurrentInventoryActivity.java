@@ -26,17 +26,16 @@ public class CurrentInventoryActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerAdapter mAdapter;
     private DatabaseReference mDatabase;
-    private FirebaseAuth mUserAuthorization;
     private ArrayList<InventoryData> mInventoryList;
     private int mRowClickPosition;
+
+    public static final String EXTRA_MESSAGE_TRADE_ITEM = "com.example.paceexchange.ITEM_NAME";
+    public static final String EXTRA_MESSAGE_TRADE_ITEM_VALUE = "com.example.paceexchange.ITEM_VALUE";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
-
-        // mUserAuthorization = FirebaseAuth.getInstance();
-        // mUserAuthorization.getCurrentUser();
 
         mTradeItemButton = findViewById(R.id.tradeSelectedItemButton);
         mAddNewItemButton = findViewById(R.id.addInventoryItemButton);
@@ -73,7 +72,6 @@ public class CurrentInventoryActivity extends AppCompatActivity {
 
     public void setButtonClickListener() {
 
-
         mAddNewItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,6 +86,18 @@ public class CurrentInventoryActivity extends AppCompatActivity {
                 removeInventoryItem(mRowClickPosition);
             }
         });
+
+        mTradeItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(CurrentInventoryActivity.this, AuctionActivity.class);
+                intent.putExtra(EXTRA_MESSAGE_TRADE_ITEM, mAdapter.getItem(mRowClickPosition).getmItemName());
+                intent.putExtra(EXTRA_MESSAGE_TRADE_ITEM_VALUE, mAdapter.getItem(mRowClickPosition).getmItemValue());
+                startActivity(intent);
+
+            }
+        });
     }
 
     public void iterateFirebaseInventory() {
@@ -99,10 +109,10 @@ public class CurrentInventoryActivity extends AppCompatActivity {
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     String key= getItem(child.getKey());
 
-                    String conditon = dataSnapshot.child(key).child("Condition").getValue().toString();
+                    String condition = dataSnapshot.child(key).child("Condition").getValue().toString();
                     String category = dataSnapshot.child(key).child("Category").getValue().toString();
                     String value = dataSnapshot.child(key).child("Trade Value").getValue().toString();
-                    mInventoryList.add(new InventoryData(R.drawable.javabook, key, value, conditon, category));
+                    mInventoryList.add(new InventoryData(R.drawable.javabook, key, value, condition, category));
                 }
                 mAdapter.notifyDataSetChanged();
             }
@@ -116,11 +126,6 @@ public class CurrentInventoryActivity extends AppCompatActivity {
     }
 
     private String getItem(String key) {
-
-
-      // mInventoryList.add(new InventoryData(R.drawable.javabook, key, value, conditon, category));
-
-      // mAdapter.notifyDataSetChanged();
 
         return key;
 

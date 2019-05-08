@@ -1,21 +1,19 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-32:12
-INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-32:12
-INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-32:12
-INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-32:12
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-33:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/caee60d0e0962a7f425f2891e04e343c/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/inacio/.gradle/caches/transforms-2/files-2.1/d108936dccfb1f2419393b590c98bfae/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-core:16.0.8] /Users/inacio/.gradle/caches/transforms-2/files-2.1/25c60a03e50965e6c8cad412db555cf7/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-auth:16.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/8b64466472dda804dd8ceb4807362dc5/AndroidManifest.xml:17:1-42:12
 MERGED from [com.google.firebase:firebase-database:16.1.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/004c0c029201c2610fb09ad24fb67d82/AndroidManifest.xml:15:1-36:12
+MERGED from [com.google.firebase:firebase-firestore:18.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/9f718a4643f41817e6647c0c127f1d8a/AndroidManifest.xml:2:1-24:12
 MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/684ca8536aea5b3e03b6f91abdb339df/AndroidManifest.xml:17:1-22:12
 MERGED from [com.squareup.picasso:picasso:2.71828] /Users/inacio/.gradle/caches/transforms-2/files-2.1/85045b13e897cd67c5b4070212ea69a4/AndroidManifest.xml:2:1-14:12
-MERGED from [com.google.android.gms:play-services-auth:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/c8c7f64f601b73415a5e23aa6def1a3b/AndroidManifest.xml:17:1-39:12
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/24b5e48987cadd2119efaee15a1a88c3/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/7d30e43fb21f736a4e36723475c94fdc/AndroidManifest.xml:2:1-10:12
-MERGED from [com.google.android.gms:play-services-auth-api-phone:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/06a9ddf9d5fdc571ac6a03c98062acb6/AndroidManifest.xml:2:1-7:12
-MERGED from [com.google.android.gms:play-services-auth-base:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/ca72cad853ae9ff6d706cd0f9789e10c/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:firebase-analytics:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/fadffee2415acaa7f9a9346f183984d9/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/869711df56e826689631ede5368d5a2a/AndroidManifest.xml:17:1-36:12
 MERGED from [com.google.firebase:firebase-iid:17.0.3] /Users/inacio/.gradle/caches/transforms-2/files-2.1/b3cd3441c0830259b1c88eefd73f189d/AndroidManifest.xml:17:1-59:12
@@ -61,22 +59,22 @@ MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/inacio/.gradle/caches
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/1262679c4edda76553194a7e26fae57c/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/f73e4b6301fe45c7f46851791fd961d4/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/26a94345a8b61e1c3a460bb4a0c6feae/AndroidManifest.xml:2:1-7:12
-MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/6e2267584c7f826ca15667a8da5c135c/AndroidManifest.xml:2:1-6:12
-MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/27a02061339854cdf6b8ebe18c8a017f/AndroidManifest.xml:2:1-6:12
-INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-32:12
-INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-32:12
-INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-32:12
+MERGED from [com.google.firebase:protolite-well-known-types:16.0.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/23c3cd69e60405077aba3e12ddda67ba/AndroidManifest.xml:2:1-11:12
+MERGED from [io.grpc:grpc-android:1.16.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/a2f8f9f4c2509b13f8eda19453f45950/AndroidManifest.xml:2:1-13:12
+INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-33:12
+INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-33:12
 	package
 		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:3:5-39
 		INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-32:12
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-33:12
 		INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-32:12
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:1-33:12
 		INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:2:11-69
@@ -84,6 +82,8 @@ uses-permission#android.permission.INTERNET
 ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:5:5-67
 MERGED from [com.google.firebase:firebase-database:16.1.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/004c0c029201c2610fb09ad24fb67d82/AndroidManifest.xml:26:5-67
 MERGED from [com.google.firebase:firebase-database:16.1.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/004c0c029201c2610fb09ad24fb67d82/AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-firestore:18.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/9f718a4643f41817e6647c0c127f1d8a/AndroidManifest.xml:14:5-67
+MERGED from [com.google.firebase:firebase-firestore:18.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/9f718a4643f41817e6647c0c127f1d8a/AndroidManifest.xml:14:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/869711df56e826689631ede5368d5a2a/AndroidManifest.xml:22:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/869711df56e826689631ede5368d5a2a/AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-iid:17.0.3] /Users/inacio/.gradle/caches/transforms-2/files-2.1/b3cd3441c0830259b1c88eefd73f189d/AndroidManifest.xml:23:5-67
@@ -96,8 +96,12 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] /U
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/8b0861110f15069fe4024392df569d5a/AndroidManifest.xml:23:5-67
 	android:name
 		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:6:5-70
+	android:name
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:6:22-68
 application
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:7:5-30:19
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:8:5-31:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/inacio/.gradle/caches/transforms-2/files-2.1/d108936dccfb1f2419393b590c98bfae/AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/inacio/.gradle/caches/transforms-2/files-2.1/d108936dccfb1f2419393b590c98bfae/AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-core:16.0.8] /Users/inacio/.gradle/caches/transforms-2/files-2.1/25c60a03e50965e6c8cad412db555cf7/AndroidManifest.xml:7:5-20
@@ -106,10 +110,10 @@ MERGED from [com.google.firebase:firebase-auth:16.2.0] /Users/inacio/.gradle/cac
 MERGED from [com.google.firebase:firebase-auth:16.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/8b64466472dda804dd8ceb4807362dc5/AndroidManifest.xml:23:5-40:19
 MERGED from [com.google.firebase:firebase-database:16.1.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/004c0c029201c2610fb09ad24fb67d82/AndroidManifest.xml:28:5-34:19
 MERGED from [com.google.firebase:firebase-database:16.1.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/004c0c029201c2610fb09ad24fb67d82/AndroidManifest.xml:28:5-34:19
+MERGED from [com.google.firebase:firebase-firestore:18.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/9f718a4643f41817e6647c0c127f1d8a/AndroidManifest.xml:16:5-22:19
+MERGED from [com.google.firebase:firebase-firestore:18.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/9f718a4643f41817e6647c0c127f1d8a/AndroidManifest.xml:16:5-22:19
 MERGED from [com.squareup.picasso:picasso:2.71828] /Users/inacio/.gradle/caches/transforms-2/files-2.1/85045b13e897cd67c5b4070212ea69a4/AndroidManifest.xml:7:5-12:19
 MERGED from [com.squareup.picasso:picasso:2.71828] /Users/inacio/.gradle/caches/transforms-2/files-2.1/85045b13e897cd67c5b4070212ea69a4/AndroidManifest.xml:7:5-12:19
-MERGED from [com.google.android.gms:play-services-auth:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/c8c7f64f601b73415a5e23aa6def1a3b/AndroidManifest.xml:22:5-37:19
-MERGED from [com.google.android.gms:play-services-auth:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/c8c7f64f601b73415a5e23aa6def1a3b/AndroidManifest.xml:22:5-37:19
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/7d30e43fb21f736a4e36723475c94fdc/AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/7d30e43fb21f736a4e36723475c94fdc/AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-analytics:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/fadffee2415acaa7f9a9346f183984d9/AndroidManifest.xml:7:5-20
@@ -152,64 +156,60 @@ MERGED from [com.android.support:support-compat:28.0.0] /Users/inacio/.gradle/ca
 MERGED from [com.android.support:support-compat:28.0.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/6ae211a0dcc513d89c147a1aa68f4b5a/AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/2cf76ead1cf95dc1cb439f619ca062c9/AndroidManifest.xml:22:5-23:19
 MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/2cf76ead1cf95dc1cb439f619ca062c9/AndroidManifest.xml:22:5-23:19
-MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/6e2267584c7f826ca15667a8da5c135c/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/6e2267584c7f826ca15667a8da5c135c/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/27a02061339854cdf6b8ebe18c8a017f/AndroidManifest.xml:5:5-20
-MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/27a02061339854cdf6b8ebe18c8a017f/AndroidManifest.xml:5:5-20
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/6ae211a0dcc513d89c147a1aa68f4b5a/AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:12:9-35
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:13:9-35
 	android:label
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:10:9-41
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:11:9-41
 	android:roundIcon
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:11:9-54
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:12:9-54
 	android:icon
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:9:9-43
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:10:9-43
 	android:allowBackup
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:8:9-35
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:9:9-35
 	android:theme
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:13:9-40
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:14:9-40
 activity#com.example.paceexchange.AuctionActivity
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:14:9-16:65
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:15:9-17:65
 	android:parentActivityName
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:16:13-62
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:17:13-62
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:15:13-44
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:16:13-44
 activity#com.example.paceexchange.CurrentInventoryActivity
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:17:9-19:65
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:18:9-20:65
 	android:parentActivityName
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:19:13-62
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:20:13-62
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:18:13-53
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:19:13-53
 activity#com.example.paceexchange.AddInventoryItemActivity
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:20:9-21:69
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:21:9-22:69
 	android:parentActivityName
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:21:13-67
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:22:13-67
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:20:19-59
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:21:19-59
 activity#com.example.paceexchange.UserProfileActivity
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:22:9-57
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:23:9-57
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:22:19-54
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:23:19-54
 activity#com.example.paceexchange.RegistrationActivity
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:23:9-58
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:24:9-58
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:23:19-55
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:24:19-55
 activity#com.example.paceexchange.LoginActivity
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:24:9-29:20
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:25:9-30:20
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:24:19-48
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:25:19-48
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:25:13-28:29
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:26:13-29:29
 action#android.intent.action.MAIN
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:26:17-69
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:27:17-69
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:26:25-66
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:27:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:27:17-77
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:28:17-77
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:27:27-74
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:28:27-74
 uses-sdk
 INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml
@@ -224,20 +224,16 @@ MERGED from [com.google.firebase:firebase-auth:16.2.0] /Users/inacio/.gradle/cac
 MERGED from [com.google.firebase:firebase-auth:16.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/8b64466472dda804dd8ceb4807362dc5/AndroidManifest.xml:21:5-44
 MERGED from [com.google.firebase:firebase-database:16.1.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/004c0c029201c2610fb09ad24fb67d82/AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-database:16.1.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/004c0c029201c2610fb09ad24fb67d82/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-firestore:18.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/9f718a4643f41817e6647c0c127f1d8a/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:firebase-firestore:18.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/9f718a4643f41817e6647c0c127f1d8a/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/684ca8536aea5b3e03b6f91abdb339df/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/684ca8536aea5b3e03b6f91abdb339df/AndroidManifest.xml:20:5-44
 MERGED from [com.squareup.picasso:picasso:2.71828] /Users/inacio/.gradle/caches/transforms-2/files-2.1/85045b13e897cd67c5b4070212ea69a4/AndroidManifest.xml:5:5-44
 MERGED from [com.squareup.picasso:picasso:2.71828] /Users/inacio/.gradle/caches/transforms-2/files-2.1/85045b13e897cd67c5b4070212ea69a4/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/c8c7f64f601b73415a5e23aa6def1a3b/AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-auth:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/c8c7f64f601b73415a5e23aa6def1a3b/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/24b5e48987cadd2119efaee15a1a88c3/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-flags:16.0.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/24b5e48987cadd2119efaee15a1a88c3/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/7d30e43fb21f736a4e36723475c94fdc/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:16.0.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/7d30e43fb21f736a4e36723475c94fdc/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-api-phone:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/06a9ddf9d5fdc571ac6a03c98062acb6/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-api-phone:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/06a9ddf9d5fdc571ac6a03c98062acb6/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-base:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/ca72cad853ae9ff6d706cd0f9789e10c/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-base:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/ca72cad853ae9ff6d706cd0f9789e10c/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/fadffee2415acaa7f9a9346f183984d9/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/fadffee2415acaa7f9a9346f183984d9/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/869711df56e826689631ede5368d5a2a/AndroidManifest.xml:20:5-44
@@ -328,10 +324,10 @@ MERGED from [android.arch.core:runtime:1.1.1] /Users/inacio/.gradle/caches/trans
 MERGED from [android.arch.core:runtime:1.1.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/f73e4b6301fe45c7f46851791fd961d4/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/26a94345a8b61e1c3a460bb4a0c6feae/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-database-collection:16.0.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/26a94345a8b61e1c3a460bb4a0c6feae/AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/6e2267584c7f826ca15667a8da5c135c/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-auth-api-phone-license:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/6e2267584c7f826ca15667a8da5c135c/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/27a02061339854cdf6b8ebe18c8a017f/AndroidManifest.xml:4:5-43
-MERGED from [com.google.android.gms:play-services-auth-base-license:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/27a02061339854cdf6b8ebe18c8a017f/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:protolite-well-known-types:16.0.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/23c3cd69e60405077aba3e12ddda67ba/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:protolite-well-known-types:16.0.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/23c3cd69e60405077aba3e12ddda67ba/AndroidManifest.xml:7:5-9:41
+MERGED from [io.grpc:grpc-android:1.16.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/a2f8f9f4c2509b13f8eda19453f45950/AndroidManifest.xml:7:5-9:41
+MERGED from [io.grpc:grpc-android:1.16.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/a2f8f9f4c2509b13f8eda19453f45950/AndroidManifest.xml:7:5-9:41
 INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml
 INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml
 	tools:overrideLibrary
@@ -364,6 +360,8 @@ service#com.google.firebase.components.ComponentDiscoveryService
 ADDED from [com.google.firebase:firebase-auth:16.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/8b64466472dda804dd8ceb4807362dc5/AndroidManifest.xml:33:9-39:19
 MERGED from [com.google.firebase:firebase-database:16.1.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/004c0c029201c2610fb09ad24fb67d82/AndroidManifest.xml:29:9-33:19
 MERGED from [com.google.firebase:firebase-database:16.1.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/004c0c029201c2610fb09ad24fb67d82/AndroidManifest.xml:29:9-33:19
+MERGED from [com.google.firebase:firebase-firestore:18.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/9f718a4643f41817e6647c0c127f1d8a/AndroidManifest.xml:17:9-21:19
+MERGED from [com.google.firebase:firebase-firestore:18.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/9f718a4643f41817e6647c0c127f1d8a/AndroidManifest.xml:17:9-21:19
 MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/869711df56e826689631ede5368d5a2a/AndroidManifest.xml:27:9-33:19
 MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/869711df56e826689631ede5368d5a2a/AndroidManifest.xml:27:9-33:19
 MERGED from [com.google.firebase:firebase-iid:17.0.3] /Users/inacio/.gradle/caches/transforms-2/files-2.1/b3cd3441c0830259b1c88eefd73f189d/AndroidManifest.xml:29:9-35:19
@@ -380,6 +378,8 @@ ADDED from [com.google.firebase:firebase-auth:16.2.0] /Users/inacio/.gradle/cach
 		ADDED from [com.google.firebase:firebase-auth:16.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/8b64466472dda804dd8ceb4807362dc5/AndroidManifest.xml:37:17-109
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.firebase:firebase-database:16.1.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/004c0c029201c2610fb09ad24fb67d82/AndroidManifest.xml:25:5-79
+MERGED from [com.google.firebase:firebase-firestore:18.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/9f718a4643f41817e6647c0c127f1d8a/AndroidManifest.xml:13:5-79
+MERGED from [com.google.firebase:firebase-firestore:18.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/9f718a4643f41817e6647c0c127f1d8a/AndroidManifest.xml:13:5-79
 MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/869711df56e826689631ede5368d5a2a/AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/869711df56e826689631ede5368d5a2a/AndroidManifest.xml:23:5-79
 MERGED from [com.google.firebase:firebase-iid:17.0.3] /Users/inacio/.gradle/caches/transforms-2/files-2.1/b3cd3441c0830259b1c88eefd73f189d/AndroidManifest.xml:22:5-79
@@ -390,6 +390,8 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /User
 MERGED from [com.google.android.gms:play-services-measurement-impl:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/314037b014eb86740f1b443200e4c21c/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/8b0861110f15069fe4024392df569d5a/AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/8b0861110f15069fe4024392df569d5a/AndroidManifest.xml:24:5-79
+MERGED from [io.grpc:grpc-android:1.16.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/a2f8f9f4c2509b13f8eda19453f45950/AndroidManifest.xml:11:5-79
+MERGED from [io.grpc:grpc-android:1.16.1] /Users/inacio/.gradle/caches/transforms-2/files-2.1/a2f8f9f4c2509b13f8eda19453f45950/AndroidManifest.xml:11:5-79
 	android:name
 		ADDED from [com.google.firebase:firebase-database:16.1.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/004c0c029201c2610fb09ad24fb67d82/AndroidManifest.xml:25:22-76
 meta-data#com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar
@@ -398,6 +400,12 @@ ADDED from [com.google.firebase:firebase-database:16.1.0] /Users/inacio/.gradle/
 		ADDED from [com.google.firebase:firebase-database:16.1.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/004c0c029201c2610fb09ad24fb67d82/AndroidManifest.xml:32:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-database:16.1.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/004c0c029201c2610fb09ad24fb67d82/AndroidManifest.xml:31:17-109
+meta-data#com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar
+ADDED from [com.google.firebase:firebase-firestore:18.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/9f718a4643f41817e6647c0c127f1d8a/AndroidManifest.xml:18:13-20:85
+	android:value
+		ADDED from [com.google.firebase:firebase-firestore:18.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/9f718a4643f41817e6647c0c127f1d8a/AndroidManifest.xml:20:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-firestore:18.2.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/9f718a4643f41817e6647c0c127f1d8a/AndroidManifest.xml:19:17-111
 provider#com.squareup.picasso.PicassoProvider
 ADDED from [com.squareup.picasso:picasso:2.71828] /Users/inacio/.gradle/caches/transforms-2/files-2.1/85045b13e897cd67c5b4070212ea69a4/AndroidManifest.xml:8:9-11:40
 	android:authorities
@@ -406,24 +414,6 @@ ADDED from [com.squareup.picasso:picasso:2.71828] /Users/inacio/.gradle/caches/t
 		ADDED from [com.squareup.picasso:picasso:2.71828] /Users/inacio/.gradle/caches/transforms-2/files-2.1/85045b13e897cd67c5b4070212ea69a4/AndroidManifest.xml:11:13-37
 	android:name
 		ADDED from [com.squareup.picasso:picasso:2.71828] /Users/inacio/.gradle/caches/transforms-2/files-2.1/85045b13e897cd67c5b4070212ea69a4/AndroidManifest.xml:9:13-64
-activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
-ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/c8c7f64f601b73415a5e23aa6def1a3b/AndroidManifest.xml:23:9-27:75
-	android:excludeFromRecents
-		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/c8c7f64f601b73415a5e23aa6def1a3b/AndroidManifest.xml:25:13-46
-	android:exported
-		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/c8c7f64f601b73415a5e23aa6def1a3b/AndroidManifest.xml:26:13-37
-	android:theme
-		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/c8c7f64f601b73415a5e23aa6def1a3b/AndroidManifest.xml:27:13-72
-	android:name
-		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/c8c7f64f601b73415a5e23aa6def1a3b/AndroidManifest.xml:24:13-93
-service#com.google.android.gms.auth.api.signin.RevocationBoundService
-ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/c8c7f64f601b73415a5e23aa6def1a3b/AndroidManifest.xml:33:9-36:110
-	android:exported
-		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/c8c7f64f601b73415a5e23aa6def1a3b/AndroidManifest.xml:35:13-36
-	android:permission
-		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/c8c7f64f601b73415a5e23aa6def1a3b/AndroidManifest.xml:36:13-107
-	android:name
-		ADDED from [com.google.android.gms:play-services-auth:11.8.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/c8c7f64f601b73415a5e23aa6def1a3b/AndroidManifest.xml:34:13-89
 uses-permission#android.permission.WAKE_LOCK
 ADDED from [com.google.android.gms:play-services-measurement-api:16.4.0] /Users/inacio/.gradle/caches/transforms-2/files-2.1/869711df56e826689631ede5368d5a2a/AndroidManifest.xml:24:5-68
 MERGED from [com.google.firebase:firebase-iid:17.0.3] /Users/inacio/.gradle/caches/transforms-2/files-2.1/b3cd3441c0830259b1c88eefd73f189d/AndroidManifest.xml:24:5-68
