@@ -3,7 +3,7 @@
     package="com.example.paceexchange">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <application
         android:allowBackup="true"
@@ -18,17 +18,19 @@
         <activity
             android:name=".CurrentInventoryActivity"
             android:parentActivityName=".UserProfileActivity" />
-        <activity android:name=".AddInventoryItemActivity"
-            android:parentActivityName=".CurrentInventoryActivity"/>
-        <activity android:name=".UserProfileActivity"/>
-        <activity android:name=".RegistrationActivity"
-            android:parentActivityName=".LoginActivity"/>
-        <activity android:name=".LoginActivity">
+        <activity
+            android:name=".AddInventoryItemActivity"
+            android:parentActivityName=".CurrentInventoryActivity" />
+        <activity android:name=".UserProfileActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".RegistrationActivity"
+            android:parentActivityName=".LoginActivity" />
+        <activity android:name=".LoginActivity" />
     </application>
 
 </manifest>

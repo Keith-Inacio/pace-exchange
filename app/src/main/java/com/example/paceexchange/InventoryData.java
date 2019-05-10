@@ -1,105 +1,66 @@
 package com.example.paceexchange;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 public class InventoryData {
 
-    private int mImage;
-    private String mItemName, mItemValue, mItemCondition, mItemCategory, mReturn, mURL, mValue, mOwner;
+    private String mCategory, mItemID, mTitle, mUrl, mTradeInFor;
+    private FirebaseFirestore mFirestoreDatabase;
 
     public InventoryData() {
 
     }
 
-    public InventoryData(int image, String name, String value, String condition, String category) {
+    public InventoryData(String category, String title, String tradeInFor) {
 
-        mImage = image;
-        mItemName = name;
-        mItemValue = value;
-        mItemCondition = condition;
-        mItemCategory = category;
+        mFirestoreDatabase = FirebaseFirestore.getInstance();
+        mCategory=category;
+        mItemID=FirebaseDatabase.getInstance().getReference().getKey();
+        mTitle=title;
+        mTradeInFor=tradeInFor;
+        mUrl=null;
 
     }
 
-    public InventoryData(String category, String condition, String name, String requested, String URL, String value, String owner) {
-
-        mItemName = name;
-        mItemValue = value;
-        mItemCondition = condition;
-        mItemCategory = category;
-        mReturn = requested;
-        mURL = URL;
-        mValue = value;
-        mOwner = owner;
+    public String getmCategory() {
+        return mCategory;
     }
 
-    public int getmImage() {
-        return mImage;
+    public void setmCategory(String mCategory) {
+        this.mCategory = mCategory;
     }
 
-    public void setmImage(int mImage) {
-        this.mImage = mImage;
+    public String getmItemID() {
+        return mItemID;
     }
 
-    public String getmItemName() {
-        return mItemName;
+    public void setmItemID(String mItemID) {
+        this.mItemID = mItemID;
     }
 
-    public void setmItemName(String mItemName) {
-        this.mItemName = mItemName;
+    public String getmTitle() {
+        return mTitle;
     }
 
-    public String getmItemValue() {
-        return mItemValue;
+    public void setmTitle(String mTitle) {
+        this.mTitle = mTitle;
     }
 
-    public void setmItemValue(String mItemValue) {
-        this.mItemValue = mItemValue;
+    public String getmUrl() {
+        return mUrl;
     }
 
-    public String getmItemCondition() {
-        return mItemCondition;
+    public void setmUrl(String mUrl) {
+        this.mUrl = mUrl;
     }
 
-    public void setmItemCondition(String mItemCondition) {
-        this.mItemCondition = mItemCondition;
+    public String getmTradeInFor() {
+        return mTradeInFor;
     }
 
-    public String getmItemCategory() {
-        return mItemCategory;
-    }
-
-    public void setmItemCategory(String mItemCategory) {
-        this.mItemCategory = mItemCategory;
-    }
-
-    public String getmReturn() {
-        return mReturn;
-    }
-
-    public void setmReturn(String mReturn) {
-        this.mReturn = mReturn;
-    }
-
-    public String getmURL() {
-        return mURL;
-    }
-
-    public void setmURL(String mURL) {
-        this.mURL = mURL;
-    }
-
-    public String getmValue() {
-        return mValue;
-    }
-
-    public void setmValue(String mValue) {
-        this.mValue = mValue;
-    }
-
-    public String getmOwner() {
-        return mOwner;
-    }
-
-    public void setmOwner(String mOwner) {
-        this.mOwner = mOwner;
+    public void setmTradeInFor(String mTradeInFor) {
+        this.mTradeInFor = mTradeInFor;
     }
 }

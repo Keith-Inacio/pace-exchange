@@ -3,6 +3,7 @@ package com.example.paceexchange;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,8 +13,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -24,18 +28,15 @@ import java.util.HashMap;
 public class AuctionActivity extends AppCompatActivity {
 
     private DatabaseReference mUserDatabase;
-    private AuctionFragment mItemDisplay, itemFragment;
-    private FragmentManager mFragmentManager;
+    private AuctionFragment mItemDisplay, itemFragment, fragment;
     private Handler mainThreadHandler;
-    AuctionFragment fragment, ght;
 
     private Button mStartBidButton, mNextItemButton;
     private TextView mText, mUserBidItem;
 
-
     private int mTimer = 60;
-    private int nextClickCounter = 1;
     private int listCounter = 0;
+    private int mCurrentReputationValue;
 
     public static final String BID_ITEM_MESSAGE = "com.example.paceexchange.ITEMMESSAGE";
 
@@ -83,9 +84,9 @@ public class AuctionActivity extends AppCompatActivity {
 
                 itemFragment = new AuctionFragment();
                 inventoryDataList = mFireBaseRetriever.getListItem();
-                mItemDisplay.setURL(inventoryDataList.get(listCounter).getmURL());
-                mItemDisplay.setItemName((inventoryDataList.get(listCounter).getmItemName()));
-                mItemDisplay.setItemOwner((inventoryDataList.get(listCounter).getmOwner()));
+                //mItemDisplay.setURL(inventoryDataList.get(listCounter).getmURL());
+                //mItemDisplay.setItemName((inventoryDataList.get(listCounter).getmItemName()));
+                //mItemDisplay.setItemOwner((inventoryDataList.get(listCounter).getmOwner()));
 
                 listCounter++;
                 mFireBaseRetriever.getFireStoreItem();
@@ -139,8 +140,40 @@ public class AuctionActivity extends AppCompatActivity {
         mClock.start();
 
     }
-
-
-
-
 }
+
+    /*
+    public void getUserReputation(String mWinnerID) {
+
+        if (userID or name ==winner){
+
+
+            mUserDatabase.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    mCurrentReputationValue = Integer.parseInt(dataSnapshot.child("mNewUserDefaultReputation").getValue().toString());
+                    setNewUserReputation(mCurrentReputationValue);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
+    }
+
+    private void setNewUserReputation(int reputationValue){
+
+        reputationValue++;
+
+        mUserDatabase.child(studentID).child("mNewUserDefaultReputation").setValue(reputationValue);
+
+    }
+
+*/
+
+
+
+

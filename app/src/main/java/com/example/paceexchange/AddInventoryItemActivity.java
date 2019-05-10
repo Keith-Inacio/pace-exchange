@@ -17,24 +17,19 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class AddInventoryItemActivity extends AppCompatActivity {
 
-    FirebaseFirestore mTotalInventoryDatabase;
-    HashMap<String, Object> mGeneralInventoryAddition;
-    CollectionReference mTotalInventoryCollection;
+    private FirebaseFirestore mFirestoreInventoryDatabase;
+    private HashMap<String, Object> mFireStoreMap;
+    private CollectionReference mFirestoreInventoryCollection;
 
     private EditText mNewItemInput;
     private Button mSubmitItemButton;
@@ -55,9 +50,9 @@ public class AddInventoryItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_inventory);
 
-        mGeneralInventoryAddition = new HashMap<>();
-        mTotalInventoryDatabase = FirebaseFirestore.getInstance();
-        mTotalInventoryCollection = mTotalInventoryDatabase.collection("item_inventory");
+        mFireStoreMap = new HashMap<>();
+        mFirestoreInventoryDatabase = FirebaseFirestore.getInstance();
+        mFirestoreInventoryCollection = mFirestoreInventoryDatabase.collection("inventory");
 
         mDataBase = FirebaseDatabase.getInstance().getReference();
         mSpinner = findViewById(R.id.spinner);
@@ -100,22 +95,12 @@ public class AddInventoryItemActivity extends AppCompatActivity {
         }
     }
 
-    //method to be removed when we we have firestore data working for display with recycler
-    public void addItemToFirebaseRealTime() {
-
-        mDataBase.child("Student").child("-LbdV3uBhsq7xfV4ZQrb").child("Inventory").child(mNewItemName).setValue(mNewItemName);
-        mDataBase.child("Student").child("-LbdV3uBhsq7xfV4ZQrb").child("Inventory").child(mNewItemName).child("Condition").setValue(mSelectedConditionRadioButton.getText());
-        mDataBase.child("Student").child("-LbdV3uBhsq7xfV4ZQrb").child("Inventory").child(mNewItemName).child("Category").setValue(mNewItemCategory);
-        mDataBase.child("Student").child("-LbdV3uBhsq7xfV4ZQrb").child("Inventory").child(mNewItemName).child("Trade Value").setValue(mSelectedValueRadioButton.getText());
-
-    }
-
     public void addItemToFirebaseInventory(){
 
         String itemCondition = mSelectedConditionRadioButton.getText().toString();
         String value = mSelectedValueRadioButton.getText().toString();
 
-        mTotalInventoryCollection.document("Keith Inacio").update("items", FieldValue.arrayUnion(new InventoryData(1, mNewItemName, itemCondition, mNewItemCategory, value)));
+        mFirestoreInventoryCollection.document("keith@pace.edu").update("Items", FieldValue.arrayUnion(new InventoryData(mNewItemCategory, mNewItemName, value)));
     }
 
     public void setOnButtonClickListener() {
@@ -124,7 +109,6 @@ public class AddInventoryItemActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getNewItemData();
-                addItemToFirebaseRealTime();
                 addItemToFirebaseInventory();
                 displayNotification();
             }

@@ -69,8 +69,8 @@ public class FirebaseDataRetrieval {
 
     public void getFirebaseValue(String category, String condition, String name, String returnRequest, String url, String value, String owner) {
 
-        InventoryData mDataObject = new InventoryData(category, condition, name, returnRequest, url, value, owner);
-        mInventorylist.add(mDataObject);
+       // InventoryData mDataObject = new InventoryData(category, condition, name, returnRequest, url, value, owner);
+       // mInventorylist.add(mDataObject);
 
     }
 
