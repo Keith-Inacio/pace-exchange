@@ -698,6 +698,7 @@ drawable ic_launcher_round
 drawable ic_thumb_up_black_24dp
 drawable javabook
 drawable keyboard
+drawable login_image
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -710,6 +711,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable profile
 drawable python_book
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -751,7 +753,6 @@ id async
 id auctionButton
 id auctionButtons
 id auctionTitle
-id authorName
 id auto
 id barrier
 id beginning
@@ -790,7 +791,6 @@ id expanded_menu
 id fill
 id fill_horizontal
 id fill_vertical
-id firstName
 id firstname
 id forever
 id gone
@@ -816,12 +816,12 @@ id itemImage
 id itemName
 id itemNameInput
 id itemNameInputSection
+id itemOwner
 id itemTypeSection
 id itemTypeText
 id itemValueSection
 id itemValueText
 id item_touch_helper_previous_elevation
-id lastName
 id lastname
 id leadBidder
 id left
@@ -831,12 +831,14 @@ id line3
 id listMode
 id list_item
 id loginButton
+id loginImage
 id loginTitle
 id logoutButton
 id media_actions
 id message
 id middle
 id multiply
+id name
 id never
 id nextItemButton
 id none
@@ -845,7 +847,6 @@ id notification_background
 id notification_main_column
 id notification_main_column_container
 id number
-id paceImage
 id packed
 id parent
 id parentPanel
@@ -854,6 +855,7 @@ id passwordInput
 id percent
 id productConditionButtons
 id productValueButtons
+id profileIcon
 id profileTitle
 id progress_circular
 id progress_horizontal
@@ -1035,10 +1037,11 @@ string add_inventory_title
 string add_new_item_button_text
 string added_item_notification_title
 string app_name
-string auctio_user_item
 string auction_Item
 string auction_ended
 string auction_live
+string auction_owner_display
+string auction_user_item
 string average_reputation
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
@@ -1098,6 +1101,7 @@ string password
 string poor_reputation
 string profile_email
 string profile_grad_year
+string profile_name_display
 string project_id
 string radio_button_condition_new
 string radio_button_condition_used

@@ -1,4 +1,4 @@
-#Wed May 08 16:32:15 EDT 2019
+#Thu May 09 22:11:28 EDT 2019
 base.0=/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

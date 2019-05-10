@@ -2,35 +2,86 @@
 <instant-run
     abi="x86"
     api-level="28"
-    build-mode="HOT_WARM"
+    build-mode="FULL"
     density="xhdpi"
     format="10"
     plugin-version="3.4.0"
-    timestamp="1557349506572"
+    timestamp="1557454262291"
     token="-4813437220597338446"
-    verifier="COMPATIBLE" >
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="669" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="221" />
     <task
         name="verifier"
-        duration="0" />
+        duration="190" />
 
     <artifact
         location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
         type="SPLIT" />
+    <artifact
+        location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+        type="SPLIT" />
+    <artifact
+        location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1557349199858"
+        timestamp="1557454262291"
         verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            type="SPLIT" />
         <artifact
             location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
             type="SPLIT" />
@@ -38,46 +89,23 @@
             location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
-            type="SPLIT" />
-        <artifact
             location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
             type="SPLIT" />
         <artifact
             location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
-            type="SPLIT" />
-        <artifact
-            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
         <artifact
             location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
-            type="SPLIT" />
-        <artifact
             location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
             type="SPLIT_MAIN" />
-    </build>
-    <build
-        build-mode="HOT_WARM"
-        timestamp="1557349506572"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
-            type="SPLIT" />
     </build>
 
 </instant-run>

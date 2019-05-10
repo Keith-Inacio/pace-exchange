@@ -17,10 +17,24 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 
 public class AddInventoryItemActivity extends AppCompatActivity {
+
+    FirebaseFirestore mTotalInventoryDatabase;
+    HashMap<String, Object> mGeneralInventoryAddition;
+    CollectionReference mTotalInventoryCollection;
 
     private EditText mNewItemInput;
     private Button mSubmitItemButton;
@@ -41,12 +55,17 @@ public class AddInventoryItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_inventory);
 
+        mGeneralInventoryAddition = new HashMap<>();
+        mTotalInventoryDatabase = FirebaseFirestore.getInstance();
+        mTotalInventoryCollection = mTotalInventoryDatabase.collection("item_inventory");
+
         mDataBase = FirebaseDatabase.getInstance().getReference();
         mSpinner = findViewById(R.id.spinner);
         mNewItemInput = findViewById(R.id.itemNameInput);
         mItemConditionRadioGroup = findViewById(R.id.productConditionButtons);
         mItemValueRadioGroup = findViewById(R.id.productValueButtons);
         mSubmitItemButton = findViewById(R.id.submitNewItemButton);
+
         setOnItemMenuClickListener();
         setOnButtonClickListener();
 
@@ -74,15 +93,15 @@ public class AddInventoryItemActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), R.string.error_new_item_name, Toast.LENGTH_LONG).show();
         } else if (mSelectedConditionRadioButton == null) {
             Toast.makeText(getApplicationContext(), R.string.error_new_item_radio_button, Toast.LENGTH_LONG).show();
-        }else if (mSelectedValueRadioButton == null) {
+        } else if (mSelectedValueRadioButton == null) {
             Toast.makeText(getApplicationContext(), R.string.error_new_item_value, Toast.LENGTH_LONG).show();
-        }
-        else {
+        } else {
             mNewItemName = mNewItemInput.getText().toString().trim();
         }
     }
 
-    public void addItemToFirebase() {
+    //method to be removed when we we have firestore data working for display with recycler
+    public void addItemToFirebaseRealTime() {
 
         mDataBase.child("Student").child("-LbdV3uBhsq7xfV4ZQrb").child("Inventory").child(mNewItemName).setValue(mNewItemName);
         mDataBase.child("Student").child("-LbdV3uBhsq7xfV4ZQrb").child("Inventory").child(mNewItemName).child("Condition").setValue(mSelectedConditionRadioButton.getText());
@@ -91,13 +110,22 @@ public class AddInventoryItemActivity extends AppCompatActivity {
 
     }
 
+    public void addItemToFirebaseInventory(){
+
+        String itemCondition = mSelectedConditionRadioButton.getText().toString();
+        String value = mSelectedValueRadioButton.getText().toString();
+
+        mTotalInventoryCollection.document("Keith Inacio").update("items", FieldValue.arrayUnion(new InventoryData(1, mNewItemName, itemCondition, mNewItemCategory, value)));
+    }
+
     public void setOnButtonClickListener() {
 
         mSubmitItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getNewItemData();
-                addItemToFirebase();
+                addItemToFirebaseRealTime();
+                addItemToFirebaseInventory();
                 displayNotification();
             }
         });

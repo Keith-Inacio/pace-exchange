@@ -25,7 +25,7 @@ import com.squareup.picasso.Picasso;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private ImageView mPaceLoginImage;
+    private ImageView mLoginImage;
     private EditText mEmailInput, mPasswordInput;
     private TextView mRegistrationLink;
     private Button mLoginButton;
@@ -34,8 +34,6 @@ public class LoginActivity extends AppCompatActivity {
     private String mEmailValidate, mPasswordValidate, mCurrentUserID;
     private DatabaseReference mUserDatabase;
     public static final String EXTRA_MESSAGE = "com.example.paceexchange.MESSAGE";
-
-    private final String mImageURL = "https://media.karousell.com/media/photos/products/2018/08/25/barter_trade__exchange_your_goods_with_mine_1535126758_21a31c740";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         mPasswordInput = findViewById(R.id.passwordInput);
         mRegistrationLink = findViewById(R.id.registerLink);
         mLoginButton = findViewById(R.id.loginButton);
-        mPaceLoginImage = findViewById(R.id.paceImage);
+        mLoginImage = findViewById(R.id.loginImage);
         mCurrentUserID = "";
 
         mProgressUpdate = new ProgressDialog(this);
@@ -54,7 +52,6 @@ public class LoginActivity extends AppCompatActivity {
         mUserAuthorization = FirebaseAuth.getInstance();
 
         setOnClickListener();
-        loadLoginImage();
     }
 
     /**
@@ -157,9 +154,4 @@ public class LoginActivity extends AppCompatActivity {
         return mCurrentUserID;
     }
 
-    private void loadLoginImage(){
-
-        Picasso.get().load(mImageURL).fit().centerCrop().into(mPaceLoginImage);
-
-    }
 }

@@ -1,7 +1,10 @@
 package com.example.paceexchange;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,16 +14,27 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CurrentInventoryActivity extends AppCompatActivity {
+
+    FirebaseFirestore mTotalInventoryDatabase;
+    HashMap<String, Object> mGeneralInventoryAddition;
+    CollectionReference mTotalInventoryCollection;
+
 
     private Button mTradeItemButton, mAddNewItemButton, mRemoveItemButton;
     private RecyclerView mRecyclerView;
@@ -32,10 +46,16 @@ public class CurrentInventoryActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE_TRADE_ITEM = "com.example.paceexchange.ITEM_NAME";
     public static final String EXTRA_MESSAGE_TRADE_ITEM_VALUE = "com.example.paceexchange.ITEM_VALUE";
 
+    String ID;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
+
+        mGeneralInventoryAddition = new HashMap<>();
+        mTotalInventoryDatabase = FirebaseFirestore.getInstance();
+        mTotalInventoryCollection = mTotalInventoryDatabase.collection("item_inventory");
 
         mTradeItemButton = findViewById(R.id.tradeSelectedItemButton);
         mAddNewItemButton = findViewById(R.id.addInventoryItemButton);
@@ -47,8 +67,8 @@ public class CurrentInventoryActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Student").child("-LbdV3uBhsq7xfV4ZQrb").child("Inventory");
 
         setButtonClickListener();
-        setRecyclerView();
         iterateFirebaseInventory();
+        setRecyclerView();
     }
 
     public void setRecyclerView() {
@@ -123,6 +143,7 @@ public class CurrentInventoryActivity extends AppCompatActivity {
             }
 
         });
+
     }
 
     private String getItem(String key) {

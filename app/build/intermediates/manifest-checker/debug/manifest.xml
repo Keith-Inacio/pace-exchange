@@ -38,7 +38,9 @@
             android:name="com.example.paceexchange.AddInventoryItemActivity"
             android:parentActivityName="com.example.paceexchange.CurrentInventoryActivity" />
         <activity android:name="com.example.paceexchange.UserProfileActivity" />
-        <activity android:name="com.example.paceexchange.RegistrationActivity" />
+        <activity
+            android:name="com.example.paceexchange.RegistrationActivity"
+            android:parentActivityName="com.example.paceexchange.LoginActivity" />
         <activity android:name="com.example.paceexchange.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

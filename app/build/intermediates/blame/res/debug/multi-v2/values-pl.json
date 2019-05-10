@@ -4,24 +4,7 @@
             "outputFile": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pl/values-pl.xml",
             "map": [
                 {
-                    "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/72d91575a8eb2ef3f36f246f68689f55/res/values-pl/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "198",
-                        "endOffsets": "445"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "3975",
-                        "endColumns": "198",
-                        "endOffsets": "4169"
-                    }
-                },
-                {
-                    "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/caee60d0e0962a7f425f2891e04e343c/res/values-pl/values-pl.xml",
+                    "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/9afc155a13c333d4f70f3015ed39960a/res/values-pl/values-pl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/6ae211a0dcc513d89c147a1aa68f4b5a/res/values-pl/values-pl.xml",
+                    "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/0e578d5c62ed0b7bb739e05e2e9040c2/res/values-pl/values-pl.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -55,7 +38,24 @@
                     }
                 },
                 {
-                    "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/b6236f23b7028049108ce389baef8db3/res/values-pl/values.xml",
+                    "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/3fd02a59d13fc30167ba69f31b34a23b/res/values-pl/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "198",
+                        "endOffsets": "445"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "3975",
+                        "endColumns": "198",
+                        "endOffsets": "4169"
+                    }
+                },
+                {
+                    "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/535fa39ffd060b6bc1344374afbe060b/res/values-pl/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "379264075105-4q6guajs1co54aj5csbvtt40a2frj4cq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.paceexchange",
+            "certificate_hash": "2318447c50a9cdc985b06a401025a0d40087b743"
+          }
+        },
+        {
           "client_id": "379264075105-40oob49dqkdlnths76a8guuiutlcnaso.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -25,15 +33,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "379264075105-40oob49dqkdlnths76a8guuiutlcnaso.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class UserProfileActivity extends AppCompatActivity {
 
-    private TextView mFirstName, mLastName, mEmail, mGraduationDate, mUserReputation;
+    private TextView mUserName, mEmail, mGraduationDate, mUserReputation;
     private Button mLogoutButton, mAuctionButton, mInventoryButton;
     private DatabaseReference mDatabase;
     private FirebaseAuth mUserAuthorization;
@@ -54,8 +54,7 @@ public class UserProfileActivity extends AppCompatActivity {
         mUserAuthorization = FirebaseAuth.getInstance();
         mUserAuthorization.getCurrentUser();
 
-        mFirstName = findViewById(R.id.firstName);
-        mLastName = findViewById(R.id.lastName);
+        mUserName = findViewById(R.id.name);
         mGraduationDate = findViewById(R.id.graduation);
         mEmail = findViewById(R.id.email);
         mUserReputation = findViewById(R.id.rating);
@@ -69,8 +68,9 @@ public class UserProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                mFirstName.setText(dataSnapshot.child("mFirstName").getValue().toString());
-                mLastName.setText(dataSnapshot.child("mLastName").getValue().toString());
+                String firstName = dataSnapshot.child("mFirstName").getValue().toString();
+                String lastName = dataSnapshot.child("mLastName").getValue().toString();
+                mUserName.setText(getResources().getString(R.string.profile_name_display, firstName, lastName));
                 mGraduationDate.setText(getString(R.string.profile_grad_year, dataSnapshot.child("mGraduationYear").getValue().toString()));
                 mEmail.setText(getString(R.string.profile_email, dataSnapshot.child("mUserEmail").getValue().toString()));
                 mCurrentReputationValue = Integer.parseInt(dataSnapshot.child("mNewUserDefaultReputation").getValue().toString());

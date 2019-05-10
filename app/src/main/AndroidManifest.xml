@@ -20,8 +20,9 @@
             android:parentActivityName=".UserProfileActivity" />
         <activity android:name=".AddInventoryItemActivity"
             android:parentActivityName=".CurrentInventoryActivity"/>
-        <activity android:name=".UserProfileActivity" />
-        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".UserProfileActivity"/>
+        <activity android:name=".RegistrationActivity"
+            android:parentActivityName=".LoginActivity"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

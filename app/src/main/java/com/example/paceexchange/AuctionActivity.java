@@ -3,11 +3,11 @@ package com.example.paceexchange;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,53 +18,90 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class AuctionActivity extends AppCompatActivity {
 
-    private AuctionFragment mItemDisplay;
+    private DatabaseReference mUserDatabase;
+    private AuctionFragment mItemDisplay, itemFragment;
     private FragmentManager mFragmentManager;
     private Handler mainThreadHandler;
+    AuctionFragment fragment, ght;
+
     private Button mStartBidButton, mNextItemButton;
     private TextView mText, mUserBidItem;
+
+
     private int mTimer = 60;
-    private int nextClickCounter=0;
-    private Bundle args;
-    private DatabaseReference mUserDatabase;
-    RandomUniversalInventoryItem firebaseIventroyAccess;
-    InventoryData data;
+    private int nextClickCounter = 1;
+    private int listCounter = 0;
 
     public static final String BID_ITEM_MESSAGE = "com.example.paceexchange.ITEMMESSAGE";
+
+    private FirebaseDataRetrieval mFireBaseRetriever;
+
+    ArrayList<InventoryData> inventoryDataList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auction);
 
+        inventoryDataList = new ArrayList<>();
+
         mUserBidItem = findViewById(R.id.userBidItem);
-
-        firebaseIventroyAccess = new RandomUniversalInventoryItem(1);
-        data = new InventoryData();
-//        data = firebaseIventroyAccess.getOBject();
-
-
-        mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Student").child("-LbdV3uBhsq7xfV4ZQrb").child("Inventory");
-        String mSelectedTradeItemName = getIntent().getStringExtra(CurrentInventoryActivity.EXTRA_MESSAGE_TRADE_ITEM);
-        String mSelectedTradeItemValue = getIntent().getStringExtra(CurrentInventoryActivity.EXTRA_MESSAGE_TRADE_ITEM_VALUE);
-        mUserBidItem.setText(getResources().getString(R.string.auctio_user_item, mSelectedTradeItemName, mSelectedTradeItemValue));
-
-        mItemDisplay = new AuctionFragment();
-        mFragmentManager = getSupportFragmentManager();
-        mFragmentManager.beginTransaction().add(R.id.itemContainer, mItemDisplay).commit();
-
         mStartBidButton = findViewById(R.id.startButton);
         mNextItemButton = findViewById(R.id.nextItemButton);
         mText = findViewById(R.id.number);
 
+        mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Student").child("-LbdV3uBhsq7xfV4ZQrb").child("Inventory");
+
+        String mSelectedTradeItemName = getIntent().getStringExtra(CurrentInventoryActivity.EXTRA_MESSAGE_TRADE_ITEM);
+        String mSelectedTradeItemValue = getIntent().getStringExtra(CurrentInventoryActivity.EXTRA_MESSAGE_TRADE_ITEM_VALUE);
+        mUserBidItem.setText(getResources().getString(R.string.auction_user_item, mSelectedTradeItemName, mSelectedTradeItemValue));
+
         mainThreadHandler = new Handler(Looper.getMainLooper());
 
+        mFireBaseRetriever = new FirebaseDataRetrieval();
+        mFireBaseRetriever.getFireStoreItem();
+
+        mItemDisplay = new AuctionFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.itemContainer, mItemDisplay).commit();
+
+        fragment = new AuctionFragment();
 
         setButtonClickListeners();
+    }
+
+
+    public void setButtonClickListeners() {
+
+        mNextItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                itemFragment = new AuctionFragment();
+                inventoryDataList = mFireBaseRetriever.getListItem();
+                mItemDisplay.setURL(inventoryDataList.get(listCounter).getmURL());
+                mItemDisplay.setItemName((inventoryDataList.get(listCounter).getmItemName()));
+                mItemDisplay.setItemOwner((inventoryDataList.get(listCounter).getmOwner()));
+
+                listCounter++;
+                mFireBaseRetriever.getFireStoreItem();
+
+                getSupportFragmentManager().beginTransaction().add(R.id.itemContainer, itemFragment).commit();
+
+            }
+        });
+
+        mStartBidButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startCountdown();
+            }
+        });
+
     }
 
     public void startCountdown() {
@@ -90,6 +127,7 @@ public class AuctionActivity extends AppCompatActivity {
                             startCountdown();
                         } else {
                             mText.setText(getResources().getString(R.string.auction_ended));
+                            //mFireBaseRetriever.updateDatabaseAfterAuction();
                         }
                     }
                 });
@@ -102,31 +140,7 @@ public class AuctionActivity extends AppCompatActivity {
 
     }
 
-    public void setButtonClickListeners(){
-
-        mNextItemButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                args = new Bundle();
-                AuctionFragment fragment = new AuctionFragment();
-                nextClickCounter++;
-                args.putInt(BID_ITEM_MESSAGE, nextClickCounter);
-                fragment.setArguments(args);
-
-                mFragmentManager.beginTransaction().replace(R.id.itemContainer, fragment).commit();
-
-            }
-        });
-
-        mStartBidButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startCountdown();
-            }
-        });
 
 
-    }
 
 }
