@@ -43,13 +43,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
         InventoryData inventoryDisplay = mItemList.get(position);
         ViewHolder vHolder = (ViewHolder) viewHolder;
 
-       // String value = inventoryDisplay.getmItemValue();
-       // String condition = inventoryDisplay.getmItemCondition();
-       // String category = inventoryDisplay.getmItemCategory();
-
-        vHolder.mItemImage.setImageResource(inventoryDisplay.getmImage());
-       // vHolder.mItemName.setText(inventoryDisplay.getmItemName());
-        //vHolder.mItemData.setText(vHolder.itemView.getResources().getString(R.string.inventory_item_display, value, condition, category));
+       // vHolder.mItemImage.setImageResource(inventoryDisplay.getmImage());
+         vHolder.mItemName.setText(inventoryDisplay.getTitle());
+         vHolder.mItemData.setText(inventoryDisplay.getTitle());
 
         viewHolder.itemView.setOnClickListener(mRowClickListener);
         viewHolder.itemView.setTag(position);

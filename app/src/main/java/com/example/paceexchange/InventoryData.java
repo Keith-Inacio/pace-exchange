@@ -6,7 +6,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class InventoryData {
 
-    private String mCategory, mItemID, mTitle, mUrl, mTradeInFor;
+    private String category, itemID, title, url, tradeInFor;
     private FirebaseFirestore mFirestoreDatabase;
 
     public InventoryData() {
@@ -16,51 +16,52 @@ public class InventoryData {
     public InventoryData(String category, String title, String tradeInFor) {
 
         mFirestoreDatabase = FirebaseFirestore.getInstance();
-        mCategory=category;
-        mItemID=FirebaseDatabase.getInstance().getReference().getKey();
-        mTitle=title;
-        mTradeInFor=tradeInFor;
-        mUrl=null;
+        this.category=category;
+        itemID=FirebaseDatabase.getInstance().getReference().push().getKey();
+        this.title=title;
+        this.tradeInFor=tradeInFor;
+        url=null;
 
     }
 
-    public String getmCategory() {
-        return mCategory;
+    public String getCategory() {
+        return category;
     }
 
-    public void setmCategory(String mCategory) {
-        this.mCategory = mCategory;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public String getmItemID() {
-        return mItemID;
+    public String getItemID() {
+        return itemID;
     }
 
-    public void setmItemID(String mItemID) {
-        this.mItemID = mItemID;
+    public void setItemID(String itemID) {
+        this.itemID = itemID;
     }
 
-    public String getmTitle() {
-        return mTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setmTitle(String mTitle) {
-        this.mTitle = mTitle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getmUrl() {
-        return mUrl;
+    public String getUrl() {
+        return url;
     }
 
-    public void setmUrl(String mUrl) {
-        this.mUrl = mUrl;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public String getmTradeInFor() {
-        return mTradeInFor;
+    public String getTradeInFor() {
+        return tradeInFor;
     }
 
-    public void setmTradeInFor(String mTradeInFor) {
-        this.mTradeInFor = mTradeInFor;
+    public void setTradeInFor(String tradeInFor) {
+        this.tradeInFor = tradeInFor;
     }
+
 }

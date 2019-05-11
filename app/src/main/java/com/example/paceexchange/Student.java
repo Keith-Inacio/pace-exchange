@@ -1,81 +1,65 @@
 package com.example.paceexchange;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class Student{
 
-    private static String mStudentID, mFirstName, mLastName, mUserEmail;
-    private String mUserInventory;
-    private int mGraduationYear, mNewUserDefaultReputation;
+    private String studentID, firstName, lastName, email;
+    private int graduationYear, newUserDefaultReputation;
 
-    public Student(String identification, String firstName, String lastName, String email, int gradDate, int reputation, String userInventory) {
+    public Student(String studentID, String firstName, String lastName, String email, int gradYear, int reputation) {
 
-        mStudentID = identification;
-        mFirstName=firstName;
-        mLastName=lastName;
-        mUserEmail = email;
-        mGraduationYear=gradDate;
-        mNewUserDefaultReputation=reputation;
-        mUserInventory = userInventory;
-
+        this.studentID = studentID;
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.email = email;
+        this.graduationYear=gradYear;
+        this.newUserDefaultReputation=reputation;
     }
 
-    public static String getmStudentID() {
-        return mStudentID;
+    public String getStudentID() {
+        return studentID;
     }
 
-    public void setmStudentID(String mStudentID) {
-        this.mStudentID = mStudentID;
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
     }
 
-    public String getmFirstName() {
-        return mFirstName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setmFirstName(String mFirstName) {
-        this.mFirstName = mFirstName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getmLastName() {
-        return mLastName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setmLastName(String mLastName) {
-        this.mLastName = mLastName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getmUserEmail() {
-        return mUserEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setmUserEmail(String mUserEmail) {
-        this.mUserEmail = mUserEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public int getmGraduationYear() {
-        return mGraduationYear;
+    public int getGraduationYear() {
+        return graduationYear;
     }
 
-    public void setmGraduationYear(int mGraduationYear) {
-        this.mGraduationYear = mGraduationYear;
+    public void setGraduationYear(int graduationYear) {
+        this.graduationYear = graduationYear;
     }
 
-    public int getmNewUserDefaultReputation() {
-        return mNewUserDefaultReputation;
+    public int getNewUserDefaultReputation() {
+        return newUserDefaultReputation;
     }
 
-    public void setmNewUserDefaultReputation(int mNewUserDefaultReputation) {
-        this.mNewUserDefaultReputation = mNewUserDefaultReputation;
+    public void setNewUserDefaultReputation(int newUserDefaultReputation) {
+        this.newUserDefaultReputation = newUserDefaultReputation;
     }
-
-    public String getmUserInventory() {
-        return mUserInventory;
-    }
-
-    public void setmUserInventory(String mUserInventory) {
-        this.mUserInventory = mUserInventory;
-    }
-
-
 }

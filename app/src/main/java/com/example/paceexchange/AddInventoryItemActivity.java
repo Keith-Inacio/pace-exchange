@@ -28,16 +28,13 @@ import java.util.HashMap;
 public class AddInventoryItemActivity extends AppCompatActivity {
 
     private FirebaseFirestore mFirestoreInventoryDatabase;
-    private HashMap<String, Object> mFireStoreMap;
     private CollectionReference mFirestoreInventoryCollection;
 
     private EditText mNewItemInput;
     private Button mSubmitItemButton;
-    private RadioGroup mItemConditionRadioGroup, mItemValueRadioGroup;
-    private RadioButton mSelectedConditionRadioButton, mSelectedValueRadioButton;
-    private Spinner mSpinner;
+    private Spinner mUserItemSpinner, mReturnItemSpinner;
     private ArrayAdapter<CharSequence> mItemAdapter;
-    private String mNewItemName, mNewitemCondition, mNewItemCategory;
+    private String mNewItemName, mNewItemCategory, mReturnItemCategory;
     private DatabaseReference mDataBase;
 
     private static final String CHANNEL_ID = "com.example.keithinacio.NOTIFICATION";
@@ -50,16 +47,15 @@ public class AddInventoryItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_inventory);
 
-        mFireStoreMap = new HashMap<>();
         mFirestoreInventoryDatabase = FirebaseFirestore.getInstance();
         mFirestoreInventoryCollection = mFirestoreInventoryDatabase.collection("inventory");
 
         mDataBase = FirebaseDatabase.getInstance().getReference();
-        mSpinner = findViewById(R.id.spinner);
         mNewItemInput = findViewById(R.id.itemNameInput);
-        mItemConditionRadioGroup = findViewById(R.id.productConditionButtons);
-        mItemValueRadioGroup = findViewById(R.id.productValueButtons);
         mSubmitItemButton = findViewById(R.id.submitNewItemButton);
+
+        mUserItemSpinner=findViewById(R.id.userItemSpinner);
+        mReturnItemSpinner=findViewById(R.id.returnItemSpinner);
 
         setOnItemMenuClickListener();
         setOnButtonClickListener();
@@ -78,18 +74,9 @@ public class AddInventoryItemActivity extends AppCompatActivity {
 
     public void getNewItemData() {
 
-        int selectedConditionButtonID = mItemConditionRadioGroup.getCheckedRadioButtonId();
-        mSelectedConditionRadioButton = findViewById(selectedConditionButtonID);
-
-        int selectedValueButtonID = mItemValueRadioGroup.getCheckedRadioButtonId();
-        mSelectedValueRadioButton = findViewById(selectedValueButtonID);
 
         if (mNewItemInput.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), R.string.error_new_item_name, Toast.LENGTH_LONG).show();
-        } else if (mSelectedConditionRadioButton == null) {
-            Toast.makeText(getApplicationContext(), R.string.error_new_item_radio_button, Toast.LENGTH_LONG).show();
-        } else if (mSelectedValueRadioButton == null) {
-            Toast.makeText(getApplicationContext(), R.string.error_new_item_value, Toast.LENGTH_LONG).show();
         } else {
             mNewItemName = mNewItemInput.getText().toString().trim();
         }
@@ -97,10 +84,7 @@ public class AddInventoryItemActivity extends AppCompatActivity {
 
     public void addItemToFirebaseInventory(){
 
-        String itemCondition = mSelectedConditionRadioButton.getText().toString();
-        String value = mSelectedValueRadioButton.getText().toString();
-
-        mFirestoreInventoryCollection.document("keith@pace.edu").update("Items", FieldValue.arrayUnion(new InventoryData(mNewItemCategory, mNewItemName, value)));
+        mFirestoreInventoryCollection.document("keith@pace.edu").update("Items", FieldValue.arrayUnion(new InventoryData(mNewItemCategory, mNewItemName, mReturnItemCategory)));
     }
 
     public void setOnButtonClickListener() {
@@ -119,9 +103,11 @@ public class AddInventoryItemActivity extends AppCompatActivity {
 
         mItemAdapter = ArrayAdapter.createFromResource(this, R.array.item_array, android.R.layout.simple_spinner_item);
         mItemAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mSpinner.setAdapter(mItemAdapter);
 
-        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        mUserItemSpinner.setAdapter(mItemAdapter);
+        mReturnItemSpinner.setAdapter(mItemAdapter);
+
+        mUserItemSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 mNewItemCategory = (String) parent.getItemAtPosition(position);
@@ -132,6 +118,20 @@ public class AddInventoryItemActivity extends AppCompatActivity {
 
             }
         });
+
+        mReturnItemSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mReturnItemCategory= (String) parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
     }
 
     public void displayNotification() {

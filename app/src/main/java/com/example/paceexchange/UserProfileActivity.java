@@ -12,21 +12,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class UserProfileActivity extends AppCompatActivity {
 
     private TextView mUserName, mEmail, mGraduationDate, mUserReputation;
     private Button mLogoutButton, mAuctionButton, mInventoryButton;
-    private DatabaseReference mDatabase;
     private FirebaseAuth mUserAuthorization;
-    private int mCurrentReputationValue;
     String ID;
+
+    private FirebaseFirestore mFirestoreInventoryDatabase;
+    private CollectionReference mFirestoreInventoryCollection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,7 @@ public class UserProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
 
 
-        if(getIntent().getStringExtra(LoginActivity.EXTRA_MESSAGE)!=null) {
+        if (getIntent().getStringExtra(LoginActivity.EXTRA_MESSAGE) != null) {
             ID = getIntent().getStringExtra(LoginActivity.EXTRA_MESSAGE);
             Log.d("KEITH", ID);
             SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
@@ -42,15 +45,16 @@ public class UserProfileActivity extends AppCompatActivity {
             editor.putString("ID", ID);
             editor.commit();
 
-        }else{
+        } else {
             SharedPreferences sharedPrefOne = this.getPreferences(Context.MODE_PRIVATE);
             ID = sharedPrefOne.getString("ID", "DEFAULT");
             Log.d("INACIO", ID);
         }
 
 
+        mFirestoreInventoryDatabase = FirebaseFirestore.getInstance();
+        mFirestoreInventoryCollection = mFirestoreInventoryDatabase.collection("profiles");
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Student").child(ID);
         mUserAuthorization = FirebaseAuth.getInstance();
         mUserAuthorization.getCurrentUser();
 
@@ -63,26 +67,36 @@ public class UserProfileActivity extends AppCompatActivity {
         mInventoryButton = findViewById(R.id.inventoryButton);
 
         setButtonClickListener();
+        setProfileDataFromFirebase();
+    }
 
-        mDatabase.addValueEventListener(new ValueEventListener() {
+    public void setProfileDataFromFirebase() {
+
+        DocumentReference docRef = mFirestoreInventoryCollection.document("kinacio@pace.edu");
+
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                String firstName = dataSnapshot.child("mFirstName").getValue().toString();
-                String lastName = dataSnapshot.child("mLastName").getValue().toString();
-                mUserName.setText(getResources().getString(R.string.profile_name_display, firstName, lastName));
-                mGraduationDate.setText(getString(R.string.profile_grad_year, dataSnapshot.child("mGraduationYear").getValue().toString()));
-                mEmail.setText(getString(R.string.profile_email, dataSnapshot.child("mUserEmail").getValue().toString()));
-                mCurrentReputationValue = Integer.parseInt(dataSnapshot.child("mNewUserDefaultReputation").getValue().toString());
-                setUserReputation(mCurrentReputationValue);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        mEmail.setText(getResources().getString(R.string.profile_email, document.getData().get("Email").toString()));
+                        mUserName.setText(getResources().getString(R.string.profile_name_display, document.getData().get("First Name"), document.getData().get("Last Name")));
+                        mGraduationDate.setText(getResources().getString(R.string.profile_grad_year, document.getData().get("Graduation").toString()));
+                        mUserReputation.setText(getResources().getString(R.string.profile_rating, document.getData().get("Reputation").toString()));
+                    } else {
+                        Log.d("KLEITH", "No such document");
+                    }
+                } else {
+                    Log.d("LEITH", "get failed with ", task.getException());
+                }
             }
         });
+
+
+
     }
+
 
     /**
      * This method sets the color and reputation rating displayed in the user profile

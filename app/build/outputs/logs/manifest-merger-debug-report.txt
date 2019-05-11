@@ -171,7 +171,7 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/inacio/.grad
 	android:theme
 		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:14:9-40
 activity#com.example.paceexchange.AuctionActivity
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:15:9-17:65
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:15:9-17:74
 	android:parentActivityName
 		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:17:13-62
 	android:name
@@ -209,7 +209,7 @@ ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/sr
 	android:name
 		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:31:13-49
 activity#com.example.paceexchange.LoginActivity
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:33:9-51
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:33:9-50
 	android:name
 		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:33:19-48
 uses-sdk

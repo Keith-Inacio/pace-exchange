@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center">
 
     <TextView
         android:id="@+id/title"
@@ -50,7 +51,6 @@
             android:id="@+id/userItemCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/userItemSpinner"
             android:layout_centerVertical="true"
             android:text="@string/item_category_type"
             android:textSize="20sp"
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
             android:layout_marginBottom="20sp"
-            android:layout_toEndOf="@id/userItemCategory"
+            android:layout_below="@id/userItemCategory"
             android:textAlignment="center" />
     </RelativeLayout>
 
@@ -77,19 +77,18 @@
             android:id="@+id/itemTypeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/spinner"
             android:layout_centerVertical="true"
-            android:text="@string/"
+            android:text="@string/item_return_text"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/returnItemSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
             android:layout_marginBottom="20sp"
-            android:layout_toEndOf="@id/itemTypeText"
+            android:layout_below="@id/itemTypeText"
             android:textAlignment="center" />
     </RelativeLayout>
 

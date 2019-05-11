@@ -5,17 +5,24 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -24,12 +31,19 @@ public class RegistrationActivity extends AppCompatActivity {
     private FirebaseAuth mUserAuthorization;
     private ProgressDialog mProgressUpdate;
     private DatabaseReference mUserDatabase;
-    private Student mStudentData;
+
+    private FirebaseFirestore mFirestoreInventoryDatabase;
+    private HashMap<String, Object> mFireStoreMap;
+    private CollectionReference mFirestoreInventoryCollection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_registration);
+
+        mFireStoreMap = new HashMap<>();
+        mFirestoreInventoryDatabase = FirebaseFirestore.getInstance();
+        mFirestoreInventoryCollection = mFirestoreInventoryDatabase.collection("profiles");
 
         mEmail = findViewById(R.id.email);
         mPassword = findViewById(R.id.password);
@@ -86,37 +100,46 @@ public class RegistrationActivity extends AppCompatActivity {
 
             String firstName = mFirstName.getText().toString().trim();
             String lastName = mLastName.getText().toString().trim();
-            int gradDate = Integer.parseInt(mGradDate.getText().toString().trim());
+            int gradYear = Integer.parseInt(mGradDate.getText().toString().trim());
             String email = mEmail.getText().toString().trim();
             String password = mPassword.getText().toString().trim();
             final String studentID = mUserDatabase.push().getKey();
             int defaultReputation = 70;
-            String userInventory = "Base Item";
+            ;
 
+            mFireStoreMap.put("First Name", firstName);
+            mFireStoreMap.put("Last Name", lastName);
+            mFireStoreMap.put("Graduation", gradYear);
+            mFireStoreMap.put("Email", email);
+            mFireStoreMap.put("Reputation", defaultReputation);
 
-            mStudentData = new Student(studentID, firstName, lastName, email, gradDate, defaultReputation, userInventory);
-            mUserDatabase.child(studentID).setValue(mStudentData);
-
-            mProgressUpdate.setMessage("Completing Registration...");
-            mProgressUpdate.show();
-
-            mUserAuthorization.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            mFirestoreInventoryCollection.document(email).set(mFireStoreMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        mProgressUpdate.dismiss();
-                        Toast.makeText(RegistrationActivity.this, R.string.register_success, Toast.LENGTH_LONG).show();
-                        finish();
-                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                    } else {
-                        mProgressUpdate.dismiss();
-                        Toast.makeText(RegistrationActivity.this, R.string.register_fail, Toast.LENGTH_LONG).show();
-                    }
+                public void onSuccess(Void aVoid) {
+                    Log.d("NEW USER REGISTRATION", "SUCESSS");
                 }
             });
 
-        }
+        mProgressUpdate.setMessage("Completing Registration...");
+        mProgressUpdate.show();
+
+        mUserAuthorization.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    mProgressUpdate.dismiss();
+                    Toast.makeText(RegistrationActivity.this, R.string.register_success, Toast.LENGTH_LONG).show();
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                } else {
+                    mProgressUpdate.dismiss();
+                    Toast.makeText(RegistrationActivity.this, R.string.register_fail, Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
     }
+}
 
 }
 

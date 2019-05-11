@@ -20,7 +20,12 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,7 +46,7 @@ public class CurrentInventoryActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE_TRADE_ITEM = "com.example.paceexchange.ITEM_NAME";
     public static final String EXTRA_MESSAGE_TRADE_ITEM_VALUE = "com.example.paceexchange.ITEM_VALUE";
 
-    ArrayList<InventoryData> dataList;
+    ArrayList<String> dataList;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,7 +55,7 @@ public class CurrentInventoryActivity extends AppCompatActivity {
 
         mFireStoreMap = new HashMap<>();
         mFirestoreInventoryDatabase = FirebaseFirestore.getInstance();
-        mFirestoreInventoryCollection = mFirestoreInventoryDatabase.collection("item_inventory");
+        mFirestoreInventoryCollection = mFirestoreInventoryDatabase.collection("inventory");
 
         mTradeItemButton = findViewById(R.id.tradeSelectedItemButton);
         mAddNewItemButton = findViewById(R.id.addInventoryItemButton);
@@ -60,8 +65,6 @@ public class CurrentInventoryActivity extends AppCompatActivity {
         mInventoryList = new ArrayList<>();
         dataList = new ArrayList<>();
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Student").child("-LbdV3uBhsq7xfV4ZQrb").child("Inventory");
-
         setButtonClickListener();
         iterateFirebaseInventory();
         setRecyclerView();
@@ -70,19 +73,19 @@ public class CurrentInventoryActivity extends AppCompatActivity {
     public void setRecyclerView() {
 
 
-        mAdapter = new RecyclerAdapter(CurrentInventoryActivity.this, dataList, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+//        mAdapter = new RecyclerAdapter(CurrentInventoryActivity.this, dataList, new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                mRowClickPosition = (int) v.getTag();
+//                InventoryData display = mAdapter.getItem(mRowClickPosition);
+//
+//            }
+//        });
 
-                mRowClickPosition = (int) v.getTag();
-                InventoryData display = mAdapter.getItem(mRowClickPosition);
-
-            }
-        });
-
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(CurrentInventoryActivity.this));
-        mRecyclerView.setAdapter(mAdapter);
-        mAdapter.notifyDataSetChanged();
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(CurrentInventoryActivity.this));
+//        mRecyclerView.setAdapter(mAdapter);
+//        mAdapter.notifyDataSetChanged();
 
     }
 
@@ -118,65 +121,26 @@ public class CurrentInventoryActivity extends AppCompatActivity {
 
     public void iterateFirebaseInventory() {
 
-        /*
-        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot child : dataSnapshot.getChildren()) {
-                    String key= getItem(child.getKey());
-
-                    String condition = dataSnapshot.child(key).child("Condition").getValue().toString();
-                    String category = dataSnapshot.child(key).child("Category").getValue().toString();
-                    String value = dataSnapshot.child(key).child("Trade Value").getValue().toString();
-                    mInventoryList.add(new InventoryData(R.drawable.javabook, key, value, condition, category));
-                }
-                mAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-
-        });
-        */
-
-        mFirestoreInventoryCollection.document("Keith Inacio").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        mFirestoreInventoryCollection.document("keith@pace.edu").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                DocumentSnapshot document = task.getResult();
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
 
-                //getFirestoreListData((ArrayList<InventoryData>) document.get("items"));
-
-                Map<String, Object> map = document.getData();
-                for (Map.Entry<String, Object> fireMap : map.entrySet()) {
-                    if (fireMap.getKey().equals("items")) {
-                        Log.d("PACE", fireMap.getValue().toString());
-
-                       // getFirestoreListData((ArrayList<InventoryData>)fireMap.getValue());
+                        ArrayList<HashMap<String,Object>> dataList = (ArrayList<HashMap<String, Object>>) document.getData();
+                        Log.e("Tag", "onComplete: "+dataList.get(0).keySet() );
                     }
                 }
             }
         });
 
-
         }
 
-    private String getItem(String key) {
-
-        return key;
-
-    }
 
     private void getFirestoreListData(ArrayList<InventoryData> list) {
 
-        dataList = list;
-
-        Log.d("KEITH", String.valueOf(dataList.size()));
-        Log.d("KEITH", list.toString());
-       // Log.d("KEITH", dataList.get(1).getmItemName());
-
+        ArrayList<InventoryData> myList = new ArrayList<>(list);
 
     }
 

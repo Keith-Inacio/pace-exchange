@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".AuctionActivity"
-            android:parentActivityName=".UserProfileActivity" />
+            android:parentActivityName=".UserProfileActivity"></activity>
         <activity
             android:name=".CurrentInventoryActivity"
             android:parentActivityName=".UserProfileActivity" />
@@ -30,7 +30,7 @@
         <activity
             android:name=".RegistrationActivity"
             android:parentActivityName=".LoginActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginActivity"/>
     </application>
 
 </manifest>
