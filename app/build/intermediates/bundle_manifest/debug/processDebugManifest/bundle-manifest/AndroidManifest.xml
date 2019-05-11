@@ -37,17 +37,17 @@
         <activity
             android:name="com.example.paceexchange.AddInventoryItemActivity"
             android:parentActivityName="com.example.paceexchange.CurrentInventoryActivity" />
-        <activity android:name="com.example.paceexchange.UserProfileActivity" >
+        <activity android:name="com.example.paceexchange.UserProfileActivity" />
+        <activity
+            android:name="com.example.paceexchange.RegistrationActivity"
+            android:parentActivityName="com.example.paceexchange.LoginActivity" />
+        <activity android:name="com.example.paceexchange.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.example.paceexchange.RegistrationActivity"
-            android:parentActivityName="com.example.paceexchange.LoginActivity" />
-        <activity android:name="com.example.paceexchange.LoginActivity" />
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"

@@ -27,42 +27,45 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AddInventoryItemActivity extends AppCompatActivity {
 
-    private FirebaseFirestore mFirestoreInventoryDatabase;
-    private CollectionReference mFirestoreInventoryCollection;
 
     private EditText mNewItemInput;
     private Button mSubmitItemButton;
     private Spinner mUserItemSpinner, mReturnItemSpinner;
     private ArrayAdapter<CharSequence> mItemAdapter;
     private String mNewItemName, mNewItemCategory, mReturnItemCategory;
-    private DatabaseReference mDataBase;
+
+    private FirebaseFirestore mFirebaseDatabase;
+    private CollectionReference mFirebaseInventoryCollection;
+    private Map<String, Object> mFirebaseInventoryMap;
 
     private static final String CHANNEL_ID = "com.example.keithinacio.NOTIFICATION";
     private static final String CHANNEL_NAME = "com.example.keithinacio.DICTIONARY_NOTIFICATION";
     private static final String CHANNEL_DESC = "com.example.keithinacio.NEW_WORD_NOTIFICATION";
     private static final int NOTIFICATION_ID = 001;
 
-    ArrayList<InventoryData> mlist;
+    private ArrayList<InventoryData> mCurrentInventorylist;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_inventory);
 
-        mlist = new ArrayList<>();
 
-        mFirestoreInventoryDatabase = FirebaseFirestore.getInstance();
-        mFirestoreInventoryCollection = mFirestoreInventoryDatabase.collection("inventory");
-
-        mDataBase = FirebaseDatabase.getInstance().getReference();
         mNewItemInput = findViewById(R.id.itemNameInput);
         mSubmitItemButton = findViewById(R.id.submitNewItemButton);
-
         mUserItemSpinner=findViewById(R.id.userItemSpinner);
         mReturnItemSpinner=findViewById(R.id.returnItemSpinner);
+
+        mFirebaseDatabase = FirebaseFirestore.getInstance();
+        mFirebaseInventoryCollection = mFirebaseDatabase.collection("inventory");
+        mFirebaseInventoryMap = new HashMap<>();
+
+        mCurrentInventorylist = new ArrayList<>();
+
 
         setOnItemMenuClickListener();
         setOnButtonClickListener();
@@ -91,7 +94,7 @@ public class AddInventoryItemActivity extends AppCompatActivity {
 
     public void addItemToFirebaseInventory(){
 
-        mFirestoreInventoryCollection.document("kinacio@pace.edu").update("Items", FieldValue.arrayUnion(new InventoryData(mNewItemCategory, mNewItemName, mReturnItemCategory)));
+        mFirebaseInventoryCollection.document("kinacio@pace.edu").update("Items", FieldValue.arrayUnion(new InventoryData(mNewItemCategory, mNewItemName, mReturnItemCategory)));
     }
 
     public void setOnButtonClickListener() {

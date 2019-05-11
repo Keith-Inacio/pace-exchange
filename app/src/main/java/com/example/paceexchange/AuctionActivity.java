@@ -42,12 +42,17 @@ public class AuctionActivity extends AppCompatActivity {
 
     private FirebaseDataRetrieval mFireBaseRetriever;
 
+    private String mUserIdentification;
+
     ArrayList<InventoryData> inventoryDataList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auction);
+
+        Intent intent = getIntent();
+        mUserIdentification = intent.getStringExtra(UserProfileActivity.USER_IDENTIFICATION_INVENTORY_MESSAGE);
 
         inventoryDataList = new ArrayList<>();
 

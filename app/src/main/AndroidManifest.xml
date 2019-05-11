@@ -21,16 +21,16 @@
         <activity
             android:name=".AddInventoryItemActivity"
             android:parentActivityName=".CurrentInventoryActivity" />
-        <activity android:name=".UserProfileActivity">
+        <activity android:name=".UserProfileActivity"/>
+        <activity
+            android:name=".RegistrationActivity"
+            android:parentActivityName=".LoginActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".RegistrationActivity"
-            android:parentActivityName=".LoginActivity" />
-        <activity android:name=".LoginActivity"/>
     </application>
 
 </manifest>

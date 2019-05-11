@@ -189,29 +189,29 @@ ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/sr
 	android:name
 		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:22:13-53
 activity#com.example.paceexchange.UserProfileActivity
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:24:9-29:20
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:24:9-56
 	android:name
 		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:24:19-54
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:25:13-28:29
-action#android.intent.action.MAIN
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:26:17-69
-	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:26:25-66
-category#android.intent.category.LAUNCHER
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:27:17-77
-	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:27:27-74
 activity#com.example.paceexchange.RegistrationActivity
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:30:9-32:59
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:25:9-27:59
 	android:parentActivityName
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:32:13-56
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:27:13-56
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:31:13-49
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:26:13-49
 activity#com.example.paceexchange.LoginActivity
-ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:33:9-50
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:28:9-33:20
 	android:name
-		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:33:19-48
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:28:19-48
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:29:13-32:29
+action#android.intent.action.MAIN
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:30:17-69
+	android:name
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:30:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:31:17-77
+	android:name
+		ADDED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml:31:27-74
 uses-sdk
 INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/AndroidManifest.xml

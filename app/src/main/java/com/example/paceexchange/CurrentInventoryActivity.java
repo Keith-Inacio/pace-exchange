@@ -49,6 +49,7 @@ public class CurrentInventoryActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private ArrayList<InventoryData> mInventoryList;
     private int mRowClickPosition;
+    private String mUserIdentification;
 
     public static final String EXTRA_MESSAGE_TRADE_ITEM = "com.example.paceexchange.ITEM_NAME";
     public static final String EXTRA_MESSAGE_TRADE_ITEM_VALUE = "com.example.paceexchange.ITEM_VALUE";
@@ -59,6 +60,9 @@ public class CurrentInventoryActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
+
+        Intent intent = getIntent();
+        mUserIdentification = intent.getStringExtra(UserProfileActivity.USER_IDENTIFICATION_INVENTORY_MESSAGE);
 
         mFireStoreMap = new HashMap<>();
         mFirestoreInventoryDatabase = FirebaseFirestore.getInstance();
