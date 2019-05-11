@@ -4,10 +4,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.List;
+
 public class InventoryData {
 
     private String category, itemID, title, url, tradeInFor;
     private FirebaseFirestore mFirestoreDatabase;
+    private List<InventoryData> mInventoryItemList;
+
 
     public InventoryData() {
 
@@ -64,4 +68,11 @@ public class InventoryData {
         this.tradeInFor = tradeInFor;
     }
 
+    public List<InventoryData> getmInventoryItemList() {
+        return mInventoryItemList;
+    }
+
+    public void setmInventoryItemList(List<InventoryData> mInventoryItemList) {
+        this.mInventoryItemList = mInventoryItemList;
+    }
 }

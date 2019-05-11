@@ -23,7 +23,10 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class AddInventoryItemActivity extends AppCompatActivity {
 
@@ -42,10 +45,14 @@ public class AddInventoryItemActivity extends AppCompatActivity {
     private static final String CHANNEL_DESC = "com.example.keithinacio.NEW_WORD_NOTIFICATION";
     private static final int NOTIFICATION_ID = 001;
 
+    ArrayList<InventoryData> mlist;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_inventory);
+
+        mlist = new ArrayList<>();
 
         mFirestoreInventoryDatabase = FirebaseFirestore.getInstance();
         mFirestoreInventoryCollection = mFirestoreInventoryDatabase.collection("inventory");
@@ -84,7 +91,7 @@ public class AddInventoryItemActivity extends AppCompatActivity {
 
     public void addItemToFirebaseInventory(){
 
-        mFirestoreInventoryCollection.document("keith@pace.edu").update("Items", FieldValue.arrayUnion(new InventoryData(mNewItemCategory, mNewItemName, mReturnItemCategory)));
+        mFirestoreInventoryCollection.document("kinacio@pace.edu").update("Items", FieldValue.arrayUnion(new InventoryData(mNewItemCategory, mNewItemName, mReturnItemCategory)));
     }
 
     public void setOnButtonClickListener() {

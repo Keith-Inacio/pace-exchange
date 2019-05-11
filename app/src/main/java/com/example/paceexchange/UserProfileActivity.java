@@ -81,7 +81,7 @@ public class UserProfileActivity extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         mEmail.setText(getResources().getString(R.string.profile_email, document.getData().get("Email").toString()));
-                        mUserName.setText(getResources().getString(R.string.profile_name_display, document.getData().get("First Name"), document.getData().get("Last Name")));
+                        mUserName.setText(getResources().getString(R.string.profile_name_display, document.getData().get("First Name"), document.getData().get("Last Name")).toUpperCase());
                         mGraduationDate.setText(getResources().getString(R.string.profile_grad_year, document.getData().get("Graduation").toString()));
                         mUserReputation.setText(getResources().getString(R.string.profile_rating, document.getData().get("Reputation").toString()));
                     } else {
@@ -92,8 +92,6 @@ public class UserProfileActivity extends AppCompatActivity {
                 }
             }
         });
-
-
 
     }
 

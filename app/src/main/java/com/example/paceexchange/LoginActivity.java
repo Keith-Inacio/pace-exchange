@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,23 +16,27 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private ImageView mLoginImage;
-    private EditText mEmailInput, mPasswordInput;
+    private EditText mEmailEditText, mPasswordEditText;
     private TextView mRegistrationLink;
     private Button mLoginButton;
-    private FirebaseAuth mUserAuthorization;
     private ProgressDialog mProgressUpdate;
-    private String mEmailValidate, mPasswordValidate, mCurrentUserID;
-    private DatabaseReference mUserDatabase;
+    private String mEmailInput, mPasswordInput;
+
+    private FirebaseAuth mFirebaseAuthorization;
+    private FirebaseFirestore mFirebaseDatabase;
+    private CollectionReference mFirebaseInventoryCollection;
+    private CollectionReference mFirebaseProfileCollection;
+    private Map<String, Object> mFirebaseProfileMap;
+    private Map<String, Object> mFirebaseInventoryMap;
+
+
     public static final String EXTRA_MESSAGE = "com.example.paceexchange.MESSAGE";
 
     @Override
@@ -40,17 +44,19 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
 
-        mEmailInput = findViewById(R.id.emailInput);
-        mPasswordInput = findViewById(R.id.passwordInput);
+        mEmailEditText = findViewById(R.id.emailInput);
+        mPasswordEditText = findViewById(R.id.passwordInput);
         mRegistrationLink = findViewById(R.id.registerLink);
         mLoginButton = findViewById(R.id.loginButton);
-        mLoginImage = findViewById(R.id.loginImage);
-        mCurrentUserID = "";
+
+
+        mPasswordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+        mFirebaseAuthorization = FirebaseAuth.getInstance();
+        mFirebaseDatabase = FirebaseFirestore.getInstance();
+        mFirebaseProfileCollection = mFirebaseDatabase.collection("profiles");
 
         mProgressUpdate = new ProgressDialog(this);
-
-        mUserAuthorization = FirebaseAuth.getInstance();
-
         setOnClickListener();
     }
 
@@ -86,34 +92,31 @@ public class LoginActivity extends AppCompatActivity {
      **/
     private void loginClient() {
 
-        if ((mEmailInput.getText().toString().isEmpty()) || (!mEmailInput.getText().toString().contains("@")) && (!mEmailInput.getText().toString().contains(".com") ||
-                !mEmailInput.getText().toString().contains(".edu"))) {
+        if (mEmailEditText.getText().toString().isEmpty() || !mEmailEditText.getText().toString().contains("@") ||  ((!mEmailEditText.getText().toString().contains(".com")) ||
+                (!mEmailEditText.getText().toString().contains(".edu")))){
 
             Toast.makeText(LoginActivity.this, R.string.empty_login, Toast.LENGTH_LONG).show();
 
-        } else if (mPasswordInput.getText().toString().isEmpty()) {
+        } else if (mPasswordEditText.getText().toString().isEmpty()) {
 
             Toast.makeText(LoginActivity.this, R.string.empty_password, Toast.LENGTH_LONG).show();
 
         } else {
 
-
-            mEmailValidate = mEmailInput.getText().toString().trim();
-            mPasswordValidate = mPasswordInput.getText().toString().trim();
+            mEmailInput = mEmailEditText.getText().toString().trim();
+            mPasswordInput = mPasswordEditText.getText().toString().trim();
 
             mProgressUpdate.setMessage("Logging In...");
             mProgressUpdate.show();
 
-            getUserIDKey();
-
-            mUserAuthorization.signInWithEmailAndPassword(mEmailValidate, mPasswordValidate).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            mFirebaseAuthorization.signInWithEmailAndPassword(mEmailInput, mPasswordInput).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                     if (task.isSuccessful()) {
                         mProgressUpdate.dismiss();
                         Intent intent = new Intent(LoginActivity.this, UserProfileActivity.class);
-                        intent.putExtra(EXTRA_MESSAGE, mCurrentUserID);
+                        intent.putExtra(EXTRA_MESSAGE, mEmailInput);
                         startActivity(intent);
                     } else {
                         mProgressUpdate.dismiss();
@@ -123,35 +126,6 @@ public class LoginActivity extends AppCompatActivity {
             });
 
         }
-    }
-
-    private void getUserIDKey() {
-
-        DatabaseReference mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Student");
-
-        mUserDatabase.orderByChild("mUserEmail").equalTo(mEmailValidate).addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot child : dataSnapshot.getChildren()) {
-                    String key = getFirebaseValue(child.getKey());
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-
-        });
-
-    }
-
-    private String getFirebaseValue(String key) {
-
-        mCurrentUserID = key;
-
-        return mCurrentUserID;
     }
 
 }
