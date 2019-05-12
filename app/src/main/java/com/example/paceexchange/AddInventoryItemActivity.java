@@ -2,11 +2,13 @@ package com.example.paceexchange;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -38,7 +40,7 @@ public class AddInventoryItemActivity extends AppCompatActivity {
     private Button mSubmitItemButton;
     private Spinner mUserItemSpinner, mReturnItemSpinner;
     private ArrayAdapter<CharSequence> mItemAdapter;
-    private String mNewItemName, mNewItemCategory, mReturnItemCategory;
+    private String mNewItemName, mNewItemCategory, mReturnItemCategory, mUserIdentification;
 
     private FirebaseFirestore mFirebaseDatabase;
     private CollectionReference mFirebaseInventoryCollection;
@@ -56,7 +58,10 @@ public class AddInventoryItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_inventory);
 
+        Intent intent = getIntent();
+        mUserIdentification = intent.getStringExtra(CurrentInventoryActivity.USER_IDENTIFICATION_ADD_ITEM_MESSAGE);
 
+        Log.d("ID", mUserIdentification);
         mNewItemInput = findViewById(R.id.itemNameInput);
         mSubmitItemButton = findViewById(R.id.submitNewItemButton);
         mUserItemSpinner=findViewById(R.id.userItemSpinner);
@@ -96,7 +101,7 @@ public class AddInventoryItemActivity extends AppCompatActivity {
 
     public void addItemToFirebaseInventory(){
 
-       mFirebaseInventoryCollection.document("kinacio@pace.edu").update("Items", FieldValue.arrayUnion(new InventoryData(mNewItemCategory, mNewItemName, mReturnItemCategory)));
+       mFirebaseInventoryCollection.document(mUserIdentification).update("Items", FieldValue.arrayUnion(new InventoryData(mNewItemCategory, mNewItemName, mReturnItemCategory)));
 
     }
 
