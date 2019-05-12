@@ -11,6 +11,7 @@ public class InventoryData {
     private String category, itemID, title, url, tradeInFor;
     private FirebaseFirestore mFirestoreDatabase;
 
+
     public InventoryData() {
 
     }

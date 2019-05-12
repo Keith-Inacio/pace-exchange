@@ -1105,6 +1105,7 @@ string register_button
 string register_fail
 string register_success
 string registration_title
+string remove_error
 string remove_item_button_text
 string search_menu_title
 string seconds_display

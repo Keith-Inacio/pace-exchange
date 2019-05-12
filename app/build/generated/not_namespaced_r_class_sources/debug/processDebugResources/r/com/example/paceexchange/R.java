@@ -3548,16 +3548,17 @@ public final class R {
     public static final int register_fail=0x7f0c0073;
     public static final int register_success=0x7f0c0074;
     public static final int registration_title=0x7f0c0075;
-    public static final int remove_item_button_text=0x7f0c0076;
-    public static final int search_menu_title=0x7f0c0077;
-    public static final int seconds_display=0x7f0c0078;
-    public static final int start_auction=0x7f0c0079;
-    public static final int status_bar_notification_info_overflow=0x7f0c007a;
-    public static final int time_remaining=0x7f0c007b;
-    public static final int trade_item_requested_inventory_display=0x7f0c007c;
-    public static final int url_format=0x7f0c007d;
-    public static final int user_profile=0x7f0c007e;
-    public static final int very_good_reputation=0x7f0c007f;
+    public static final int remove_error=0x7f0c0076;
+    public static final int remove_item_button_text=0x7f0c0077;
+    public static final int search_menu_title=0x7f0c0078;
+    public static final int seconds_display=0x7f0c0079;
+    public static final int start_auction=0x7f0c007a;
+    public static final int status_bar_notification_info_overflow=0x7f0c007b;
+    public static final int time_remaining=0x7f0c007c;
+    public static final int trade_item_requested_inventory_display=0x7f0c007d;
+    public static final int url_format=0x7f0c007e;
+    public static final int user_profile=0x7f0c007f;
+    public static final int very_good_reputation=0x7f0c0080;
   }
   public static final class style {
     public static final int AlertDialog_AppCompat=0x7f0d0000;

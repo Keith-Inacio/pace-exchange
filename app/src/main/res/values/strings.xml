@@ -61,6 +61,7 @@
     <string name="item_return_text">Trade Category Requested:</string>
     <string name="item_category_inventory_display">Item Category: %s</string>
     <string name="trade_item_requested_inventory_display">My Trade Request: %s</string>
+    <string name="remove_error">Error: You must select an item to remove!</string>
     <string-array name="item_array">
         <item>Clothing</item>
         <item>Books</item>

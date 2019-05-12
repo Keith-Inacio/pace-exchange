@@ -7,22 +7,22 @@
     format="10"
     ir-eligibility="COMPATIBLE"
     plugin-version="3.4.0"
-    timestamp="1557682774309"
+    timestamp="1557688045410"
     token="-4813437220597338446"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="513" />
+        duration="357" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="6" />
+        duration="20" />
     <task
         name="verifier"
-        duration="1" />
+        duration="4" />
 
     <artifact
         location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
@@ -30,7 +30,7 @@
 
     <build
         build-mode="FULL"
-        timestamp="1557678480066"
+        timestamp="1557687928377"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
@@ -75,7 +75,7 @@
     <build
         build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1557682774309"
+        timestamp="1557688045410"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/split-apk/debug/slices/slice_3.apk"

@@ -109,9 +109,11 @@ public class CurrentInventoryActivity extends AppCompatActivity {
         mRemoveItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Log.d("ID", mUserIdentification);
-                //removeItemFromInventory();
+                if (mCurrentItemSelectionID == null) {
+                    Toast.makeText(getApplicationContext(), R.string.remove_error, Toast.LENGTH_LONG).show();
+                } else {
+                    removeItemFromInventory();
+                }
             }
         });
 
@@ -174,39 +176,11 @@ public class CurrentInventoryActivity extends AppCompatActivity {
         mlist.remove(mRowClickPosition);
         mAdapter.notifyDataSetChanged();
 
+        mFirebaseInventoryCollection.document(mUserIdentification).update("Items", FieldValue.delete());
 
-        for (int i = 0; i < mlist.size(); i++) {
-            if (mCurrentItemSelectionID.equals(mlist.get(i).getItemID())) {
-
-                mFirebaseDatabase.document(mUserIdentification).update("items", FieldValue.delete());
-            }
+        for(InventoryData object: mlist){
+            mFirebaseInventoryCollection.document(mUserIdentification).update("Items", FieldValue.arrayUnion(object));
         }
-//        mFirebaseInventoryCollection.document(mUserIdentification).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                if (task.isSuccessful()) {
-//                    DocumentSnapshot document = task.getResult();
-//                    if (document.exists()) {
-//                        Map<String, Object> map = document.getData();
-//                        for (Map.Entry<String, Object> entry : map.entrySet()) {
-//                            if (entry.getKey().equals("Items") && entry.getValue().equals(mCurrentItemSelectionID)) {
-//
-//                                mFirebaseDatabase.document(mUserIdentification).update("items", FieldValue.arrayRemove(0));
-//
-////                                entry.getValue().equals(mCurrentItemSelectionID);
-////                                Log.d("KEITHINACOI", entry.getValue();
-//                                for(int i=0; i<mlist.size(); i++){
-//                                    if(mCurrentItemSelectionID.equals(mlist.get(i).getItemID())){
-//
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//
-//            }
-//        });
 
     }
 
