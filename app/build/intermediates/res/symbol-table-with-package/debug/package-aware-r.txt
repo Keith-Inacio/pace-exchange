@@ -754,10 +754,12 @@ id auctionButton
 id auctionButtons
 id auctionTitle
 id auto
+id availableItems
 id barrier
 id beginning
 id blocking
 id bottom
+id buttonLayout
 id buttonPanel
 id cancel_action
 id center
@@ -960,6 +962,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_add_inventory
 layout activity_auction
+layout activity_available_trade_items
 layout activity_inventory
 layout activity_user_login
 layout activity_user_profile

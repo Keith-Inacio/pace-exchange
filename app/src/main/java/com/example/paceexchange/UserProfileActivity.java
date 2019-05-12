@@ -1,10 +1,7 @@
 package com.example.paceexchange;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,7 +13,6 @@ import android.widget.TextView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -25,7 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class UserProfileActivity extends AppCompatActivity {
 
     private TextView mUserName, mEmail, mGraduationDate, mUserReputation;
-    private Button mLogoutButton, mAuctionButton, mInventoryButton;
+    private Button mLogoutButton, mAuctionButton, mInventoryButton, mAvailableTradeItemsButton;
     private FirebaseAuth mFirebaseAuthorization;
     private String mUserIdentification;
 
@@ -53,6 +49,7 @@ public class UserProfileActivity extends AppCompatActivity {
         mLogoutButton = findViewById(R.id.logoutButton);
         mAuctionButton = findViewById(R.id.auctionButton);
         mInventoryButton = findViewById(R.id.inventoryButton);
+        mAvailableTradeItemsButton = findViewById(R.id.availableItems);
 
         setButtonClickListener();
         setProfileDataFromFirebase();
@@ -142,6 +139,18 @@ public class UserProfileActivity extends AppCompatActivity {
 
             }
         });
+
+        mAvailableTradeItemsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ItemsForTradeActivity.class);
+                intent.putExtra(USER_IDENTIFICATION_INVENTORY_MESSAGE, mUserIdentification);
+                startActivity(intent);
+
+            }
+        });
+
+
     }
 
 }

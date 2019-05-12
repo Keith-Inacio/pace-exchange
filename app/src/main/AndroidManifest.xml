@@ -19,6 +19,9 @@
             android:name=".CurrentInventoryActivity"
             android:parentActivityName=".UserProfileActivity" />
         <activity
+            android:name=".ItemsForTradeActivity"
+            android:parentActivityName=".UserProfileActivity" />
+        <activity
             android:name=".AddInventoryItemActivity"
             android:parentActivityName=".CurrentInventoryActivity" />
         <activity android:name=".UserProfileActivity"/>

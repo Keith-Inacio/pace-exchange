@@ -69,27 +69,28 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/buttonLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/userInfo"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="50sp">
-
-        <Button
-            android:id="@+id/logoutButton"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="logout"
-            android:textSize="20sp" />
 
         <Button
             android:id="@+id/inventoryButton"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/logoutButton"
-            android:text="@string/inventory_button"
+            android:text="@string/my_inventory_title"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/availableItems"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/inventoryButton"
+            android:text="Available Items"
             android:textSize="20sp" />
 
         <Button
@@ -97,9 +98,18 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/inventoryButton"
+            android:layout_below="@id/availableItems"
             android:text="@string/auction_live"
             android:textSize="20sp" />
+        <Button
+            android:id="@+id/logoutButton"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="logout"
+            android:textSize="20sp"
+            android:layout_below="@id/auctionButton"/>
     </RelativeLayout>
+
 
 </RelativeLayout>

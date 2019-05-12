@@ -92,12 +92,12 @@
         "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/9afc155a13c333d4f70f3015ed39960a/res/drawable-xxhdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/drawable-ldrtl-hdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
-        "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/9afc155a13c333d4f70f3015ed39960a/res/drawable-ldrtl-hdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
-    },
-    {
         "merged": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal.9.png.flat",
         "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/0e578d5c62ed0b7bb739e05e2e9040c2/res/drawable-mdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/drawable-ldrtl-hdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
+        "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/9afc155a13c333d4f70f3015ed39960a/res/drawable-ldrtl-hdpi-v17/abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
         "merged": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_ic_star_half_black_36dp.png.flat",
@@ -366,6 +366,10 @@
     {
         "merged": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
         "source": "/Users/inacio/.gradle/caches/transforms-2/files-2.1/9afc155a13c333d4f70f3015ed39960a/res/drawable-mdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/layout_activity_available_trade_items.xml.flat",
+        "source": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/src/main/res/layout/activity_available_trade_items.xml"
     },
     {
         "merged": "/Users/inacio/Desktop/Mobile App Develop/Homework/PaceExchange/app/build/intermediates/res/merged/debug/layout_select_dialog_multichoice_material.xml.flat",

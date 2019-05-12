@@ -166,7 +166,6 @@ public class CurrentInventoryActivity extends AppCompatActivity {
             String url = json.optString("url");
 
             mlist.add(new InventoryData(category, title, tradeIn, itemID, url));
-            mAdapter.notifyDataSetChanged();
         }
 
     }

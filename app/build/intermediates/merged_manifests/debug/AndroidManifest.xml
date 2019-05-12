@@ -35,6 +35,9 @@
             android:name="com.example.paceexchange.CurrentInventoryActivity"
             android:parentActivityName="com.example.paceexchange.UserProfileActivity" />
         <activity
+            android:name="com.example.paceexchange.ItemsForTradeActivity"
+            android:parentActivityName="com.example.paceexchange.UserProfileActivity" />
+        <activity
             android:name="com.example.paceexchange.AddInventoryItemActivity"
             android:parentActivityName="com.example.paceexchange.CurrentInventoryActivity" />
         <activity android:name="com.example.paceexchange.UserProfileActivity" />
