@@ -8,53 +8,44 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 
 public class CurrentInventoryActivity extends AppCompatActivity {
 
-    private FirebaseFirestore mFirestoreInventoryDatabase;
-    private HashMap<String, Object> mFireStoreMap;
-    private CollectionReference mFirestoreInventoryCollection;
-
     private Button mTradeItemButton, mAddNewItemButton, mRemoveItemButton;
+
+    private FirebaseFirestore mFirebaseDatabase;
+    private CollectionReference mFirebaseInventoryCollection;
+
     private RecyclerView mRecyclerView;
     private RecyclerAdapter mAdapter;
-    private DatabaseReference mDatabase;
-    private ArrayList<InventoryData> mInventoryList;
+    private ArrayList<InventoryData> mlist;
     private int mRowClickPosition;
     private String mUserIdentification;
 
-    public static final String EXTRA_MESSAGE_TRADE_ITEM = "com.example.paceexchange.ITEM_NAME";
-    public static final String EXTRA_MESSAGE_TRADE_ITEM_VALUE = "com.example.paceexchange.ITEM_VALUE";
-
-    ArrayList<Object> dataList;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,40 +55,35 @@ public class CurrentInventoryActivity extends AppCompatActivity {
         Intent intent = getIntent();
         mUserIdentification = intent.getStringExtra(UserProfileActivity.USER_IDENTIFICATION_INVENTORY_MESSAGE);
 
-        mFireStoreMap = new HashMap<>();
-        mFirestoreInventoryDatabase = FirebaseFirestore.getInstance();
-        mFirestoreInventoryCollection = mFirestoreInventoryDatabase.collection("inventory");
-
         mTradeItemButton = findViewById(R.id.tradeSelectedItemButton);
         mAddNewItemButton = findViewById(R.id.addInventoryItemButton);
         mRemoveItemButton = findViewById(R.id.removeInventoryItemButton);
-        mRecyclerView = findViewById(R.id.recyclerView);
 
-        mInventoryList = new ArrayList<>();
-        dataList = new ArrayList<>();
+        mFirebaseDatabase = FirebaseFirestore.getInstance();
+        mFirebaseInventoryCollection = mFirebaseDatabase.collection("inventory");
+
+        mlist = new ArrayList<>();
+
 
         setButtonClickListener();
-        iterateFirebaseInventory();
         setRecyclerView();
-
+        iterateFirebaseInventory();
     }
 
     public void setRecyclerView() {
 
+        mRecyclerView = findViewById(R.id.recyclerView);
+        mAdapter = new RecyclerAdapter(CurrentInventoryActivity.this, mlist, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-//        mAdapter = new RecyclerAdapter(CurrentInventoryActivity.this, dataList, new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                mRowClickPosition = (int) v.getTag();
-//                InventoryData display = mAdapter.getItem(mRowClickPosition);
-//
-//            }
-//        });
+                mRowClickPosition = (int) v.getTag();
+                InventoryData display = mAdapter.getItem(mRowClickPosition);
 
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(CurrentInventoryActivity.this));
-//        mRecyclerView.setAdapter(mAdapter);
-//        mAdapter.notifyDataSetChanged();
+            }
+        });
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
     }
 
@@ -106,7 +92,7 @@ public class CurrentInventoryActivity extends AppCompatActivity {
         mAddNewItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                finish();
                 startActivity(new Intent(CurrentInventoryActivity.this, AddInventoryItemActivity.class));
             }
         });
@@ -114,7 +100,8 @@ public class CurrentInventoryActivity extends AppCompatActivity {
         mRemoveItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                removeInventoryItem(mRowClickPosition);
+
+                removeItemFromInventory(mRowClickPosition);
             }
         });
 
@@ -133,51 +120,62 @@ public class CurrentInventoryActivity extends AppCompatActivity {
 
     public void iterateFirebaseInventory() {
 
-        mFirestoreInventoryCollection.document("kinacio@pace.edu").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        mFirebaseInventoryCollection.document(mUserIdentification).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
                 Map<String, Object> map = task.getResult().getData();
-               // Log.d("KEITH", map.values().toString().substring(10, map.values().toString().indexOf("-")));
-                }
+                if (map.get("Items") != null) {
+                    ArrayList<Object> newArray = (ArrayList<Object>) map.get("Items");
+                    Iterator i = newArray.iterator();
+                    while (i.hasNext()) {
+                        Log.d("AVTAR", i.next() + "");
 
-        });
-                /*
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        Map<String, Object> map = document.getData();
-                        for (Map.Entry<String, Object> entry : map.entrySet()) {
-                            if (entry.getKey().equals("Items")) {
-                                Log.d("TAG", entry.getValue().toString());
-                            }
-                        }
                     }
+
+                    getData(newArray);
                 }
             }
-
         });
-        */
     }
 
+    private void getData(ArrayList<Object> list) {
 
-    private void getFirestoreListData(ArrayList<Object> list) {
+        for(int i=0; i<list.size(); i++) {
 
-        dataList = list;
+            JSONArray arr = new JSONArray(list);
+            JSONObject json = arr.optJSONObject(i);
+            String tradeIn = json.optString("tradeInFor");
+            String category = json.optString("category");
+            String title = json.optString("title");
+            String itemID = json.optString("itemId");
+            String url = json.optString("url");
+
+            mlist.add(new InventoryData(category, title, tradeIn, itemID, url));
+            mAdapter.notifyDataSetChanged();
+        }
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void removeItemFromInventory(int posiiton){
+
+        mlist.remove(posiiton);
+        mAdapter.notifyDataSetChanged();
+
+        mFirebaseInventoryCollection.document(mUserIdentification).update("items", FieldValue.delete());
 
 
     }
 
-    private void removeInventoryItem(int position) {
-
-        mFirestoreInventoryCollection.document("kinacio@pace.edu").
-                update("Items", FieldValue.delete());
-
-
-
-            //mDatabase.child(mInventoryList.get(position).getmItemName()).removeValue();
-       // mAdapter.removeInventoryItem(position);
-       // mAdapter.notifyDataSetChanged();
-
-    }
 }
+

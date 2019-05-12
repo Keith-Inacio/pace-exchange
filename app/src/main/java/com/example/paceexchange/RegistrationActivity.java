@@ -37,6 +37,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private FirebaseFirestore mFirebaseDatabase;
     private CollectionReference mFirebaseInventoryCollection;
     private CollectionReference mFirebaseProfileCollection;
+    private CollectionReference ref;
     private Map<String, Object> mFirebaseProfileMap;
     private Map<String, Object> mFirebaseInventoryMap;
 
@@ -108,6 +109,7 @@ public class RegistrationActivity extends AppCompatActivity {
             int defaultReputation = 70;
 
             addToFirebaseProfileDatabase(firstName, lastName, gradYear, email, defaultReputation);
+            ref = mFirebaseDatabase.collection(email);
             establishFirebaseInventoryDatabase(email);
 
             mProgressUpdate.setMessage("Completing Registration...");
@@ -156,7 +158,6 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
     }
-
 
 
 }

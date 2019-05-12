@@ -3,14 +3,16 @@ package com.example.paceexchange;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter {
 
@@ -19,11 +21,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
     private View.OnClickListener mRowClickListener;
     private int mSelectedPosition = Adapter.NO_SELECTION;
 
-    public RecyclerAdapter(Context context, ArrayList<InventoryData> listData, View.OnClickListener rowClickListener){
+    public RecyclerAdapter(Context context, ArrayList<InventoryData> listData, View.OnClickListener rowClickListener) {
 
-        mContext=context;
-        mItemList=listData;
-        mRowClickListener=rowClickListener;
+        mContext = context;
+        mItemList = listData;
+        mRowClickListener = rowClickListener;
     }
 
     @NonNull
@@ -43,9 +45,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
         InventoryData inventoryDisplay = mItemList.get(position);
         ViewHolder vHolder = (ViewHolder) viewHolder;
 
-       // vHolder.mItemImage.setImageResource(inventoryDisplay.getmImage());
-         vHolder.mItemName.setText(inventoryDisplay.getTitle());
-         vHolder.mItemData.setText(inventoryDisplay.getTitle());
+        Picasso.get().load(inventoryDisplay.getUrl()).fit().centerCrop().into(vHolder.mItemImage);
+        vHolder.mItemName.setText(inventoryDisplay.getTitle());
+        vHolder.mItemType.setText(vHolder.itemView.getResources().getString(R.string.item_category_inventory_display, inventoryDisplay.getCategory()));
+        vHolder.mItemTradeFor.setText(vHolder.itemView.getResources().getString(R.string.trade_item_requested_inventory_display, inventoryDisplay.getTradeInFor()));
 
         viewHolder.itemView.setOnClickListener(mRowClickListener);
         viewHolder.itemView.setTag(position);
@@ -64,15 +67,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
         return mItemList.get(position);
     }
 
-    public void removeInventoryItem(int position){
+    public void removeInventoryItem(int position) {
         mItemList.remove(position);
     }
 
 
-    private class ViewHolder extends RecyclerView.ViewHolder{
+    private class ViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView mItemImage;
-        public TextView mItemName, mItemData;
+        public TextView mItemName, mItemType, mItemTradeFor;
 
         public ViewHolder(@NonNull View itemView, View.OnClickListener rowClickListener) {
             super(itemView);
@@ -80,7 +83,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
             this.itemView.setOnClickListener(rowClickListener);
             mItemImage = itemView.findViewById(R.id.itemImage);
             mItemName = itemView.findViewById(R.id.itemName);
-            mItemData = itemView.findViewById(R.id.itemData);
+            mItemType = itemView.findViewById(R.id.itemType);
+            mItemTradeFor = itemView.findViewById(R.id.itemTradeFor);
 
         }
     }

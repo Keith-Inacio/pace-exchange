@@ -807,12 +807,13 @@ id inventoryButton
 id invisible
 id italic
 id itemContainer
-id itemData
 id itemImage
 id itemName
 id itemNameInput
 id itemNameInputSection
 id itemOwner
+id itemTradeFor
+id itemType
 id itemTypeSection
 id itemTypeText
 id item_touch_helper_previous_elevation
@@ -1073,6 +1074,7 @@ string grad_year
 string inventory_add_item_name
 string inventory_button
 string inventory_item_display
+string item_category_inventory_display
 string item_category_type
 string item_condition_text
 string item_return_text
@@ -1109,6 +1111,8 @@ string seconds_display
 string start_auction
 string status_bar_notification_info_overflow
 string time_remaining
+string trade_item_requested_inventory_display
+string url_format
 string user_profile
 string very_good_reputation
 style AlertDialog_AppCompat

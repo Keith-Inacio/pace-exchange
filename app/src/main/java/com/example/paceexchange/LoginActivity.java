@@ -34,10 +34,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mFirebaseAuthorization;
     private FirebaseFirestore mFirebaseDatabase;
-    private CollectionReference mFirebaseInventoryCollection;
     private CollectionReference mFirebaseProfileCollection;
-    private Map<String, Object> mFirebaseProfileMap;
-    private Map<String, Object> mFirebaseInventoryMap;
 
     public static final String USER_IDENTIFICATION_PROFILE_MESSAGE = "com.example.paceexchange.USERID";
 

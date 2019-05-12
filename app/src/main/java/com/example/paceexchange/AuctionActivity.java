@@ -61,11 +61,9 @@ public class AuctionActivity extends AppCompatActivity {
         mNextItemButton = findViewById(R.id.nextItemButton);
         mText = findViewById(R.id.number);
 
-        mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Student").child("-LbdV3uBhsq7xfV4ZQrb").child("Inventory");
-
-        String mSelectedTradeItemName = getIntent().getStringExtra(CurrentInventoryActivity.EXTRA_MESSAGE_TRADE_ITEM);
-        String mSelectedTradeItemValue = getIntent().getStringExtra(CurrentInventoryActivity.EXTRA_MESSAGE_TRADE_ITEM_VALUE);
-        mUserBidItem.setText(getResources().getString(R.string.auction_user_item, mSelectedTradeItemName, mSelectedTradeItemValue));
+      // String mSelectedTradeItemName = getIntent().getStringExtra(CurrentInventoryActivity.EXTRA_MESSAGE_TRADE_ITEM);
+      //  String mSelectedTradeItemValue = getIntent().getStringExtra(CurrentInventoryActivity.EXTRA_MESSAGE_TRADE_ITEM_VALUE);
+      //  mUserBidItem.setText(getResources().getString(R.string.auction_user_item, mSelectedTradeItemName, mSelectedTradeItemValue));
 
         mainThreadHandler = new Handler(Looper.getMainLooper());
 

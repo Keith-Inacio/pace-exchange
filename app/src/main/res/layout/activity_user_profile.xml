@@ -4,16 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserProfileActivity">
+    tools:context=".UserProfileActivity"
+    android:background="#00FFCC">
 
     <TextView
         android:id="@+id/profileTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/user_profile"
         android:textSize="24dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#009966"/>
 
     <ImageView
         android:id="@+id/profileIcon"
@@ -29,7 +32,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/profileIcon"
         android:layout_centerInParent="true"
-        android:layout_marginTop="30sp">
+        android:layout_marginTop="30sp"
+        android:background="#CCFFFF"
+        android:padding="5sp">
 
         <TextView
             android:id="@+id/name"

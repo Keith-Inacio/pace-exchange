@@ -10,8 +10,6 @@ public class InventoryData {
 
     private String category, itemID, title, url, tradeInFor;
     private FirebaseFirestore mFirestoreDatabase;
-    private List<InventoryData> mInventoryItemList;
-
 
     public InventoryData() {
 
@@ -24,7 +22,17 @@ public class InventoryData {
         itemID=FirebaseDatabase.getInstance().getReference().push().getKey();
         this.title=title;
         this.tradeInFor=tradeInFor;
-        url=null;
+
+    }
+
+    public InventoryData(String category, String title, String tradeInFor, String itemID, String url) {
+
+        mFirestoreDatabase = FirebaseFirestore.getInstance();
+        this.category=category;
+        this.itemID=itemID;
+        this.title=title;
+        this.tradeInFor=tradeInFor;
+        this.url=url;
 
     }
 
@@ -68,11 +76,4 @@ public class InventoryData {
         this.tradeInFor = tradeInFor;
     }
 
-    public List<InventoryData> getmInventoryItemList() {
-        return mInventoryItemList;
-    }
-
-    public void setmInventoryItemList(List<InventoryData> mInventoryItemList) {
-        this.mInventoryItemList = mInventoryItemList;
-    }
 }
