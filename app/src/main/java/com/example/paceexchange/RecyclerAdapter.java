@@ -2,6 +2,7 @@ package com.example.paceexchange;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -49,7 +50,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
         vHolder.mItemName.setText(inventoryDisplay.getTitle());
         vHolder.mItemType.setText(vHolder.itemView.getResources().getString(R.string.item_category_inventory_display, inventoryDisplay.getCategory()));
         vHolder.mItemTradeFor.setText(vHolder.itemView.getResources().getString(R.string.trade_item_requested_inventory_display, inventoryDisplay.getTradeInFor()));
-
         viewHolder.itemView.setOnClickListener(mRowClickListener);
         viewHolder.itemView.setTag(position);
 

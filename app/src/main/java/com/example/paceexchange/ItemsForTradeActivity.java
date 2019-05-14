@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -69,7 +72,11 @@ public class ItemsForTradeActivity extends AppCompatActivity {
 
                         mSelectedUserIdentification = document.getId();
                         Log.d("KEITH", mSelectedUserIdentification);
-                        getUsersCurrentFirebaseInventory(mSelectedUserIdentification);
+                        Log.d("KEITH", mUserIdentification);
+
+                        if(!mSelectedUserIdentification.equals(mUserIdentification)) {
+                            getUsersCurrentFirebaseInventory(mSelectedUserIdentification);
+                        }
 
                         //Log.d("KEITH", document.getId() + " => " + document.getData());
                     }
@@ -125,19 +132,28 @@ public class ItemsForTradeActivity extends AppCompatActivity {
     public void setRecyclerView() {
 
         mRecyclerView = findViewById(R.id.recyclerView);
-        mAdapter = new RecyclerAdapter(ItemsForTradeActivity.this, mAllItemsList, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        mAdapter = new RecyclerAdapter(ItemsForTradeActivity.this, mAllItemsList, v -> {
 
-                mRowClickPosition = (int) v.getTag();
-                InventoryData display = mAdapter.getItem(mRowClickPosition);
-                mCurrentItemSelectionID = display.getItemID();
-                //Toast.makeText(getApplicationContext(), String.valueOf(mCurrentItemSelectionID), Toast.LENGTH_LONG).show();
-            }
-
+            mRowClickPosition = (int) v.getTag();
+            InventoryData display = mAdapter.getItem(mRowClickPosition);
+            mCurrentItemSelectionID = display.getItemID();
         });
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        dividerItemDecoration.setDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.row_divider_line, null));
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

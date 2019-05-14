@@ -3,27 +3,15 @@ package com.example.paceexchange;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 
 public class AuctionActivity extends AppCompatActivity {
 
@@ -40,7 +28,7 @@ public class AuctionActivity extends AppCompatActivity {
 
     public static final String BID_ITEM_MESSAGE = "com.example.paceexchange.ITEMMESSAGE";
 
-    private FirebaseDataRetrieval mFireBaseRetriever;
+    private FirebaseDataMaintenanceHelper mFireBaseRetriever;
 
     private String mUserIdentification;
 
@@ -67,8 +55,7 @@ public class AuctionActivity extends AppCompatActivity {
 
         mainThreadHandler = new Handler(Looper.getMainLooper());
 
-        mFireBaseRetriever = new FirebaseDataRetrieval();
-        mFireBaseRetriever.getFireStoreItem();
+       // mFireBaseRetriever = new FirebaseDataMaintenanceHelper();
 
         mItemDisplay = new AuctionFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.itemContainer, mItemDisplay).commit();
@@ -86,13 +73,13 @@ public class AuctionActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 itemFragment = new AuctionFragment();
-                inventoryDataList = mFireBaseRetriever.getListItem();
+                //inventoryDataList = mFireBaseRetriever.getListItem();
                 //mItemDisplay.setURL(inventoryDataList.get(listCounter).getmURL());
                 //mItemDisplay.setItemName((inventoryDataList.get(listCounter).getmItemName()));
                 //mItemDisplay.setItemOwner((inventoryDataList.get(listCounter).getmOwner()));
 
                 listCounter++;
-                mFireBaseRetriever.getFireStoreItem();
+               // mFireBaseRetriever.getFireStoreItem();
 
                 getSupportFragmentManager().beginTransaction().add(R.id.itemContainer, itemFragment).commit();
 

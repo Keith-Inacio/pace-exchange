@@ -691,6 +691,7 @@ drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable gown
 drawable hp_graph_calc
+drawable ic_announcement_black_24dp
 drawable ic_launcher
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -713,6 +714,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable profile
 drawable python_book
+drawable row_divider_line
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -761,6 +763,7 @@ id blocking
 id bottom
 id buttonLayout
 id buttonPanel
+id buttonSelectionSection
 id cancel_action
 id center
 id center_horizontal
@@ -916,6 +919,8 @@ id topPanel
 id tradeSelectedItemButton
 id uniform
 id up
+id uploadImageThumbnail
+id uploadInventoryPicture
 id useLogo
 id userBidItem
 id userInfo
@@ -1038,6 +1043,7 @@ string auction_ended
 string auction_live
 string auction_owner_display
 string auction_user_item
+string available_trade_items_title
 string average_reputation
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
@@ -1057,6 +1063,7 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string default_notification_channel_id
 string default_web_client_id
 string email
 string empty_login
@@ -1066,7 +1073,10 @@ string error_new_item_name
 string error_new_item_radio_button
 string error_new_item_value
 string excellent_reputation
+string fcm_fallback_notification_channel_label
 string firebase_database_url
+string firebase_inventory_reference
+string firebase_items_reference
 string first_name
 string gcm_defaultSenderId
 string google_api_key
@@ -1114,6 +1124,7 @@ string search_menu_title
 string seconds_display
 string start_auction
 string status_bar_notification_info_overflow
+string take_inventory_picture
 string time_remaining
 string trade_item_requested_inventory_display
 string url_format
@@ -1522,3 +1533,4 @@ styleable Toolbar android_gravity android_minHeight buttonGravity collapseConten
 styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewStubCompat android_id android_layout android_inflatedId
+xml file_paths

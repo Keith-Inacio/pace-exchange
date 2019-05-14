@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -41,10 +43,11 @@ public class CurrentInventoryActivity extends AppCompatActivity {
 
     private FirebaseFirestore mFirebaseDatabase;
     private CollectionReference mFirebaseInventoryCollection;
+    private FirebaseDataMaintenanceHelper mFirebaseMaintainer;
 
     private RecyclerView mRecyclerView;
     private RecyclerAdapter mAdapter;
-    private ArrayList<InventoryData> mlist;
+    private ArrayList<InventoryData> mCurrentInventorylist;
     private int mRowClickPosition;
     private String mCurrentItemSelectionID;
     private String mUserIdentification;
@@ -57,6 +60,8 @@ public class CurrentInventoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
 
+        mCurrentInventorylist = new ArrayList<>();
+
         Intent intent = getIntent();
         mUserIdentification = intent.getStringExtra(UserProfileActivity.USER_IDENTIFICATION_INVENTORY_MESSAGE);
 
@@ -67,27 +72,28 @@ public class CurrentInventoryActivity extends AppCompatActivity {
         mFirebaseDatabase = FirebaseFirestore.getInstance();
         mFirebaseInventoryCollection = mFirebaseDatabase.collection("inventory");
 
-        mlist = new ArrayList<>();
-
         setButtonClickListener();
-        setRecyclerView();
         getUsersCurrentFirebaseInventory();
+        setRecyclerView();
     }
 
     public void setRecyclerView() {
 
         mRecyclerView = findViewById(R.id.recyclerView);
-        mAdapter = new RecyclerAdapter(CurrentInventoryActivity.this, mlist, new View.OnClickListener() {
+        mAdapter = new RecyclerAdapter(CurrentInventoryActivity.this, mCurrentInventorylist, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 mRowClickPosition = (int) v.getTag();
                 InventoryData display = mAdapter.getItem(mRowClickPosition);
                 mCurrentItemSelectionID = display.getItemID();
-                Toast.makeText(getApplicationContext(), String.valueOf(mCurrentItemSelectionID), Toast.LENGTH_LONG).show();
             }
 
         });
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        dividerItemDecoration.setDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.row_divider_line, null));
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
@@ -165,19 +171,20 @@ public class CurrentInventoryActivity extends AppCompatActivity {
             String itemID = json.optString("itemID");
             String url = json.optString("url");
 
-            mlist.add(new InventoryData(category, title, tradeIn, itemID, url));
+            mCurrentInventorylist.add(new InventoryData(category, title, tradeIn, itemID, url));
+            mAdapter.notifyDataSetChanged();
         }
 
     }
 
     private void removeItemFromInventory() {
 
-        mlist.remove(mRowClickPosition);
+        mCurrentInventorylist.remove(mRowClickPosition);
         mAdapter.notifyDataSetChanged();
 
         mFirebaseInventoryCollection.document(mUserIdentification).update("Items", FieldValue.delete());
 
-        for(InventoryData object: mlist){
+        for (InventoryData object : mCurrentInventorylist) {
             mFirebaseInventoryCollection.document(mUserIdentification).update("Items", FieldValue.arrayUnion(object));
         }
 
@@ -194,4 +201,3 @@ public class CurrentInventoryActivity extends AppCompatActivity {
     }
 
 }
-
